@@ -1,0 +1,9 @@
+
+****** Webtalk v2019.1.2 (64-bit)
+  **** SW Build 2615518 on Fri Aug  9 15:53:29 MDT 2019
+  **** IP Build 2614745 on Fri Aug  9 20:55:02 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.hw/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-186] '/afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.hw/webtalk/usage_statistics_ext_labtool.xml' has been successfully sent to Xilinx on Mon Nov 25 18:43:44 2019. For additional details about this file, please refer to the WebTalk help file at /var/local/xilinx-local/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Nov 25 18:43:44 2019...

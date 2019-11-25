@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.2 (64-bit)
+# SW Build 2615518 on Fri Aug  9 15:53:29 MDT 2019
+# IP Build 2614745 on Fri Aug  9 20:55:02 MDT 2019
+# Start of session at: Mon Nov 25 18:31:09 2019
+# Process ID: 28414
+# Current directory: /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.runs/synth_1
+# Command line: vivado -log display_blob.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source display_blob.tcl
+# Log file: /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.runs/synth_1/display_blob.vds
+# Journal file: /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source display_blob.tcl -notrace
