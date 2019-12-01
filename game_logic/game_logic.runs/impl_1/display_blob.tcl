@@ -66,20 +66,22 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param xicom.use_bs_reader 1
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 4
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.cache/wt [current_project]
-  set_property parent.project_path /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.xpr [current_project]
-  set_property ip_output_repo /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.cache/ip [current_project]
+  set_property webtalk.parent_dir /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.cache/wt [current_project]
+  set_property parent.project_path /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.xpr [current_project]
+  set_property ip_output_repo /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.runs/synth_1/display_blob.dcp
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
-  read_xdc /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/constrs_1/new/game_logic_constraints.xdc
+  add_files -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/display_blob.dcp
+  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
+  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
+  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green.xci
+  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom.xci
+  read_xdc /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/constrs_1/new/nexys4_ddr_constraints.xdc
   link_design -top display_blob -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

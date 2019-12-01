@@ -18,41 +18,46 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 2
+set_param chipscope.maxJobs 4
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.cache/wt [current_project]
-set_property parent.project_path /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.xpr [current_project]
+set_property webtalk.parent_dir /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.cache/wt [current_project]
+set_property parent.project_path /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
-set_property ip_output_repo /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.cache/ip [current_project]
+set_property ip_output_repo /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/6.111/sprites/small_bmps/p1_at_rest_blue.coe
-read_mem /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.mif
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_coes/p1_at_rest.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_blue.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_blue.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p1_at_rest.coe
 read_verilog -library xil_defaultlib -sv {
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/files/debounce.sv
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/new/display_blob.sv
+  /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/debounce.sv
+  /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv
 }
-read_verilog -library xil_defaultlib {
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_clk_wiz.v
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_sim_netlist.v
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_stub.v
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue_sim_netlist.v
-  /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/imports/final_project/final_project.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue_stub.v
-}
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue_ooc.xdc]
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue_ooc.xdc]
 
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_board.xdc]
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xdc]
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_ooc.xdc]
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_board.xdc]
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xdc]
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -62,8 +67,8 @@ set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/us
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/constrs_1/new/game_logic_constraints.xdc
-set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/d/i/dianah13/game_logic/game_logic/game_logic.srcs/constrs_1/new/game_logic_constraints.xdc]
+read_xdc /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/constrs_1/new/nexys4_ddr_constraints.xdc
+set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/constrs_1/new/nexys4_ddr_constraints.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

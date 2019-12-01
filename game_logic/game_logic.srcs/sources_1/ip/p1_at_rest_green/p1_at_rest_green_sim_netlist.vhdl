@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
--- Date        : Mon Nov 25 18:07:49 2019
--- Host        : eecs-digital-207 running 64-bit Ubuntu 14.04.6 LTS
+-- Date        : Sun Dec  1 14:39:16 2019
+-- Host        : EECS-DIGITAL-56 running 64-bit Ubuntu 16.04.6 LTS
 -- Command     : write_vhdl -force -mode funcsim
---               /afs/athena.mit.edu/user/d/i/dianah13/ddl/6.111/final_project/final_project.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green_sim_netlist.vhdl
+--               /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green_sim_netlist.vhdl
 -- Design      : p1_at_rest_green
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

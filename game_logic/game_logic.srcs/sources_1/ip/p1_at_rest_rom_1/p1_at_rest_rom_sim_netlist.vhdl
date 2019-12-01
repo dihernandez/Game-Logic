@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
--- Date        : Thu Nov  7 12:08:26 2019
--- Host        : eecs-digital-09 running 64-bit Ubuntu 14.04.6 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top p1_at_rest_rom -prefix
---               p1_at_rest_rom_ p1_at_rest_rom_sim_netlist.vhdl
+-- Date        : Sun Dec  1 14:40:20 2019
+-- Host        : EECS-DIGITAL-56 running 64-bit Ubuntu 16.04.6 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom_sim_netlist.vhdl
 -- Design      : p1_at_rest_rom
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,6 +20,8 @@ entity p1_at_rest_rom_blk_mem_gen_prim_wrapper_init is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end p1_at_rest_rom_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of p1_at_rest_rom_blk_mem_gen_prim_wrapper_init is
@@ -264,6 +266,8 @@ entity p1_at_rest_rom_blk_mem_gen_prim_width is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end p1_at_rest_rom_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of p1_at_rest_rom_blk_mem_gen_prim_width is
@@ -285,6 +289,8 @@ entity p1_at_rest_rom_blk_mem_gen_generic_cstr is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end p1_at_rest_rom_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of p1_at_rest_rom_blk_mem_gen_generic_cstr is
@@ -306,6 +312,8 @@ entity p1_at_rest_rom_blk_mem_gen_top is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end p1_at_rest_rom_blk_mem_gen_top;
 
 architecture STRUCTURE of p1_at_rest_rom_blk_mem_gen_top is
@@ -327,6 +335,8 @@ entity p1_at_rest_rom_blk_mem_gen_v8_4_3_synth is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_v8_4_3_synth : entity is "blk_mem_gen_v8_4_3_synth";
 end p1_at_rest_rom_blk_mem_gen_v8_4_3_synth;
 
 architecture STRUCTURE of p1_at_rest_rom_blk_mem_gen_v8_4_3_synth is
@@ -558,6 +568,8 @@ entity p1_at_rest_rom_blk_mem_gen_v8_4_3 is
   attribute C_WRITE_WIDTH_B of p1_at_rest_rom_blk_mem_gen_v8_4_3 : entity is 8;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of p1_at_rest_rom_blk_mem_gen_v8_4_3 : entity is "artix7";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of p1_at_rest_rom_blk_mem_gen_v8_4_3 : entity is "blk_mem_gen_v8_4_3";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of p1_at_rest_rom_blk_mem_gen_v8_4_3 : entity is "yes";
 end p1_at_rest_rom_blk_mem_gen_v8_4_3;
