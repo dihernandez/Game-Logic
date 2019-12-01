@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module display_blob(
+module main(
    input clk_100mhz,
    input[15:0] sw,
    input btnc, btnu, btnl, btnr, btnd,
@@ -43,22 +43,47 @@ module display_blob(
     wire [9:0] vcount;     // line number
     wire hsync, vsync;
     wire [11:0] p1_rest_pixel;
+    wire [11:0] player_pixel;
     reg [11:0] rgb;    
     wire blank;
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
-    picture_blob  #(.WIDTH(64), .HEIGHT(64)) p1_rest_blob(.pixel_clk_in(clk_65mhz), .x_in(256), .hcount_in(hcount), .y_in(256), .vcount_in(vcount), .pixel_out(p1_rest_pixel));
+
+    wire phsync,pvsync,pblank;
+        // display pong game's padde w/ sw14 and 15 for p1 left and right respectively
+    player_move move_player_1(
+    .vclock_in(clk_65mhz),        // 65MHz clock
+    .reset_in(reset),         // 1 to initialize module
+  // input up_in,            // 1 when paddle should move up
+  // input down_in,          // 1 when paddle should move down
+   .player_1(1),
+   .right_in(sw[15]),         // 1 when paddle should move right
+   .left_in(sw[14]),          // 1 when paddle should move left
+   .pspeed_in(4),  // puck speed in pixels/tick 
+   .hcount_in(hcount), // horizontal index of current pixel (0..1023)
+   .vcount_in(vcount), // vertical index of current pixel (0..767)
+   .hsync_in(hsync),         // XVGA horizontal sync signal (active low)
+   .vsync_in(vsync),         // XVGA vertical sync signal (active low)
+   .blank_in(blank),         // XVGA blanking (1 means output black pixel)
+   .phsync_out(phsync),       // pong game's horizontal sync
+   .pvsync_out(pvsync),       // pong game's vertical sync
+   .pblank_out(pblank),       // pong game's blanking
+        
+   .pixel_out(player_pixel)
+   );
     
     // .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank), DON'T YOU FORGET ABOUT ME!!!! 
     
     wire [11:0] white_square_pixel;
     blob white_square(.x_in(0), .hcount_in(hcount), .y_in(0), .vcount_in(vcount), .pixel_out(white_square_pixel));
     wire [11:0] pixel;
-    assign pixel = white_square_pixel | p1_rest_pixel;
-       // btnc button is user reset
+    assign pixel = white_square_pixel | player_pixel;
+    
+    // btnc button is user reset
     wire reset;
     debounce db1(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(reset));
+   
    
     // UP, DOWN, LEFT, RIGHT buttons for pong paddle
     wire up, down, left, right;
@@ -104,6 +129,9 @@ module display_blob(
 
     assign vga_hs = ~hs;
     assign vga_vs = ~vs;
+    
+
+    
     
 endmodule
 
@@ -252,3 +280,27 @@ module xvga(input vclock_in,
    
 endmodule
 
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Pushbutton Debounce Module (video version - 24 bits)  
+//
+///////////////////////////////////////////////////////////////////////////////
+
+module debounce (input reset_in, clock_in, noisy_in,
+                 output reg clean_out);
+
+   reg [19:0] count;
+   reg new_input;
+
+   always_ff @(posedge clock_in)
+     if (reset_in) begin 
+        new_input <= noisy_in; 
+        clean_out <= noisy_in; 
+        count <= 0; end
+     else if (noisy_in != new_input) begin new_input<=noisy_in; count <= 0; end
+     else if (count == 1000000) clean_out <= new_input;
+     else count <= count+1;
+
+
+endmodule

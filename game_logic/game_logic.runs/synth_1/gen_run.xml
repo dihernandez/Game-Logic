@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575230652">
-  <File Type="VDS-TIMING-PB" Name="display_blob_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="display_blob_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="display_blob.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="display_blob_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="display_blob_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="display_blob_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="display_blob.vds"/>
-  <File Type="REPORTS-TCL" Name="display_blob_reports.tcl"/>
-  <File Type="PA-TCL" Name="display_blob.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575236311">
+  <File Type="VDS-TIMING-PB" Name="main_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="main_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="main.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="main_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="main_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="main_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="main.vds"/>
+  <File Type="REPORTS-TCL" Name="main_reports.tcl"/>
+  <File Type="PA-TCL" Name="main.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci">
@@ -25,7 +25,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/debounce.sv">
+    <File Path="$PSRCDIR/sources_1/new/player_move.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -34,6 +34,14 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/display_blob.sv">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -48,14 +56,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/sprite_top.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -89,7 +89,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="display_blob"/>
+      <Option Name="TopModule" Val="main"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
