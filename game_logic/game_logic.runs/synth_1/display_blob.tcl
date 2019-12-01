@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -33,10 +32,6 @@ set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
 set_property ip_output_repo /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_coes/p1_at_rest.coe
-add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_green.coe
-add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_red.coe
-add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/sprites/small_bmps/p1_at_rest_blue.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_blue.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_green.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_bmps/p1_at_rest_red.coe
