@@ -3,6 +3,9 @@
 
 # XDC: new/nexys4_ddr_constraints.xdc
 
+# IP: ip/p1_at_rest_red/p1_at_rest_red.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_at_rest_red || ORIG_REF_NAME==p1_at_rest_red} -quiet] -quiet
+
 # IP: ip/p1_at_rest_blue/p1_at_rest_blue.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_at_rest_blue || ORIG_REF_NAME==p1_at_rest_blue} -quiet] -quiet
 

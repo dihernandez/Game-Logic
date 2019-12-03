@@ -43,7 +43,8 @@ module main(
     wire [9:0] vcount;     // line number
     wire hsync, vsync;
     wire [11:0] p1_rest_pixel;
-    wire [11:0] player_pixel;
+    wire [11:0] player_1_pixel;
+    wire [11:0] player_2_pixel;
     reg [11:0] rgb;    
     wire blank;
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
@@ -54,13 +55,15 @@ module main(
         // display pong game's padde w/ sw14 and 15 for p1 left and right respectively
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
-    .reset_in(reset),         // 1 to initialize module
+    //.reset_in(reset),         // 1 to initialize module
   // input up_in,            // 1 when paddle should move up
   // input down_in,          // 1 when paddle should move down
-   .player_1(1),
-   .right_in(sw[15]),         // 1 when paddle should move right
-   .left_in(sw[14]),          // 1 when paddle should move left
-   .pspeed_in(4),  // puck speed in pixels/tick 
+   .is_p1(1), 
+   .motion(2'b00),
+   .initial_x(100),
+   .right_in(sw[15]),         // 1 when player 1 should move right
+   .left_in(sw[14]),          // 1 when player 1 should move left
+   .pspeed_in(4),  // player speed in pixels/tick 
    .hcount_in(hcount), // horizontal index of current pixel (0..1023)
    .vcount_in(vcount), // vertical index of current pixel (0..767)
    .hsync_in(hsync),         // XVGA horizontal sync signal (active low)
@@ -70,15 +73,40 @@ module main(
    .pvsync_out(pvsync),       // pong game's vertical sync
    .pblank_out(pblank),       // pong game's blanking
         
-   .pixel_out(player_pixel)
+   .pixel_out(player_1_pixel)
    );
+   
+     player_move move_player_2(
+    .vclock_in(clk_65mhz),        // 65MHz clock
+ //   .reset_in(reset),         // 1 to initialize module
+  // input up_in,            // 1 when paddle should move up
+  // input down_in,          // 1 when paddle should move down
+  // .player_1(0),
+   .is_p1(0),
+   .motion(2'b01),
+   .initial_x(600),
+   .right_in(sw[7]),         // 1 when player 2 should move right
+   .left_in(sw[6]),          // 1 when player 2 should move left
+   .pspeed_in(4),  // player speed in pixels/tick 
+   .hcount_in(hcount), // horizontal index of current pixel (0..1023)
+   .vcount_in(vcount), // vertical index of current pixel (0..767)
+   .hsync_in(hsync),         // XVGA horizontal sync signal (active low)
+   .vsync_in(vsync),         // XVGA vertical sync signal (active low)
+   .blank_in(blank),         // XVGA blanking (1 means output black pixel)
+   .phsync_out(phsync),       // pong game's horizontal sync
+   .pvsync_out(pvsync),       // pong game's vertical sync
+   .pblank_out(pblank),       // pong game's blanking
+        
+   .pixel_out(player_2_pixel)
+   );
+   
     
     // .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank), DON'T YOU FORGET ABOUT ME!!!! 
     
     wire [11:0] white_square_pixel;
     blob white_square(.x_in(0), .hcount_in(hcount), .y_in(0), .vcount_in(vcount), .pixel_out(white_square_pixel));
     wire [11:0] pixel;
-    assign pixel = white_square_pixel | player_pixel;
+    assign pixel = white_square_pixel | player_1_pixel | player_2_pixel;
     
     // btnc button is user reset
     wire reset;
@@ -167,40 +195,115 @@ endmodule
 
 ////////////////////////////////////////////////////
 //
-// picture_blob: display a picture
+// player_1_blob display player 1
 //
 //////////////////////////////////////////////////
-module picture_blob
+module player_1_blob
    #(parameter WIDTH = 256,     // default picture width
      parameter HEIGHT = 240)    // default picture height
    (input pixel_clk_in,
+    input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
     input [10:0] x_in,hcount_in,
     input [9:0] y_in,vcount_in,
     output logic [11:0] pixel_out);
 
    logic [11:0] image_addr;   // num of bits for 64*64 pixel ROM
-   logic [7:0] image_bits, red_mapped, green_mapped, blue_mapped; //can I chage to [2:0]?
+   logic [7:0] rest_image_bits, rest_red_mapped, rest_green_mapped, rest_blue_mapped; //can I chage to [2:0]?
+   logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
+   logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
 
    // calculate rom address and read the location
    assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH;
-   p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits));
-   // use color map to create 4 bits R, 4 bits G, 4 bits B
-   // since the image is greyscale, just replicate the red pixels
-   // and not bother with the other two color maps.
-   p1_at_rest_blue p1_rest_blue (.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
-   p1_at_rest_green p1_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
-   p1_at_rest_green p1_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
+   p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
+   p1_kicking_rom p1_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
 
-   //green_coe gcm (.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
-   //blue_coe bcm (.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
+   p1_at_rest_blue p1_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
+   p1_at_rest_green p1_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
+   p1_at_rest_red p1_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
+
+   p1_kicking_blue p1_kick_blue(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_blue_mapped));
+   p1_kicking_green p1_kick_green(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_green_mapped));
+   p1_kicking_red p1_kick_red (.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_red_mapped));
+    
    // note the one clock cycle delay in pixel!
    always @ (posedge pixel_clk_in) begin
      if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
         // use MSB 4 bits
-        pixel_out <= {red_mapped, green_mapped, blue_mapped}; //{red_mapped[7:4], red_mapped[7:4], red_mapped[7:4]}; // greyscale
-        //pixel_out <= {red_mapped[7:4], 8'h0}; // only red hues
-        //pixel_out <= 'hFFF;
+        case (motion)
+            2'b00 : begin
+                pixel_out <= {rest_red_mapped, rest_green_mapped, rest_blue_mapped};
+            end
+            
+            2'b01 : begin
+                pixel_out <= {kick_red_mapped, kick_green_mapped, kick_blue_mapped};
+            end
+            
+            2'b10 : begin
+                pixel_out <= {punch_red_mapped, punch_green_mapped, punch_blue_mapped};                
+            end
+            
+            default : begin 
+                pixel_out <= {rest_red_mapped, rest_green_mapped, rest_blue_mapped};
+            end 
+        endcase
+     end else begin
+        pixel_out <= 'h000;
+     end
+   end
+endmodule
+
+
+
+module player_2_blob
+   #(parameter WIDTH = 256,     // default picture width
+     parameter HEIGHT = 240)    // default picture height
+   (input pixel_clk_in,
+    input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
+    input [10:0] x_in,hcount_in,
+    input [9:0] y_in,vcount_in,
+    output logic [11:0] pixel_out);
+
+   logic [11:0] image_addr;   // num of bits for 64*64 pixel ROM
+   logic [7:0] rest_image_bits, rest_red_mapped, rest_green_mapped, rest_blue_mapped; //can I chage to [2:0]?
+   logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
+   logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
+
+   // calculate rom address and read the location
+   assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH;
+   p2_at_rest_rom p2_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
+   p2_kicking_rom p2_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
+
+   p2_at_rest_blue p2_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
+   p2_at_rest_green p2_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
+   p2_at_rest_red p2_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
+
+   p2_kicking_blue p2_kick_blue(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_blue_mapped));
+   p2_kicking_green p2_kick_green(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_green_mapped));
+   p2_kicking_red p2_kick_red (.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_red_mapped));
+
+   // note the one clock cycle delay in pixel!
+   always @ (posedge pixel_clk_in) begin
+     if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
+          (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
+        // use MSB 4 bits
+        case (motion)
+            2'b00 : begin
+                pixel_out <= {rest_red_mapped, rest_green_mapped, rest_blue_mapped};
+            end
+            
+            2'b01 : begin
+                pixel_out <= {kick_red_mapped, kick_green_mapped, kick_blue_mapped};
+            end
+            
+            2'b10 : begin
+                pixel_out <= {punch_red_mapped, punch_green_mapped, punch_blue_mapped};                
+            end
+            
+            default : begin 
+                pixel_out <= {rest_red_mapped, rest_green_mapped, rest_blue_mapped};
+            end 
+        endcase
      end else begin
         pixel_out <= 'h000;
      end

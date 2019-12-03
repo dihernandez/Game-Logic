@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Sun Dec  1 16:39:34 2019
+| Date         : Sun Dec  1 18:24:37 2019
 | Host         : EECS-DIGITAL-57 running 64-bit Ubuntu 16.04.6 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     6 |
-|    Minimum number of control sets                        |     6 |
+| Total control sets                                       |     8 |
+|    Minimum number of control sets                        |     8 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    25 |
+| Unused register locations in slices containing registers |    35 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,13 +39,13 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     6 |
+| Total control sets |     8 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     1 |
-| >= 10 to < 12      |     3 |
-| >= 12 to < 14      |     2 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     3 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     0 |
 +--------------------+-------+
@@ -60,25 +60,27 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               8 |            7 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              35 |           14 |
-| Yes          | No                    | No                     |              10 |            4 |
+| No           | Yes                   | No                     |              47 |           19 |
+| Yes          | No                    | No                     |              20 |            8 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              10 |            4 |
+| Yes          | Yes                   | No                     |              10 |            5 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------+--------------------------------+---------------------------+------------------+----------------+
-|        Clock Signal       |          Enable Signal         |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+---------------------------+--------------------------------+---------------------------+------------------+----------------+
-|  clkdivider/inst/clk_out1 |                                |                           |                7 |              8 |
-|  clkdivider/inst/clk_out1 | xvga1/hreset                   | xvga1/vcount_out0         |                4 |             10 |
-|  clkdivider/inst/clk_out1 | move_player_1/x_in[10]_i_1_n_0 |                           |                4 |             10 |
-|  clkdivider/inst/clk_out1 |                                | xvga1/hreset              |                4 |             11 |
-|  clkdivider/inst/clk_out1 |                                | xvga1/vcount_out_reg[9]_0 |                5 |             12 |
-|  clkdivider/inst/clk_out1 |                                | xvga1/sw[1]               |                5 |             12 |
-+---------------------------+--------------------------------+---------------------------+------------------+----------------+
++---------------------------+-----------------+-----------------------------------------------------+------------------+----------------+
+|        Clock Signal       |  Enable Signal  |                   Set/Reset Signal                  | Slice Load Count | Bel Load Count |
++---------------------------+-----------------+-----------------------------------------------------+------------------+----------------+
+|  clkdivider/inst/clk_out1 |                 |                                                     |                7 |              8 |
+|  clkdivider/inst/clk_out1 | xvga1/hreset    | xvga1/vcount_out0                                   |                5 |             10 |
+|  clkdivider/inst/clk_out1 | xvga1/E[0]      |                                                     |                4 |             10 |
+|  clkdivider/inst/clk_out1 | xvga1/vs_reg[0] |                                                     |                4 |             10 |
+|  clkdivider/inst/clk_out1 |                 | xvga1/hreset                                        |                5 |             11 |
+|  clkdivider/inst/clk_out1 |                 | move_player_1/p1_rest_blob/pixel_out[11]_i_1__0_n_0 |                6 |             12 |
+|  clkdivider/inst/clk_out1 |                 | move_player_2/p1_rest_blob/pixel_out[11]_i_1_n_0    |                4 |             12 |
+|  clkdivider/inst/clk_out1 |                 | xvga1/sw[1]                                         |                4 |             12 |
++---------------------------+-----------------+-----------------------------------------------------+------------------+----------------+
 
 
