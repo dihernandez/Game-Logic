@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="p2_at_rest_rom_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575324085">
-  <File Type="RDS-UTIL-PB" Name="p2_at_rest_rom_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="p2_at_rest_rom_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="p2_at_rest_rom_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="p2_at_rest_rom.vds"/>
   <File Type="RDS-DCP" Name="p2_at_rest_rom.dcp"/>
   <File Type="PA-TCL" Name="p2_at_rest_rom.tcl"/>

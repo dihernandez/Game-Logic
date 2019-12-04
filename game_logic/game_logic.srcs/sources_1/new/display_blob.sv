@@ -50,8 +50,9 @@ module main(
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
-    wire p1_motion = sw[5:4];
-    wire p2_motion = sw[3:2];
+    // for testing----------------------------------------------------------------------------------
+    wire p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
+    wire p2_motion = sw[3:2]; //use switches 3 and 2 to select between at rest, kicking, and punching
 
     wire phsync,pvsync,pblank;
         // display pong game's padde w/ sw14 and 15 for p1 left and right respectively

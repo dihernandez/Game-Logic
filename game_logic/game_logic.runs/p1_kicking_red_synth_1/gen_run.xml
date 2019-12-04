@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="p1_kicking_red_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575327521">
-  <File Type="RDS-UTIL" Name="p1_kicking_red_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="p1_kicking_red_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="p1_kicking_red_utilization_synth.rpt"/>
   <File Type="RDS-RDS" Name="p1_kicking_red.vds"/>
   <File Type="RDS-DCP" Name="p1_kicking_red.dcp"/>
   <File Type="PA-TCL" Name="p1_kicking_red.tcl"/>
