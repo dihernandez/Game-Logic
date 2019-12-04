@@ -17,6 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 2
 set_msg_config  -id {IP_Flow 19-98}  -string {{ERROR: [IP_Flow 19-98] Generation of the IP CORE failed.
 Failed to generate IP 'p2_kicking_red'. Failed to generate 'VHDL Synthesis Wrapper' outputs:}}  -suppress 
 create_project -in_memory -part xc7a100tcsg324-1
@@ -50,62 +52,37 @@ add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_kicking_green.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_kicking_blue.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p2_punching.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p1_punching.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_punching_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_punching_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_punching_blue.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_punching_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_punching_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_punching_blue.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p1_motions.coe
 read_verilog -library xil_defaultlib -sv {
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv
 }
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_red/p2_kicking_red.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_red/p2_kicking_red_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_blue/p2_kicking_blue.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_blue/p2_kicking_blue_ooc.xdc]
-
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_red/p2_at_rest_red.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_red/p2_at_rest_red_ooc.xdc]
 
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_blue/p2_at_rest_blue.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_blue/p2_at_rest_blue_ooc.xdc]
 
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_rom/p2_kicking_rom.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_rom/p2_kicking_rom_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_red/p1_at_rest_red_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue_ooc.xdc]
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/p1_motions.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/p1_motions_ooc.xdc]
 
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_board.xdc]
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xdc]
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_ooc.xdc]
 
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom_ooc.xdc]
-
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_rom/p2_at_rest_rom.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_rom/p2_at_rest_rom_ooc.xdc]
 
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_rom/p1_kicking_rom.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_rom/p1_kicking_rom_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_red/p1_kicking_red.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_red/p1_kicking_red_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_green/p1_kicking_green.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_green/p1_kicking_green_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_blue/p1_kicking_blue.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_kicking_blue/p1_kicking_blue_ooc.xdc]
-
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_green/p2_at_rest_green.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_green/p2_at_rest_green_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_green/p2_kicking_green.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_green/p2_kicking_green_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

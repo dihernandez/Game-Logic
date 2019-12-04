@@ -46,7 +46,7 @@ module player_move(
     );
     
    logic[10:0] x_in_p1 = initial_x_p1; // player 1 in left of screen x
-   logic[10:0] x_in_p2 = initial_x_p2; // player 1 in left of screen x
+   logic[10:0] x_in_p2 = initial_x_p2; // player 2 in right of screen x
    logic x_dir = 1'b1;  // 1 means going to the right, 0 means left; starts moving right
 
    wire[11:0] p1_pixel, p2_pixel;
