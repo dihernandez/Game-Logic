@@ -81,11 +81,8 @@ set rc [catch {
   add_files -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.dcp
   read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_red/p2_at_rest_red.xci
   read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_blue/p2_at_rest_blue.xci
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci
+  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/p1_motions.xci
   read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_green/p1_at_rest_green.xci
-  read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_at_rest_rom_1/p1_at_rest_rom.xci
   read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_rom/p2_at_rest_rom.xci
   read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_green/p2_at_rest_green.xci
   read_xdc /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/constrs_1/new/nexys4_ddr_constraints.xdc

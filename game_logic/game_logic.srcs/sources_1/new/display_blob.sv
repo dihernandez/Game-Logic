@@ -207,7 +207,11 @@ endmodule
 //////////////////////////////////////////////////
 module player_1_blob
    #(parameter WIDTH = 256,     // default picture width
-     parameter HEIGHT = 240)    // default picture height
+     parameter HEIGHT = 240,   // default picture height
+     parameter REST_IMAGE_OFFSET = 0,
+     parameter KICK_IMAGE_OFFSET = 4096,
+     parameter PUNCH_IMAGE_OFFSET = 8192
+     ) 
    (input pixel_clk_in,
     input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
     input [10:0] x_in,hcount_in,
@@ -215,20 +219,24 @@ module player_1_blob
     output logic [11:0] pixel_out);
 
    logic [11:0] image_addr;   // num of bits for 64*64 pixel ROM 4096
+
    logic [7:0] rest_image_bits, rest_red_mapped, rest_green_mapped, rest_blue_mapped; //can I chage to [2:0]?
    logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
    logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
 
    // calculate rom address and read the location
    assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH;
-   p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
- //  p1_motions p1_motions_instance(.clka(pixel_clk_in), .addra(image_addr)
+   // p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
+   p1_motions p1_at_rest(.clka(pixel_clk_in), .addra(image_addr + REST_IMAGE_OFFSET), .douta(rest_image_bits)); // rest
+   p1_motions p1_kicking(.clka(pixel_clk_in), .addra(image_addr + KICK_IMAGE_OFFSET), .douta(kick_image_bits)); // kicking
+   p1_motions p1_punching(.clka(pixel_clk_in), .addra(image_addr + PUNCH_IMAGE_OFFSET), .douta(punch_image_bits)); // punching
+
  //  p1_kicking_rom p1_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
 //  p1_punching_rom p1_punch(.clka(pixel_clk_in), .addra(image_addr), .douta(punch_image_bits));
 
-   p1_at_rest_blue p1_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
-   p1_at_rest_green p1_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
-   p1_at_rest_red p1_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
+//   p1_at_rest_blue p1_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
+//   p1_at_rest_green p1_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
+//   p1_at_rest_red p1_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
 
 //   p1_kicking_blue p1_kick_blue(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_blue_mapped));
 //   p1_kicking_green p1_kick_green(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_green_mapped));
@@ -270,7 +278,11 @@ endmodule
 
 module player_2_blob
    #(parameter WIDTH = 256,     // default picture width
-     parameter HEIGHT = 240)    // default picture height
+     parameter HEIGHT = 240,  // default picture height
+     parameter REST_IMAGE_OFFSET = 0,
+     parameter KICK_IMAGE_OFFSET = 4096,
+     parameter PUNCH_IMAGE_OFFSET = 8192
+     )  
    (input pixel_clk_in,
     input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
     input [10:0] x_in,hcount_in,

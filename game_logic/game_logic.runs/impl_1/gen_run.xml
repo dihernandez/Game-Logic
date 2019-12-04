@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575492546">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1575493971">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-DRC" Name="main.drc"/>
   <File Type="BG-BGN" Name="main.bgn"/>
@@ -85,14 +85,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci">
+    <File Path="$PSRCDIR/sources_1/ip/p1_motions/p1_motions.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -115,6 +108,22 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/display_blob.sv">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_red/p1_at_rest_red.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/p1_at_rest_blue/p1_at_rest_blue.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -302,14 +311,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/p1_motions/p1_motions.xci">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="main"/>
@@ -348,6 +349,4 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="p2_at_rest_green"/>
   <BlockFileSet Type="BlockSrcs" Name="p2_at_rest_rom"/>
-  <BlockFileSet Type="BlockSrcs" Name="p1_at_rest_rom"/>
-  <BlockFileSet Type="BlockSrcs" Name="p1_at_rest_green"/>
 </GenRun>
