@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Wed Dec  4 12:06:55 2019
+| Date             : Wed Dec  4 15:52:19 2019
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.239        |
+| Total On-Chip Power (W)  | 0.233        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.141        |
+| Dynamic (W)              | 0.135        |
 | Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.9         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      372 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      171 |     63400 |            0.27 |
+| Slice Logic    |    <0.001 |      340 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      158 |     63400 |            0.25 |
 |   CARRY4       |    <0.001 |       26 |     15850 |            0.16 |
 |   Register     |    <0.001 |       85 |    126800 |            0.07 |
-|   Others       |     0.000 |       36 |       --- |             --- |
-| Signals        |    <0.001 |      282 |       --- |             --- |
-| Block RAM      |     0.016 |       12 |       135 |            8.89 |
+|   Others       |     0.000 |       28 |       --- |             --- |
+| Signals        |    <0.001 |      243 |       --- |             --- |
+| Block RAM      |     0.010 |        8 |       135 |            5.93 |
 | MMCM           |     0.122 |        1 |         6 |           16.67 |
-| I/O            |    <0.001 |       23 |       210 |           10.95 |
+| I/O            |    <0.001 |       21 |       210 |           10.00 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.239 |          |           |                 |
+| Total          |     0.233 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.033 |       0.017 |      0.016 |
+| Vccint    |       1.000 |     0.027 |       0.012 |      0.016 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -82,7 +82,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.002 |       0.001 |      0.001 |
+| Vccbram   |       1.000 |     0.001 |       0.001 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -147,25 +147,21 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| main                |     0.141 |
+| main                |     0.135 |
 |   clkdivider        |     0.122 |
 |     inst            |     0.122 |
-|   move_player_1     |     0.009 |
-|     p1_blob         |     0.008 |
+|   move_player_1     |     0.006 |
+|     p1_blob         |     0.006 |
 |       p1_at_rest    |     0.001 |
-|       p1_kick       |     0.001 |
-|       p1_kick_blue  |     0.001 |
-|       p1_kick_green |     0.001 |
 |       p1_rest_blue  |     0.001 |
 |       p1_rest_green |     0.001 |
-|   move_player_2     |     0.009 |
-|     p2_blob         |     0.008 |
+|       p1_rest_red   |     0.001 |
+|   move_player_2     |     0.006 |
+|     p2_blob         |     0.006 |
 |       p2_at_rest    |     0.001 |
-|       p2_kick       |     0.001 |
-|       p2_kick_blue  |     0.001 |
-|       p2_kick_green |     0.001 |
 |       p2_rest_blue  |     0.001 |
 |       p2_rest_green |     0.001 |
+|       p2_rest_red   |     0.001 |
 +---------------------+-----------+
 
 
