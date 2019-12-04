@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
--- Date        : Mon Dec  2 19:51:17 2019
+-- Date        : Tue Dec  3 18:16:35 2019
 -- Host        : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_kicking_green/p2_kicking_green_stub.vhdl

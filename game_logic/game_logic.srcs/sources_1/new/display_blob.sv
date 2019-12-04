@@ -50,19 +50,23 @@ module main(
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
+    wire p1_motion = sw[5:4];
+    wire p2_motion = sw[3:2];
 
     wire phsync,pvsync,pblank;
         // display pong game's padde w/ sw14 and 15 for p1 left and right respectively
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
     //.reset_in(reset),         // 1 to initialize module
-  // input up_in,            // 1 when paddle should move up
-  // input down_in,          // 1 when paddle should move down
    .is_p1(1), 
-   .motion(2'b00),
-   .initial_x(100),
-   .right_in(sw[15]),         // 1 when player 1 should move right
-   .left_in(sw[14]),          // 1 when player 1 should move left
+   .p1_motion(p1_motion),
+   .p2_motion(p2_motion),
+   .initial_x_p1(100),      // p1 initial position used when is_p1 is high
+   .initial_x_p2(600),         // p2 0 default when p1 selected
+   .p1_right_in(sw[15]),         // 1 when player 1 should move right
+   .p1_left_in(sw[14]),          // 1 when player 1 should move left
+   .p2_right_in(sw[7]),         // 1 when player 2 should move right
+   .p2_left_in(sw[6]),          // 1 when player 2 should move left
    .pspeed_in(4),  // player speed in pixels/tick 
    .hcount_in(hcount), // horizontal index of current pixel (0..1023)
    .vcount_in(vcount), // vertical index of current pixel (0..767)
@@ -76,17 +80,19 @@ module main(
    .pixel_out(player_1_pixel)
    );
    
-     player_move move_player_2(
+    player_move move_player_2(
     .vclock_in(clk_65mhz),        // 65MHz clock
  //   .reset_in(reset),         // 1 to initialize module
-  // input up_in,            // 1 when paddle should move up
-  // input down_in,          // 1 when paddle should move down
-  // .player_1(0),
+
    .is_p1(0),
-   .motion(2'b01),
-   .initial_x(600),
-   .right_in(sw[7]),         // 1 when player 2 should move right
-   .left_in(sw[6]),          // 1 when player 2 should move left
+   .p1_motion(p1_motion),
+   .p2_motion(p2_motion),
+   .initial_x_p1(100),
+   .initial_x_p2(600),
+   .p1_right_in(sw[15]),         // 1 when player 1 should move right
+   .p1_left_in(sw[14]),          // 1 when player 1 should move left
+   .p2_right_in(sw[7]),         // 1 when player 2 should move right
+   .p2_left_in(sw[6]),          // 1 when player 2 should move left
    .pspeed_in(4),  // player speed in pixels/tick 
    .hcount_in(hcount), // horizontal index of current pixel (0..1023)
    .vcount_in(vcount), // vertical index of current pixel (0..767)

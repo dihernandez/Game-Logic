@@ -3,6 +3,21 @@
 
 # XDC: new/nexys4_ddr_constraints.xdc
 
+# IP: ip/p2_kicking_red/p2_kicking_red.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p2_kicking_red || ORIG_REF_NAME==p2_kicking_red} -quiet] -quiet
+
+# IP: ip/p2_kicking_blue/p2_kicking_blue.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p2_kicking_blue || ORIG_REF_NAME==p2_kicking_blue} -quiet] -quiet
+
+# IP: ip/p2_at_rest_red/p2_at_rest_red.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p2_at_rest_red || ORIG_REF_NAME==p2_at_rest_red} -quiet] -quiet
+
+# IP: ip/p2_at_rest_blue/p2_at_rest_blue.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p2_at_rest_blue || ORIG_REF_NAME==p2_at_rest_blue} -quiet] -quiet
+
+# IP: ip/p2_kicking_rom/p2_kicking_rom.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p2_kicking_rom || ORIG_REF_NAME==p2_kicking_rom} -quiet] -quiet
+
 # IP: ip/p1_at_rest_red/p1_at_rest_red.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_at_rest_red || ORIG_REF_NAME==p1_at_rest_red} -quiet] -quiet
 
@@ -11,3 +26,13 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_at_rest_blue
 
 # IP: ip/clk_wiz_final/clk_wiz_final.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_final || ORIG_REF_NAME==clk_wiz_final} -quiet] -quiet
+
+# XDC: ip/p2_kicking_red/p2_kicking_red_ooc.xdc
+
+# XDC: ip/p2_kicking_blue/p2_kicking_blue_ooc.xdc
+
+# XDC: ip/p2_at_rest_red/p2_at_rest_red_ooc.xdc
+
+# XDC: ip/p2_at_rest_blue/p2_at_rest_blue_ooc.xdc
+
+# XDC: ip/p2_kicking_rom/p2_kicking_rom_ooc.xdc
