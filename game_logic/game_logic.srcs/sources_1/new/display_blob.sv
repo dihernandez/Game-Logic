@@ -224,13 +224,16 @@ module player_1_blob
    logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
    logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
 
+    //add case state4mengt for picking offset based on motion in always comb block
    // calculate rom address and read the location
-   assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH;
+   logic [13:0] offset = 0;
+   assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH + offset;
    // p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
-   p1_motions p1_at_rest(.clka(pixel_clk_in), .addra(image_addr + REST_IMAGE_OFFSET), .douta(rest_image_bits)); // rest
-   p1_motions p1_kicking(.clka(pixel_clk_in), .addra(image_addr + KICK_IMAGE_OFFSET), .douta(kick_image_bits)); // kicking
-   p1_motions p1_punching(.clka(pixel_clk_in), .addra(image_addr + PUNCH_IMAGE_OFFSET), .douta(punch_image_bits)); // punching
+   p1_motions p1_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+  // p1_motions p1_kicking(.clka(pixel_clk_in), .addra(image_addr + KICK_IMAGE_OFFSET), .douta(kick_image_bits)); // kicking
+   //p1_motions p1_punching(.clka(pixel_clk_in), .addra(image_addr + PUNCH_IMAGE_OFFSET), .douta(punch_image_bits)); // punching
 
+   p1_motions_red p1_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(rest_red_mapped));
  //  p1_kicking_rom p1_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
 //  p1_punching_rom p1_punch(.clka(pixel_clk_in), .addra(image_addr), .douta(punch_image_bits));
 

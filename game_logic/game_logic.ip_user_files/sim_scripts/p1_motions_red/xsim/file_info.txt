@@ -1,0 +1,2 @@
+p1_motions_red.v,verilog,xil_defaultlib,../../../../game_logic.srcs/sources_1/ip/p1_motions_red/sim/p1_motions_red.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
