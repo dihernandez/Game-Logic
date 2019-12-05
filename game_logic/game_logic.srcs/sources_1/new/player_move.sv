@@ -47,7 +47,6 @@ module player_move(
     
    logic[10:0] x_in_p1 = initial_x_p1; // player 1 in left of screen x
    logic[10:0] x_in_p2 = initial_x_p2; // player 2 in right of screen x
-   logic x_dir = 1'b1;  // 1 means going to the right, 0 means left; starts moving right
 
    wire[11:0] p1_pixel, p2_pixel;
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
@@ -58,10 +57,8 @@ module player_move(
     player_1_blob  #(.WIDTH(64), .HEIGHT(64)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
     player_2_blob #(.WIDTH(64), .HEIGHT(64)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_motion), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
-    // player_1_blob  #(.WIDTH(64), .HEIGHT(64)) p1_kicking_blob(.pixel_clk_in(vclock_in), .motion(2'b01), .x_in(x_in), .hcount_in(hcount_in), .y_in(300), .vcount_in(vcount_in), .pixel_out(kicking_pixel));
-
     
-     // initialize everything and blend square and death star
+     // initialize everything
     always @(posedge vclock_in) begin
         phsync_out <= hsync_in;
         pvsync_out <= vsync_in;
@@ -70,12 +67,17 @@ module player_move(
     
     
     always @(posedge vclock_in) begin
-        vsync_old <= vsync_in;
-        if(vsync_in == 1'b1 && vsync_old == 1'b0) begin
-            if(is_p1) begin
-                player_1_move;
-            end else begin
-                player_2_move;
+        if(reset_in) begin
+            x_in_p1 <= initial_x_p1;
+            x_in_p2 <= initial_x_p2;
+        end else begin
+            vsync_old <= vsync_in;
+            if(vsync_in == 1'b1 && vsync_old == 1'b0) begin
+                if(is_p1) begin
+                    player_1_move;
+                end else begin
+                    player_2_move;
+                end
             end
         end
     end

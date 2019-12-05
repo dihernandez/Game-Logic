@@ -60,15 +60,37 @@ add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_punching_green.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_punching_blue.coe
 add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p1_motions.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_motions_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_motions_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p1_motions_blue.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/small_coes/p2_motions.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_motions_red.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_motions_green.coe
+add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_coes/p2_motions_blue.coe
 read_verilog -library xil_defaultlib -sv {
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv
 }
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_red/p2_at_rest_red.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_red/p2_at_rest_red_ooc.xdc]
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/p2_motions_blue.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/p2_motions_blue_ooc.xdc]
 
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_blue/p2_at_rest_blue.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_blue/p2_at_rest_blue_ooc.xdc]
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/p2_motions_green.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/p2_motions_green_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/p2_motions_red.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/p2_motions_red_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions/p2_motions.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions/p2_motions_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/p1_motions_blue.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/p1_motions_blue_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/p1_motions_green.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/p1_motions_green_ooc.xdc]
+
+read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/p1_motions_red.xci
+set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/p1_motions_red_ooc.xdc]
 
 read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/p1_motions.xci
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/p1_motions_ooc.xdc]
@@ -77,12 +99,6 @@ read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/g
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_board.xdc]
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xdc]
 set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_rom/p2_at_rest_rom.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_rom/p2_at_rest_rom_ooc.xdc]
-
-read_ip -quiet /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_green/p2_at_rest_green.xci
-set_property used_in_implementation false [get_files -all /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_at_rest_green/p2_at_rest_green_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

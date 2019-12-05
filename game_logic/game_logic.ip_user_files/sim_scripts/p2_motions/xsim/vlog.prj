@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../game_logic.srcs/sources_1/ip/p2_motions/sim/p2_motions.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

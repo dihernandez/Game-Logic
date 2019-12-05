@@ -50,6 +50,20 @@ module main(
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
+        // btnc button is user reset
+    wire reset;
+    debounce db1(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(reset));
+   
+   
+    // UP, DOWN, LEFT, RIGHT buttons for punching and kicking
+    wire up, down, left, right;
+    debounce db2(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
+    debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
+    debounce db4(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
+    debounce db5(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
+      
+          
+          
     // for testing----------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
     wire [1:0] p2_motion = sw[3:2]; //use switches 3 and 2 to select between at rest, kicking, and punching
@@ -58,16 +72,16 @@ module main(
         // display pong game's padde w/ sw14 and 15 for p1 left and right respectively
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
-    //.reset_in(reset),         // 1 to initialize module
+    .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
-   .p1_motion(0),
-   .p2_motion(0),
+   .p1_motion(p1_motion),
+   .p2_motion(p2_motion),
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
    .initial_x_p2(600),         // p2 0 default when p1 selected
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
    .p1_left_in(sw[14]),          // 1 when player 1 should move left
-   .p2_right_in(sw[6]),         // 1 when player 2 should move right
-   .p2_left_in(sw[7]),          // 1 when player 2 should move left
+   .p2_right_in(sw[7]),         // 1 when player 2 should move right
+   .p2_left_in(sw[6]),          // 1 when player 2 should move left
    .pspeed_in(4),  // player speed in pixels/tick 
    .hcount_in(hcount), // horizontal index of current pixel (0..1023)
    .vcount_in(vcount), // vertical index of current pixel (0..767)
@@ -83,17 +97,17 @@ module main(
    
     player_move move_player_2(
     .vclock_in(clk_65mhz),        // 65MHz clock
- //   .reset_in(reset),         // 1 to initialize module
+    .reset_in(reset),         // 1 to initialize module
 
    .is_p1(0),
-   .p1_motion(0),
-   .p2_motion(0),
+   .p1_motion(p1_motion),
+   .p2_motion(p2_motion),
    .initial_x_p1(100),
    .initial_x_p2(600),
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
    .p1_left_in(sw[14]),          // 1 when player 1 should move left
-   .p2_right_in(sw[6]),         // 1 when player 2 should move right
-   .p2_left_in(sw[7]),          // 1 when player 2 should move left
+   .p2_right_in(sw[7]),         // 1 when player 2 should move right
+   .p2_left_in(sw[6]),          // 1 when player 2 should move left
    .pspeed_in(4),  // player speed in pixels/tick 
    .hcount_in(hcount), // horizontal index of current pixel (0..1023)
    .vcount_in(vcount), // vertical index of current pixel (0..767)
@@ -115,22 +129,6 @@ module main(
     wire [11:0] pixel;
     assign pixel = white_square_pixel | player_1_pixel | player_2_pixel;
     
-    // btnc button is user reset
-    wire reset;
-    debounce db1(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(reset));
-   
-   
-    // UP, DOWN, LEFT, RIGHT buttons for punching and kicking
-    wire up, down, left, right;
-    debounce db2(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
-    debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
-    debounce db4(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
-    debounce db5(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
-
-    
-    
-    
-
     wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
                    hcount == 512 | vcount == 384);
 
@@ -218,63 +216,46 @@ module player_1_blob
     input [9:0] y_in,vcount_in,
     output logic [11:0] pixel_out);
 
-   logic [11:0] image_addr;   // num of bits for 64*64 pixel ROM 4096
+    logic [13:0] image_addr;   // num of bits for 64*192 pixel ROM 12288
+    logic [7:0] image_bits, red_mapped, blue_mapped, green_mapped;
 
-   logic [7:0] rest_image_bits, rest_red_mapped, rest_green_mapped, rest_blue_mapped; //can I chage to [2:0]?
-   logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
-   logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
-
-    //add case state4mengt for picking offset based on motion in always comb block
-   // calculate rom address and read the location
-   logic [13:0] offset = 0;
-   assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH + offset;
-   // p1_at_rest_rom p1_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
-   p1_motions p1_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
-  // p1_motions p1_kicking(.clka(pixel_clk_in), .addra(image_addr + KICK_IMAGE_OFFSET), .douta(kick_image_bits)); // kicking
-   //p1_motions p1_punching(.clka(pixel_clk_in), .addra(image_addr + PUNCH_IMAGE_OFFSET), .douta(punch_image_bits)); // punching
-
-   p1_motions_red p1_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(rest_red_mapped));
- //  p1_kicking_rom p1_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
-//  p1_punching_rom p1_punch(.clka(pixel_clk_in), .addra(image_addr), .douta(punch_image_bits));
-
-//   p1_at_rest_blue p1_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
-//   p1_at_rest_green p1_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
-//   p1_at_rest_red p1_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
-
-//   p1_kicking_blue p1_kick_blue(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_blue_mapped));
-//   p1_kicking_green p1_kick_green(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_green_mapped));
-//   p1_kicking_red p1_kick_red (.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_red_mapped));
-    
-//   p1_punching_blue p1_punch_blue(.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_blue_mapped));
-//   p1_punching_green p1_punch_green(.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_green_mapped));
-//   p1_punching_red p1_punch_red (.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_red_mapped)); 
-    
-   // note the one clock cycle delay in pixel!
+   logic [13:0] offset;
+   assign image_addr = ((hcount_in-x_in) + (vcount_in-y_in) * WIDTH) + offset;
+   
    always @ (posedge pixel_clk_in) begin
      if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
-        // use MSB 4 bits
         case (motion)
             2'b00 : begin
-                pixel_out <= {rest_red_mapped[3:0], rest_green_mapped[3:0], rest_blue_mapped[3:0]};
+                offset <= REST_IMAGE_OFFSET; 
             end
             
             2'b01 : begin
-                //pixel_out <= {kick_red_mapped[3:0], kick_green_mapped[3:0], kick_blue_mapped[3:0]};
+                offset <= KICK_IMAGE_OFFSET; 
             end
             
             2'b10 : begin
-               // pixel_out <= {punch_red_mapped[3:0], punch_green_mapped[3:0], punch_blue_mapped[3:0]};                
+                 offset <= PUNCH_IMAGE_OFFSET;
             end
             
             default : begin 
-                pixel_out <= {rest_red_mapped[3:0], rest_green_mapped[3:0], rest_blue_mapped[3:0]};
+                 offset <= REST_IMAGE_OFFSET;
             end 
         endcase
+        pixel_out <= {red_mapped[3:0], green_mapped[3:0], blue_mapped[3:0]};
      end else begin
         pixel_out <= 'h000;
      end
    end
+ 
+   p1_motions p1_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+
+
+   p1_motions_red p1_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
+   p1_motions_green p1_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
+   p1_motions_blue p1_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
+
+
 endmodule
 
 
@@ -292,55 +273,45 @@ module player_2_blob
     input [9:0] y_in,vcount_in,
     output logic [11:0] pixel_out);
 
-   logic [11:0] image_addr;   // num of bits for 64*64 pixel ROM
-   logic [7:0] rest_image_bits, rest_red_mapped, rest_green_mapped, rest_blue_mapped; //can I chage to [2:0]?
-   logic [7:0] kick_image_bits, kick_red_mapped, kick_green_mapped, kick_blue_mapped; //can I chage to [2:0]?
-   logic [7:0] punch_image_bits, punch_red_mapped, punch_green_mapped, punch_blue_mapped; //can I chage to [2:0]?
+    logic [13:0] image_addr;   // num of bits for 64*192 pixel ROM 12288
+    logic [7:0] image_bits, red_mapped, blue_mapped, green_mapped;
 
-   // calculate rom address and read the location
-   assign image_addr = (hcount_in-x_in) + (vcount_in-y_in) * WIDTH;
-   p2_at_rest_rom p2_at_rest(.clka(pixel_clk_in), .addra(image_addr), .douta(rest_image_bits));
- //  p2_kicking_rom p2_kick(.clka(pixel_clk_in), .addra(image_addr), .douta(kick_image_bits));
-//   p2_punching_rom p2_punch(.clka(pixel_clk_in), . addra(image_addr), .douta(kick_image_bits));
-
-   p2_at_rest_blue p2_rest_blue (.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_blue_mapped));
-   p2_at_rest_green p2_rest_green(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_green_mapped));
-   p2_at_rest_red p2_rest_red(.clka(pixel_clk_in), .addra(rest_image_bits), .douta(rest_red_mapped));
-
-//   p2_kicking_blue p2_kick_blue(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_blue_mapped));
-//   p2_kicking_green p2_kick_green(.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_green_mapped));
-//   p2_kicking_red p2_kick_red (.clka(pixel_clk_in), .addra(kick_image_bits), .douta(kick_red_mapped));
-
-//   p2_punching_blue p2_punch_blue(.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_blue_mapped));
-//   p2_punching_green p2_punch_green(.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_green_mapped));
-//   p2_punching_red p2_punch_red (.clka(pixel_clk_in), .addra(punch_image_bits), .douta(punch_red_mapped));
-
-   // note the one clock cycle delay in pixel!
-   always @ (posedge pixel_clk_in) begin
-     if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
+    logic [13:0] offset;
+    assign image_addr = ((hcount_in-x_in) + (vcount_in-y_in) * WIDTH) + offset;
+   
+    always @ (posedge pixel_clk_in) begin
+        if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
-        // use MSB 4 bits
         case (motion)
             2'b00 : begin
-                pixel_out <= {rest_red_mapped[3:0], rest_green_mapped[3:0], rest_blue_mapped[3:0]};
+                offset <= REST_IMAGE_OFFSET; 
             end
             
             2'b01 : begin
-             //   pixel_out <= {kick_red_mapped[3:0], kick_green_mapped[3:0], kick_blue_mapped[3:0]};
+                offset <= KICK_IMAGE_OFFSET; 
             end
             
             2'b10 : begin
-              //  pixel_out <= {punch_red_mapped[3:0], punch_green_mapped[3:0], punch_blue_mapped[3:0]};                
+                 offset <= PUNCH_IMAGE_OFFSET;
             end
             
             default : begin 
-                pixel_out <= {rest_red_mapped[3:0], rest_green_mapped[3:0], rest_blue_mapped[3:0]};
+                 offset <= REST_IMAGE_OFFSET;
             end 
         endcase
+        pixel_out <= {red_mapped[3:0], green_mapped[3:0], blue_mapped[3:0]};
      end else begin
         pixel_out <= 'h000;
      end
    end
+ 
+   p2_motions p2_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+
+
+   p2_motions_red p2_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
+   p2_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
+   p2_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
+
 endmodule
 
 //////////////////////////////////////////////////////////////////////////////////
