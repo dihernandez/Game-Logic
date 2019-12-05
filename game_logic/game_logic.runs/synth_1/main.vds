@@ -2,8 +2,8 @@
 # Vivado v2019.1.2 (64-bit)
 # SW Build 2615518 on Fri Aug  9 15:53:29 MDT 2019
 # IP Build 2614745 on Fri Aug  9 20:55:02 MDT 2019
-# Start of session at: Thu Dec  5 16:44:00 2019
-# Process ID: 21097
+# Start of session at: Thu Dec  5 18:11:44 2019
+# Process ID: 6189
 # Current directory: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1
 # Command line: vivado -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.vds
@@ -16,13 +16,13 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21129 
+INFO: Helper process launched with PID 6217 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1809.211 ; gain = 153.496 ; free physical = 785 ; free virtual = 10282
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1809.379 ; gain = 153.496 ; free physical = 857 ; free virtual = 9835
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-21097-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-21097-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-6189-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-6189-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
 WARNING: [Synth 8-7023] instance 'clkdivider' of module 'clk_wiz_final' has 4 connections declared, but only 3 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:40]
 INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:338]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
@@ -798,7 +798,7 @@ WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized6 has unco
 WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized6 has unconnected port S_AXI_AWID[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:05:27 ; elapsed = 00:05:44 . Memory (MB): peak = 2465.457 ; gain = 809.742 ; free physical = 776 ; free virtual = 10106
+Finished RTL Elaboration : Time (s): cpu = 00:05:16 ; elapsed = 00:05:31 . Memory (MB): peak = 2465.484 ; gain = 809.602 ; free physical = 722 ; free virtual = 9698
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -811,10 +811,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:05:28 ; elapsed = 00:05:46 . Memory (MB): peak = 2465.457 ; gain = 809.742 ; free physical = 798 ; free virtual = 10128
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:16 ; elapsed = 00:05:33 . Memory (MB): peak = 2465.484 ; gain = 809.602 ; free physical = 745 ; free virtual = 9720
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:28 ; elapsed = 00:05:46 . Memory (MB): peak = 2465.457 ; gain = 809.742 ; free physical = 798 ; free virtual = 10128
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:16 ; elapsed = 00:05:33 . Memory (MB): peak = 2465.484 ; gain = 809.602 ; free physical = 745 ; free virtual = 9720
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -871,20 +871,20 @@ Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logi
 Finished Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.488 ; gain = 0.000 ; free physical = 714 ; free virtual = 10044
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.516 ; gain = 0.000 ; free physical = 655 ; free virtual = 9630
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2529.488 ; gain = 0.000 ; free physical = 714 ; free virtual = 10044
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2529.516 ; gain = 0.000 ; free physical = 655 ; free virtual = 9630
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:05:35 ; elapsed = 00:05:56 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 788 ; free virtual = 10118
+Finished Constraint Validation : Time (s): cpu = 00:05:23 ; elapsed = 00:05:43 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 737 ; free virtual = 9713
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:05:35 ; elapsed = 00:05:56 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 788 ; free virtual = 10118
+Finished Loading Part and Timing Information : Time (s): cpu = 00:05:23 ; elapsed = 00:05:43 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 737 ; free virtual = 9713
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -909,14 +909,14 @@ Applied set_property DONT_TOUCH = true for move_player_1/p1_blob/p1_motions. (co
 Applied set_property DONT_TOUCH = true for move_player_2/p1_blob/p1_motions. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clkdivider. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:35 ; elapsed = 00:05:56 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 785 ; free virtual = 10115
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:23 ; elapsed = 00:05:43 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 732 ; free virtual = 9708
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:97]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:87]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:97]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:87]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:36 ; elapsed = 00:06:00 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 807 ; free virtual = 10118
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:24 ; elapsed = 00:05:47 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 738 ; free virtual = 9711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1112,7 +1112,7 @@ INFO: [Synth 8-3886] merging instance 'move_player_1/p1_blob/offset_reg[9]' (FDE
 INFO: [Synth 8-3886] merging instance 'move_player_1/p1_blob/offset_reg[10]' (FDE) to 'move_player_1/p1_blob/offset_reg[11]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\move_player_1/p1_blob/offset_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:38 ; elapsed = 00:06:03 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 732 ; free virtual = 10118
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:26 ; elapsed = 00:05:50 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 668 ; free virtual = 9717
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1126,13 +1126,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkdivider/clk_out1' to pin 'clkdivider/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:42 ; elapsed = 00:06:07 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 614 ; free virtual = 10000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:30 ; elapsed = 00:05:54 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 538 ; free virtual = 9586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:05:43 ; elapsed = 00:06:08 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 606 ; free virtual = 9993
+Finished Timing Optimization : Time (s): cpu = 00:05:31 ; elapsed = 00:05:55 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 529 ; free virtual = 9577
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1144,7 +1144,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:05:43 ; elapsed = 00:06:08 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Technology Mapping : Time (s): cpu = 00:05:31 ; elapsed = 00:05:55 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 527 ; free virtual = 9576
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1172,7 +1172,7 @@ WARNING: [Synth 8-3295] tying undriven pin move_player_1/p2_blob/p2_rest_blue:en
 WARNING: [Synth 8-3295] tying undriven pin move_player_2/p2_blob/p2_rest_red:ena to constant 0
 WARNING: [Synth 8-3295] tying undriven pin move_player_2/p2_blob/p2_rest_blue:ena to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished IO Insertion : Time (s): cpu = 00:05:32 ; elapsed = 00:05:56 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1185,7 +1185,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Renaming Generated Instances : Time (s): cpu = 00:05:32 ; elapsed = 00:05:56 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1197,25 +1197,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Renaming Generated Ports : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Renaming Generated Nets : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1246,13 +1246,16 @@ Report Cell Usage:
 |12    |RAMB18E1_3    |     2|
 |13    |RAMB18E1_4    |     2|
 |14    |RAMB18E1_5    |     2|
-|15    |RAMB36E1      |     4|
-|16    |RAMB36E1_1    |     4|
-|17    |RAMB36E1_2    |     4|
-|18    |FDRE          |   144|
-|19    |FDSE          |    12|
-|20    |IBUF          |    11|
-|21    |OBUF          |    14|
+|15    |RAMB36E1      |     2|
+|16    |RAMB36E1_1    |     2|
+|17    |RAMB36E1_2    |     2|
+|18    |RAMB36E1_3    |     2|
+|19    |RAMB36E1_4    |     2|
+|20    |RAMB36E1_5    |     2|
+|21    |FDRE          |   144|
+|22    |FDSE          |    12|
+|23    |IBUF          |    11|
+|24    |OBUF          |    14|
 +------+--------------+------+
 
 Report Instance Areas: 
@@ -1403,27 +1406,27 @@ Report Instance Areas:
 |142   |  xvga1                                            |xvga                                             |   204|
 +------+---------------------------------------------------+-------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 605 ; free virtual = 9991
+Finished Writing Synthesis Report : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 530 ; free virtual = 9579
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1170 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:05:39 ; elapsed = 00:06:04 . Memory (MB): peak = 2529.488 ; gain = 809.742 ; free physical = 653 ; free virtual = 10040
-Synthesis Optimization Complete : Time (s): cpu = 00:05:44 ; elapsed = 00:06:09 . Memory (MB): peak = 2529.488 ; gain = 873.773 ; free physical = 668 ; free virtual = 10055
+Synthesis Optimization Runtime : Time (s): cpu = 00:05:27 ; elapsed = 00:05:51 . Memory (MB): peak = 2529.516 ; gain = 809.602 ; free physical = 579 ; free virtual = 9628
+Synthesis Optimization Complete : Time (s): cpu = 00:05:32 ; elapsed = 00:05:57 . Memory (MB): peak = 2529.516 ; gain = 873.633 ; free physical = 593 ; free virtual = 9642
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 91 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2553.508 ; gain = 0.000 ; free physical = 603 ; free virtual = 9989
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2545.527 ; gain = 0.000 ; free physical = 526 ; free virtual = 9575
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 86 Infos, 158 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:05:49 ; elapsed = 00:06:14 . Memory (MB): peak = 2553.508 ; gain = 1108.152 ; free physical = 717 ; free virtual = 10103
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2553.508 ; gain = 0.000 ; free physical = 717 ; free virtual = 10103
+synth_design: Time (s): cpu = 00:05:36 ; elapsed = 00:06:03 . Memory (MB): peak = 2545.527 ; gain = 1042.191 ; free physical = 644 ; free virtual = 9692
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2545.527 ; gain = 0.000 ; free physical = 644 ; free virtual = 9692
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec  5 16:50:26 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  5 18:17:57 2019...
