@@ -34,7 +34,10 @@ module game_state(
     input p2_left,
     input p2_right,
     input p2_kick,
-    input p2_punch
+    input p2_punch,
+    
+    output logic p1_stop, // tell when movement becomes invalid, a signal to player move to stop moving the player
+    output logic p2_stop
     );
     
     parameter AT_REST = 3'b000;
@@ -77,6 +80,19 @@ module game_state(
                     p1_hit_time_stamp <= cycle_counter;
                 end
             end
+            
+            MOVING_BACKWARDS: begin
+                if(p1_x_in < 0) begin
+                    p1_stop <= 1;
+                end 
+            end
+            
+            MOVING_FORWARDS: begin
+                if(p1_x_in >= p2_x_in) begin
+                    p1_stop <= 1;
+                end
+            end
+            
             PUNCHING: begin
                 // handle both in punching state
                 if(p2_state == PUNCHING) begin
@@ -86,7 +102,17 @@ module game_state(
                 end else begin
                     p2_hitpoints <= p2_hitpoints - 5;
                 end
-                
+            end
+            
+            KICKING: begin
+                // handle both in punching state
+                if(p2_state == KICKING) begin
+                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin
+                        p2_hitpoints <= p2_hitpoints - 10;
+                    end
+                end else begin
+                    p2_hitpoints <= p2_hitpoints - 10;
+                end
             end
             
             default: p1_state <= AT_REST;
@@ -102,6 +128,19 @@ module game_state(
                     p2_hit_time_stamp <= cycle_counter;
                 end
             end
+            
+            MOVING_BACKWARDS: begin
+                if(p2_x_in > 768) begin
+                    p1_stop <= 1;
+                end 
+            end
+            
+            MOVING_FORWARDS: begin
+                if(p2_x_in <= p1_x_in) begin
+                    p2_stop <= 1;
+                end
+            end
+
             PUNCHING: begin
                 // handle both in punching state
                 if(p1_state == PUNCHING) begin
@@ -110,6 +149,18 @@ module game_state(
                     end
                 end else begin
                     p1_hitpoints <= p1_hitpoints - 5;
+                end
+            end
+            
+            
+            KICKING: begin
+                // handle both in punching state
+                if(p1_state == KICKING) begin
+                    if(p2_hit_time_stamp < p1_hit_time_stamp) begin
+                        p1_hitpoints <= p1_hitpoints - 10;
+                    end
+                end else begin
+                    p1_hitpoints <= p1_hitpoints - 10;
                 end
             end
         

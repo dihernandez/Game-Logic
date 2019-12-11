@@ -38,6 +38,8 @@ module player_move(
    input hsync_in,         // XVGA horizontal sync signal (active low)
    input vsync_in,         // XVGA vertical sync signal (active low)
    input blank_in,         // XVGA blanking (1 means output black pixel)
+   input p1_stop,          // when p1 reaches a condition that should stop movement 
+   input p2_stop,          // when p2 reaches a condition that should stop movement
         
    output logic phsync_out,       // pong game's horizontal sync
    output logic pvsync_out,       // pong game's vertical sync
@@ -84,7 +86,9 @@ module player_move(
     
     task player_1_move;
         begin
-            if(p1_right_in) begin
+            if(p1_stop) begin
+                x_in_p1 <= x_in_p1;
+            end else if(p1_right_in) begin
                 x_in_p1 <= x_in_p1 + pspeed_in; 
             end else if(p1_left_in) begin
                 x_in_p1 <= x_in_p1 - pspeed_in;
@@ -94,7 +98,9 @@ module player_move(
  
      task player_2_move;
         begin
-            if(p2_right_in) begin
+            if(p2_stop) begin
+                x_in_p2 <= x_in_p2;
+            end else if(p2_right_in) begin
                 x_in_p2 <= x_in_p2 + pspeed_in; 
             end else if(p2_left_in) begin
                 x_in_p2 <= x_in_p2 - pspeed_in;
