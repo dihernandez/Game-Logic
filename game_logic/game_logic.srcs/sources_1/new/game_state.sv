@@ -23,8 +23,8 @@
 module game_state(
     input vclock_in,        // 65MHz clock
     //.reset_in(reset),         // 1 to initialize module
-    input p1_x_in, // player 1's x position
-    input p2_x_in,  // player 2's x position
+    input [10:0] p1_x_in, // player 1's x position
+    input [10:0] p2_x_in,  // player 2's x position
     
     input p1_left,
     input p1_right,
@@ -36,8 +36,9 @@ module game_state(
     input p2_kick,
     input p2_punch,
     
-    output logic p1_stop, // tell when movement becomes invalid, a signal to player move to stop moving the player
-    output logic p2_stop
+    output [2:0] state,
+    output[6:0] p1_hitpoints,
+    output[6:0] p2_hitpoints
     );
     
     parameter AT_REST = 3'b000;
@@ -48,10 +49,10 @@ module game_state(
 
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;
-
-    logic[6:0] p1_hitpoints = 100;
-    logic[6:0] p2_hitpoints = 100;
  
+    logic[6:0] p1_hp, p2_hp;
+    assign p1_hitpoints = p1_hp;
+    assign p2_hitpoints = p2_hp;
     
     logic[8:0] distance_p1_to_p2_current;
     logic[8:0] distance_p1_to_p2_previous;
@@ -72,24 +73,17 @@ module game_state(
     
     // handle p1 state logic. NOTE: can interact wtih state 2 logic
     always @(posedge vclock_in) begin
-        cycle_counter <= cycle_counter + 1;
+        cycle_counter <= cycle_counter + 1; // only need one counter
+        p1_state <= p1_next_state;
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
                 if(p1_punch &&  distance_p1_to_p2_current < PUNCHING_DISTANCE) begin
                     p1_next_state <= PUNCHING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
-            end
-            
-            MOVING_BACKWARDS: begin
-                if(p1_x_in < 0) begin
-                    p1_stop <= 1;
-                end 
-            end
-            
-            MOVING_FORWARDS: begin
-                if(p1_x_in >= p2_x_in) begin
-                    p1_stop <= 1;
+                if(p1_punch &&  distance_p1_to_p2_current < KICKING_DISTANCE) begin
+                    p1_next_state <= KICKING;
+                    p1_hit_time_stamp <= cycle_counter;
                 end
             end
             
@@ -97,22 +91,24 @@ module game_state(
                 // handle both in punching state
                 if(p2_state == PUNCHING) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
-                        p2_hitpoints <= p2_hitpoints - 5;
+                        p2_hp <= p2_hp - 5;
                     end
                 end else begin
-                    p2_hitpoints <= p2_hitpoints - 5;
+                    p2_hp <= p2_hp - 5;
                 end
+                p1_next_state <= AT_REST;
             end
             
             KICKING: begin
                 // handle both in punching state
                 if(p2_state == KICKING) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
-                        p2_hitpoints <= p2_hitpoints - 10;
+                        p2_hp <= p2_hp - 10;
                     end
                 end else begin
-                    p2_hitpoints <= p2_hitpoints - 10;
+                    p2_hp <= p2_hp - 10;
                 end
+                p1_next_state <= AT_REST;
             end
             
             default: p1_state <= AT_REST;
@@ -121,35 +117,29 @@ module game_state(
     
     // handle p2 state logic. NOTE: can interact wtih state 1 logic
     always @(posedge vclock_in) begin
+        p2_state <= p2_next_state;
         case(p2_state)
             AT_REST: begin
                 if(p2_punch && distance_p2_to_p1_current < PUNCHING_DISTANCE) begin
                     p2_next_state <= PUNCHING;
                     p2_hit_time_stamp <= cycle_counter;
                 end
-            end
-            
-            MOVING_BACKWARDS: begin
-                if(p2_x_in > 768) begin
-                    p1_stop <= 1;
-                end 
-            end
-            
-            MOVING_FORWARDS: begin
-                if(p2_x_in <= p1_x_in) begin
-                    p2_stop <= 1;
+                if(p2_kick && distance_p2_to_p1_current < KICKING_DISTANCE) begin
+                    p2_next_state <= KICKING;
+                    p2_hit_time_stamp <= cycle_counter;
                 end
             end
-
+            
             PUNCHING: begin
                 // handle both in punching state
                 if(p1_state == PUNCHING) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp) begin
-                        p1_hitpoints <= p1_hitpoints - 5;
+                        p1_hp <= p1_hp - 5;
                     end
                 end else begin
-                    p1_hitpoints <= p1_hitpoints - 5;
+                    p1_hp <= p1_hp - 5;
                 end
+                p2_next_state <= AT_REST; 
             end
             
             
@@ -157,18 +147,16 @@ module game_state(
                 // handle both in punching state
                 if(p1_state == KICKING) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp) begin
-                        p1_hitpoints <= p1_hitpoints - 10;
+                        p1_hp <= p1_hp - 10;
                     end
                 end else begin
-                    p1_hitpoints <= p1_hitpoints - 10;
+                    p1_hp <= p1_hp - 10;
                 end
+                p2_next_state <= AT_REST;
             end
         
         default: p2_state <= AT_REST;
         endcase
     end
 
-    
-    
-    
 endmodule

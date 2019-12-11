@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Thu Dec  5 18:52:17 2019
+| Date         : Wed Dec 11 15:36:43 2019
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              22 |           13 |
+| No           | No                    | No                     |              22 |           14 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              47 |           17 |
+| No           | Yes                   | No                     |              47 |           18 |
 | Yes          | No                    | No                     |              23 |            7 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              30 |            8 |
+| Yes          | Yes                   | No                     |              30 |            9 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -74,15 +74,15 @@ Table of Contents
 |        Clock Signal       |      Enable Signal     |               Set/Reset Signal              | Slice Load Count | Bel Load Count |
 +---------------------------+------------------------+---------------------------------------------+------------------+----------------+
 |  clkdivider/inst/clk_out1 | db1/new_input_i_1_n_0  |                                             |                1 |              1 |
-|  clkdivider/inst/clk_out1 | xvga1/hreset           | xvga1/vcount_out0                           |                3 |             10 |
-|  clkdivider/inst/clk_out1 |                        | xvga1/hreset                                |                5 |             11 |
-|  clkdivider/inst/clk_out1 | db1/clean_out_reg_0[0] |                                             |                3 |             11 |
+|  clkdivider/inst/clk_out1 | xvga1/hreset           | xvga1/vcount_out0                           |                4 |             10 |
+|  clkdivider/inst/clk_out1 |                        | xvga1/hreset                                |                6 |             11 |
 |  clkdivider/inst/clk_out1 | db1/E[0]               |                                             |                3 |             11 |
-|  clkdivider/inst/clk_out1 |                        | move_player_1/p1_blob/pixel_out[11]_i_1_n_0 |                5 |             12 |
+|  clkdivider/inst/clk_out1 | db1/clean_out_reg_0[0] |                                             |                3 |             11 |
+|  clkdivider/inst/clk_out1 |                        | move_player_1/p1_blob/pixel_out[11]_i_1_n_0 |                4 |             12 |
+|  clkdivider/inst/clk_out1 |                        | move_player_2/p2_blob/pixel_out[11]_i_1_n_0 |                4 |             12 |
 |  clkdivider/inst/clk_out1 |                        | xvga1/vcount_out_reg[4]_0                   |                4 |             12 |
-|  clkdivider/inst/clk_out1 |                        | move_player_2/p2_blob/pixel_out[11]_i_1_n_0 |                3 |             12 |
 |  clkdivider/inst/clk_out1 | db1/count              | db1/new_input_i_1_n_0                       |                5 |             20 |
-|  clkdivider/inst/clk_out1 |                        |                                             |               13 |             22 |
+|  clkdivider/inst/clk_out1 |                        |                                             |               14 |             22 |
 +---------------------------+------------------------+---------------------------------------------+------------------+----------------+
 
 

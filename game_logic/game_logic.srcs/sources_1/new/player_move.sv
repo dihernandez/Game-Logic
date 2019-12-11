@@ -26,8 +26,8 @@ module player_move(
   input is_p1,            // 1 if is player 1 2 if is player 2
   input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
   input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
-  input initial_x_p1,        // player starting location
-  input initial_x_p2,        // player starting location
+  input [10:0] initial_x_p1,        // player starting location
+  input [10:0] initial_x_p2,        // player starting location
    input p1_right_in,         // 1 when player 1 should move right
    input p1_left_in,          // 1 when player 1 should move left
    input p2_right_in,         // 1 when player 2 should move right
@@ -38,8 +38,6 @@ module player_move(
    input hsync_in,         // XVGA horizontal sync signal (active low)
    input vsync_in,         // XVGA vertical sync signal (active low)
    input blank_in,         // XVGA blanking (1 means output black pixel)
-   input p1_stop,          // when p1 reaches a condition that should stop movement 
-   input p2_stop,          // when p2 reaches a condition that should stop movement
         
    output logic phsync_out,       // pong game's horizontal sync
    output logic pvsync_out,       // pong game's vertical sync
@@ -47,6 +45,8 @@ module player_move(
    output [11:0] pixel_out  // pong game's pixel  // r=11:7, g=7:3, b=3:0 
     );
     
+   parameter WIDTH = 64;
+   parameter HEIGHT = 64;
    logic[10:0] x_in_p1 = initial_x_p1; // player 1 in left of screen x
    logic[10:0] x_in_p2 = initial_x_p2; // player 2 in right of screen x
 
@@ -56,9 +56,9 @@ module player_move(
 
 
     
-    player_1_blob  #(.WIDTH(64), .HEIGHT(64)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
+    player_1_blob  #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
-    player_2_blob #(.WIDTH(64), .HEIGHT(64)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_motion), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
+    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_motion), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
      // initialize everything
     always @(posedge vclock_in) begin
@@ -86,11 +86,15 @@ module player_move(
     
     task player_1_move;
         begin
-            if(p1_stop) begin
-                x_in_p1 <= x_in_p1;
-            end else if(p1_right_in) begin
+            if(p1_right_in) begin
+               if(x_in_p2 <= (x_in_p1 + WIDTH)) begin
+                    x_in_p1 <= x_in_p1; //stay still
+                end
                 x_in_p1 <= x_in_p1 + pspeed_in; 
             end else if(p1_left_in) begin
+                if(x_in_p1 < 0) begin
+                    x_in_p1 <= x_in_p1;
+                end
                 x_in_p1 <= x_in_p1 - pspeed_in;
             end
         end
@@ -98,11 +102,15 @@ module player_move(
  
      task player_2_move;
         begin
-            if(p2_stop) begin
-                x_in_p2 <= x_in_p2;
-            end else if(p2_right_in) begin
+            if(p2_right_in) begin
+                if(x_in_p2 >= (1024 - WIDTH)) begin
+                    x_in_p2 <= x_in_p2; // stay still
+                end
                 x_in_p2 <= x_in_p2 + pspeed_in; 
             end else if(p2_left_in) begin
+                if(x_in_p2 <= (x_in_p1 + WIDTH)) begin
+                    x_in_p2 <= x_in_p2;
+                end
                 x_in_p2 <= x_in_p2 - pspeed_in;
             end
         end
