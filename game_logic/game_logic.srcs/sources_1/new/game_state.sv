@@ -22,7 +22,7 @@
 
 module game_state(
     input vclock_in,        // 65MHz clock
-    //.reset_in(reset),         // 1 to initialize module
+    input reset_in,         // 1 to initialize module
     input [10:0] p1_x_in, // player 1's x position
     input [10:0] p2_x_in,  // player 2's x position
     input p1_kick,

@@ -22,8 +22,8 @@ module game_state_tb();
     wire [6:0] p1_hp, p2_hp;
 
 
-    game_state(
-    .vclock_in,.reset_in(reset), .p1_x_in(p1_x_in), .p1_kick(p1_kick), .p1_punch(p1_punch), 
+    game_state game(
+    .vclock_in(clk),.reset_in(reset), .p1_x_in(p1_x_in), .p1_kick(p1_kick), .p1_punch(p1_punch), 
     .p2_x_in(p2_x_in), .p2_kick(p2_kick), .p2_punch(p2_punch), .p1_state(p1_state), .p2_state(p2_state), .p1_hitpoints(p1_hp), .p2_hitpoints(p2_hp)
     );
     
@@ -40,7 +40,7 @@ module game_state_tb();
         // check state machine
         assert (p1_state == AT_REST);
         assert (p2_state == AT_REST);
-        #1000;
+        #100;
         p1_kick <= 1;
         #10
         assert (p1_state == KICKING);

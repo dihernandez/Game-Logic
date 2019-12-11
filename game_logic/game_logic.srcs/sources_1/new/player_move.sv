@@ -30,14 +30,16 @@ module player_move(
    parameter HEIGHT = 64;
    logic[10:0] x_in_p1 = initial_x_p1; // player 1 in left of screen x
    logic[10:0] x_in_p2 = initial_x_p2; // player 2 in right of screen x
-
+   
+   logic[4:0] buffer = (pspeed_in << 1) + 1; // account for two players moving against each other at same time
+   
    wire[11:0] p1_pixel, p2_pixel;
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
    logic vsync_old; // keeping track of vsync state to see if it has changed from 0 to 1
 
 
     
-    player_1_blob  #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
+    player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
     player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_motion), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
@@ -68,7 +70,7 @@ module player_move(
     task player_1_move;
         begin
             if(p1_right_in) begin
-               if(x_in_p2 <= (x_in_p1 + WIDTH)) begin // if player 2 is overlaping with player 1, stop motion
+               if((x_in_p1 + WIDTH + buffer) >= x_in_p2) begin // if player 2 is overlaping with player 1, stop motion
                     x_in_p1 <= x_in_p1; //stay still
                 end else begin
                     x_in_p1 <= x_in_p1 + pspeed_in; // otherwise move to the right
@@ -92,7 +94,7 @@ module player_move(
                     x_in_p2 <= x_in_p2 + pspeed_in; 
                 end
             end else if(p2_left_in) begin
-                if(x_in_p2 <= (x_in_p1 + WIDTH)) begin
+                if(x_in_p2 <= (x_in_p1 + WIDTH + buffer)) begin
                     x_in_p2 <= x_in_p2;
                 end else begin
                     x_in_p2 <= x_in_p2 - pspeed_in;
