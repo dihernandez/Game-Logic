@@ -1,48 +1,29 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 12/01/2019 03:14:47 PM
-// Design Name: 
-// Module Name: player_move
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module player_move(
-  input vclock_in,        // 65MHz clock
-  input reset_in,         // 1 to initialize module
-  input is_p1,            // 1 if is player 1 2 if is player 2
-  input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
-  input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
-  input [10:0] initial_x_p1,        // player starting location
-  input [10:0] initial_x_p2,        // player starting location
-   input p1_right_in,         // 1 when player 1 should move right
-   input p1_left_in,          // 1 when player 1 should move left
-   input p2_right_in,         // 1 when player 2 should move right
-   input p2_left_in,          // 1 when player 2 should move left
-   input [3:0] pspeed_in,  // puck speed in pixels/tick 
-   input [10:0] hcount_in, // horizontal index of current pixel (0..1023)
-   input [9:0]  vcount_in, // vertical index of current pixel (0..767)
-   input hsync_in,         // XVGA horizontal sync signal (active low)
-   input vsync_in,         // XVGA vertical sync signal (active low)
-   input blank_in,         // XVGA blanking (1 means output black pixel)
+    input vclock_in,        // 65MHz clock
+    input reset_in,         // 1 to initialize module
+    input is_p1,            // 1 if is player 1 2 if is player 2
+    input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
+    input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
+    input [10:0] initial_x_p1,        // player starting location
+    input [10:0] initial_x_p2,        // player starting location
+    input p1_right_in,         // 1 when player 1 should move right
+    input p1_left_in,          // 1 when player 1 should move left
+    input p2_right_in,         // 1 when player 2 should move right
+    input p2_left_in,          // 1 when player 2 should move left
+    input [3:0] pspeed_in,  // puck speed in pixels/tick 
+    input [10:0] hcount_in, // horizontal index of current pixel (0..1023)
+    input [9:0]  vcount_in, // vertical index of current pixel (0..767)
+    input hsync_in,         // XVGA horizontal sync signal (active low)
+    input vsync_in,         // XVGA vertical sync signal (active low)
+    input blank_in,         // XVGA blanking (1 means output black pixel)
         
-   output logic phsync_out,       // pong game's horizontal sync
-   output logic pvsync_out,       // pong game's vertical sync
-   output logic pblank_out,       // pong game's blanking
-   output [11:0] pixel_out  // pong game's pixel  // r=11:7, g=7:3, b=3:0 
+    output logic phsync_out,       // pong game's horizontal sync
+    output logic pvsync_out,       // pong game's vertical sync
+    output logic pblank_out,       // pong game's blanking
+    output [11:0] pixel_out  // pong game's pixel  // r=11:7, g=7:3, b=3:0 
     );
     
    parameter WIDTH = 64;
@@ -87,31 +68,35 @@ module player_move(
     task player_1_move;
         begin
             if(p1_right_in) begin
-               if(x_in_p2 <= (x_in_p1 + WIDTH)) begin
+               if(x_in_p2 <= (x_in_p1 + WIDTH)) begin // if player 2 is overlaping with player 1, stop motion
                     x_in_p1 <= x_in_p1; //stay still
-                end
-                x_in_p1 <= x_in_p1 + pspeed_in; 
+                end else begin
+                    x_in_p1 <= x_in_p1 + pspeed_in; // otherwise move to the right
+                end 
             end else if(p1_left_in) begin
-                if(x_in_p1 < 0) begin
+                if(x_in_p1 <= 0) begin // if player one is going off the screen, stop motion
                     x_in_p1 <= x_in_p1;
+                end else begin
+                    x_in_p1 <= x_in_p1 - pspeed_in; // otherwise move to the left
                 end
-                x_in_p1 <= x_in_p1 - pspeed_in;
             end
         end
     endtask 
  
-     task player_2_move;
+    task player_2_move;
         begin
             if(p2_right_in) begin
                 if(x_in_p2 >= (1024 - WIDTH)) begin
                     x_in_p2 <= x_in_p2; // stay still
+                end else begin
+                    x_in_p2 <= x_in_p2 + pspeed_in; 
                 end
-                x_in_p2 <= x_in_p2 + pspeed_in; 
             end else if(p2_left_in) begin
                 if(x_in_p2 <= (x_in_p1 + WIDTH)) begin
                     x_in_p2 <= x_in_p2;
+                end else begin
+                    x_in_p2 <= x_in_p2 - pspeed_in;
                 end
-                x_in_p2 <= x_in_p2 - pspeed_in;
             end
         end
     endtask  

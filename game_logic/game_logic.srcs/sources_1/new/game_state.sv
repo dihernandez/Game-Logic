@@ -25,18 +25,13 @@ module game_state(
     //.reset_in(reset),         // 1 to initialize module
     input [10:0] p1_x_in, // player 1's x position
     input [10:0] p2_x_in,  // player 2's x position
-    
-    input p1_left,
-    input p1_right,
     input p1_kick,
     input p1_punch,
-    
-    input p2_left,
-    input p2_right,
     input p2_kick,
     input p2_punch,
     
-    output [2:0] state,
+    output [2:0] p1_state,
+    output [2:0] p2_state,
     output[6:0] p1_hitpoints,
     output[6:0] p2_hitpoints
     );

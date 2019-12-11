@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Wed Dec 11 15:37:05 2019
+| Date             : Wed Dec 11 16:08:11 2019
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.230        |
+| Total On-Chip Power (W)  | 0.229        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.132        |
+| Dynamic (W)              | 0.131        |
 | Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.0         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      488 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      212 |     63400 |            0.33 |
-|   CARRY4       |    <0.001 |       33 |     15850 |            0.21 |
-|   Register     |    <0.001 |      122 |    126800 |            0.10 |
-|   Others       |     0.000 |       43 |       --- |             --- |
-| Signals        |    <0.001 |      344 |       --- |             --- |
-| Block RAM      |     0.007 |        9 |       135 |            6.67 |
+| Slice Logic    |    <0.001 |      581 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      247 |     63400 |            0.39 |
+|   CARRY4       |    <0.001 |       43 |     15850 |            0.27 |
+|   Register     |    <0.001 |      144 |    126800 |            0.11 |
+|   Others       |     0.000 |       44 |       --- |             --- |
+| Signals        |    <0.001 |      375 |       --- |             --- |
+| Block RAM      |     0.006 |        9 |       135 |            6.67 |
 | MMCM           |     0.122 |        1 |         6 |           16.67 |
-| I/O            |     0.001 |       26 |       210 |           12.38 |
+| I/O            |    <0.001 |       26 |       210 |           12.38 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.230 |          |           |                 |
+| Total          |     0.229 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -147,7 +147,7 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| main                |     0.132 |
+| main                |     0.131 |
 |   clkdivider        |     0.122 |
 |     inst            |     0.122 |
 |   move_player_1     |     0.005 |
