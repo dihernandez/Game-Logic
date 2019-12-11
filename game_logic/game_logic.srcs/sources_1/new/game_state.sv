@@ -46,8 +46,8 @@ module game_state(
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;
 
-    logic[6:0] p1_hitpoints;
-    logic[6:0] p2_hitpoints;
+    logic[6:0] p1_hitpoints = 100;
+    logic[6:0] p2_hitpoints = 100;
  
     
     logic[8:0] distance_p1_to_p2_current;
@@ -56,19 +56,64 @@ module game_state(
     logic[8:0] distance_p2_to_p1_current;
     logic[8:0] distance_p2_to_p1_previous;  
     
-    logic[2:0] state = AT_REST;
-    logic[2:0] next_state;
+    // keep track of when hit action was initiated
+    // what behaviour to expect when value is exceeded
+    logic[8:0] p1_hit_time_stamp = 0;
+    logic[8:0] p2_hit_time_stamp = 0;
+    logic[8:0] cycle_counter = 0;
     
+    logic[2:0] p1_state = AT_REST;
+    logic[2:0] p1_next_state;
+    logic[2:0] p2_state = AT_REST;
+    logic[2:0] p2_next_state;
+    
+    // handle p1 state logic. NOTE: can interact wtih state 2 logic
     always @(posedge vclock_in) begin
-        case(state)
+        cycle_counter <= cycle_counter + 1;
+        case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
-                if(p2_punch &&  distance_p2_to_p1_current < PUNCHING_DISTANCE) begin
-                    next_state <= PUNCHING;
+                if(p1_punch &&  distance_p1_to_p2_current < PUNCHING_DISTANCE) begin
+                    p1_next_state <= PUNCHING;
+                    p1_hit_time_stamp <= cycle_counter;
                 end
             end
+            PUNCHING: begin
+                // handle both in punching state
+                if(p2_state == PUNCHING) begin
+                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin
+                        p2_hitpoints <= p2_hitpoints - 5;
+                    end
+                end else begin
+                    p2_hitpoints <= p2_hitpoints - 5;
+                end
+                
+            end
             
-            
-            default: state <= AT_REST;
+            default: p1_state <= AT_REST;
+        endcase
+    end
+    
+    // handle p2 state logic. NOTE: can interact wtih state 1 logic
+    always @(posedge vclock_in) begin
+        case(p2_state)
+            AT_REST: begin
+                if(p2_punch && distance_p2_to_p1_current < PUNCHING_DISTANCE) begin
+                    p2_next_state <= PUNCHING;
+                    p2_hit_time_stamp <= cycle_counter;
+                end
+            end
+            PUNCHING: begin
+                // handle both in punching state
+                if(p1_state == PUNCHING) begin
+                    if(p2_hit_time_stamp < p1_hit_time_stamp) begin
+                        p1_hitpoints <= p1_hitpoints - 5;
+                    end
+                end else begin
+                    p1_hitpoints <= p1_hitpoints - 5;
+                end
+            end
+        
+        default: p2_state <= AT_REST;
         endcase
     end
 
