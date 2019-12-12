@@ -28,10 +28,10 @@ module player_move(
     
    parameter WIDTH = 64;
    parameter HEIGHT = 64;
-   logic[10:0] x_in_p1 = initial_x_p1; // player 1 in left of screen x
-   logic[10:0] x_in_p2 = initial_x_p2; // player 2 in right of screen x
+   logic[10:0] x_in_p1; // player 1 in left of screen x
+   logic[10:0] x_in_p2; // player 2 in right of screen x
    
-   logic[4:0] buffer = (pspeed_in << 1) + 1; // account for two players moving against each other at same time
+   logic[4:0] buffer = 0;//(pspeed_in << 1) + 1; // account for two players moving against each other at same time
    
    wire[11:0] p1_pixel, p2_pixel;
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
@@ -58,11 +58,8 @@ module player_move(
         end else begin
             vsync_old <= vsync_in;
             if(vsync_in == 1'b1 && vsync_old == 1'b0) begin
-                if(is_p1) begin
-                    player_1_move;
-                end else begin
-                    player_2_move;
-                end
+                player_1_move;
+                player_2_move;
             end
         end
     end

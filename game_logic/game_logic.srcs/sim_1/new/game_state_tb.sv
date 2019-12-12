@@ -8,7 +8,7 @@ module game_state_tb();
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;
 
-    logic clk;// = 1'd0;
+    logic clk;
     
     always #5 clk = !clk;
     
