@@ -68,3 +68,567 @@ program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/clk_wiz_final/clk_wiz_final.xci' is already up-to-date
+[Thu Dec 12 15:39:40 2019] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/runme.log
+[Thu Dec 12 15:39:40 2019] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/impl_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_blue.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.game_state
+Compiling module xil_defaultlib.game_state_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot game_state_tb_behav
+
+****** Webtalk v2019.1.2 (64-bit)
+  **** SW Build 2615518 on Fri Aug  9 15:53:29 MDT 2019
+  **** IP Build 2614745 on Fri Aug  9 20:55:02 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/xsim.dir/game_state_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/xsim.dir/game_state_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Dec 12 15:42:38 2019. For additional details about this file, please refer to the WebTalk help file at /var/local/xilinx-local/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Dec 12 15:42:38 2019...
+run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 8080.246 ; gain = 0.000 ; free physical = 215 ; free virtual = 10605
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "game_state_tb_behav -key {Behavioral:sim_1:Functional:game_state_tb} -tclbatch {game_state_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source game_state_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'game_state_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 8080.246 ; gain = 0.000 ; free physical = 510 ; free virtual = 10868
+run 20 ms
+run 20 ms
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/impl_1/main.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8246.316 ; gain = 0.000 ; free physical = 1740 ; free virtual = 11600
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_blue.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.game_state
+Compiling module xil_defaultlib.game_state_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot game_state_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "game_state_tb_behav -key {Behavioral:sim_1:Functional:game_state_tb} -tclbatch {game_state_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source game_state_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'game_state_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 8246.316 ; gain = 0.000 ; free physical = 1727 ; free virtual = 11570
+run 20 ms
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_blue.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+relaunch_sim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 8246.316 ; gain = 0.000 ; free physical = 1828 ; free virtual = 11671
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [Common 17-14] Message 'SIM-utils 43' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8246.316 ; gain = 0.000 ; free physical = 1834 ; free virtual = 11677
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_blue.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.game_state
+Compiling module xil_defaultlib.game_state_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot game_state_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 160 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+relaunch_sim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8254.320 ; gain = 0.000 ; free physical = 1696 ; free virtual = 11549
+relaunch_sim
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/var/local/xilinx-local/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'game_state_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.mif'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_motions_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_kicking_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_at_rest_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_kicking_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p1_punching_blue.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_red.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_green.coe'
+INFO: [SIM-utils-43] Exported '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/p2_punching_blue.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj game_state_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_state_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim'
+xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /var/local/xilinx-local/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 410203f947124a5c8fc071aa11cea0bc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_state_tb_behav xil_defaultlib.game_state_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.game_state
+Compiling module xil_defaultlib.game_state_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot game_state_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 120 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 140 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 160 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8259.320 ; gain = 0.000 ; free physical = 1706 ; free virtual = 11556

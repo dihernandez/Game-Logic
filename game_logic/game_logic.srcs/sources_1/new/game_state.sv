@@ -61,15 +61,19 @@ module game_state(
     logic[8:0] p2_hit_time_stamp = 0;
     logic[8:0] cycle_counter = 0;
     
-    logic[2:0] p1_state = AT_REST;
+    logic[2:0] player_1_state = AT_REST;
     logic[2:0] p1_next_state;
-    logic[2:0] p2_state = AT_REST;
+    logic[2:0] player_2_state = AT_REST;
     logic[2:0] p2_next_state;
+    assign p1_state = player_1_state;
+    assign p2_state = player_2_state;
     
     // handle p1 state logic. NOTE: can interact wtih state 2 logic
     always @(posedge vclock_in) begin
         cycle_counter <= cycle_counter + 1; // only need one counter
-        p1_state <= p1_next_state;
+        player_1_state <= p1_next_state;
+        distance_p1_to_p2_current = p2_x_in - p1_x_in;
+        distance_p2_to_p1_current = p2_x_in - p1_x_in; // don't actually need
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
                 if(p1_punch &&  distance_p1_to_p2_current < PUNCHING_DISTANCE) begin
@@ -106,13 +110,13 @@ module game_state(
                 p1_next_state <= AT_REST;
             end
             
-            default: p1_state <= AT_REST;
+            default: p1_next_state <= AT_REST;
         endcase
     end
     
     // handle p2 state logic. NOTE: can interact wtih state 1 logic
     always @(posedge vclock_in) begin
-        p2_state <= p2_next_state;
+        player_2_state <= p2_next_state;
         case(p2_state)
             AT_REST: begin
                 if(p2_punch && distance_p2_to_p1_current < PUNCHING_DISTANCE) begin
@@ -150,7 +154,7 @@ module game_state(
                 p2_next_state <= AT_REST;
             end
         
-        default: p2_state <= AT_REST;
+        default: p2_next_state <= AT_REST;
         endcase
     end
 
