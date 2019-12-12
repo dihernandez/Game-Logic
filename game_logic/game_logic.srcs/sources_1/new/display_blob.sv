@@ -65,8 +65,8 @@ module main(
           
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_score_pixel, p2_score_pixel;
-    number_display p1_score(.clk(clk_65mhz), .x_in(100), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
-    number_display p2_score(.clk(clk_65mhz), .x_in(600), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
+    number_display p1_score(.clk(clk_65mhz), .x_in(100), .digit(1), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
+    number_display p2_score(.clk(clk_65mhz), .x_in(600), .digit(2), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
     
     // for testing--------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
@@ -335,24 +335,51 @@ endmodule
 module number_display #(
     parameter WIDTH = 64,            // default width: 64 pixel
                HEIGHT = 64,           // default height: 64 pixels
-               COLOR = 12'hFFF)  // default color: white
+               COLOR = 12'hFFF,
+               NUMBER_OFFSET = 2304 // the value to offset by in order to change number display value
+)  // default color: white
     (
         input clk,
         input [10:0] x_in, hcount_in,
         input [9:0] y_in,vcount_in,
+        input[3:0] digit, // the value to display
         output logic [11:0] pixel_out
     );
     
-    
+    logic [14:0] offset;
     logic [14:0] image_addr;   // num of bits for 23040 line COE
     logic [7:0] image_bits;
 
-    numbers num(.clka(clk), .addra(image_addr), .douta(image_bits));
+    numbers num(.clka(clk), .addra(image_addr + NUMBER_OFFSET), .douta(image_bits));
     
     always @(posedge clk) begin
         if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
             pixel_out <= image_bits;
+            case(digit)
+                0:
+                    offset <= 0;
+                1:
+                    offset <= NUMBER_OFFSET;
+                2:
+                    offset <= 2*NUMBER_OFFSET;
+                3:
+                    offset <= 3*NUMBER_OFFSET;
+                4:
+                    offset <= 4*NUMBER_OFFSET;
+                5:
+                    offset <= 5*NUMBER_OFFSET;
+                6:
+                    offset <= 6*NUMBER_OFFSET;
+                7:
+                    offset <= 7*NUMBER_OFFSET;
+                8:
+                    offset <= 8*NUMBER_OFFSET;
+                9:
+                    offset <= 9*NUMBER_OFFSET;
+                default:
+                    offset <= 0;
+            endcase
         end
     end  
 endmodule
