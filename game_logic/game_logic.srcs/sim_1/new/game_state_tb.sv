@@ -1,9 +1,7 @@
 module game_state_tb();
-    parameter AT_REST = 3'b000;
-    parameter MOVING_BACKWARDS = 3'b001;
-    parameter MOVING_FORWARDS = 3'b010;
-    parameter KICKING = 3'b011;
-    parameter PUNCHING = 3'b100;
+    parameter AT_REST = 3'b00;
+    parameter KICKING = 3'b01;
+    parameter PUNCHING = 3'b10;
 
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;

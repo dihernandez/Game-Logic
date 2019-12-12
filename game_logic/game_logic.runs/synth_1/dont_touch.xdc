@@ -27,6 +27,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_motions_red 
 # IP: ip/p1_motions/p1_motions.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==p1_motions || ORIG_REF_NAME==p1_motions} -quiet] -quiet
 
+# IP: ip/numbers/numbers.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==numbers || ORIG_REF_NAME==numbers} -quiet] -quiet
+
 # IP: ip/clk_wiz_final/clk_wiz_final.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_final || ORIG_REF_NAME==clk_wiz_final} -quiet] -quiet
 
@@ -45,3 +48,5 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_wiz_final |
 # XDC: ip/p1_motions_red/p1_motions_red_ooc.xdc
 
 # XDC: ip/p1_motions/p1_motions_ooc.xdc
+
+# XDC: ip/numbers/numbers_ooc.xdc

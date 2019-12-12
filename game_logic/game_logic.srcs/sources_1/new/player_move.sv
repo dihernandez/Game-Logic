@@ -5,8 +5,8 @@ module player_move(
     input vclock_in,        // 65MHz clock
     input reset_in,         // 1 to initialize module
     input is_p1,            // 1 if is player 1 2 if is player 2
-    input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
-    input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
+    //input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
+    //input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
     input [10:0] initial_x_p1,        // player starting location
     input [10:0] initial_x_p2,        // player starting location
     input p1_right_in,         // 1 when player 1 should move right
@@ -19,6 +19,12 @@ module player_move(
     input hsync_in,         // XVGA horizontal sync signal (active low)
     input vsync_in,         // XVGA vertical sync signal (active low)
     input blank_in,         // XVGA blanking (1 means output black pixel)
+    
+    // controll for player combat
+    input p1_kick,
+    input p1_punch,
+    input p2_kick,
+    input p2_punch,
         
     output logic phsync_out,       // pong game's horizontal sync
     output logic pvsync_out,       // pong game's vertical sync
@@ -36,12 +42,32 @@ module player_move(
    wire[11:0] p1_pixel, p2_pixel;
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
    logic vsync_old; // keeping track of vsync state to see if it has changed from 0 to 1
+   
 
+    wire [1:0] p1_state, p2_state; 
+    
+    player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_state), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
+    
+    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
+    
 
+       // Game Logic
+    game_state game(
+    .vclock_in(vclock_in),        // 65MHz clock
+    .reset_in(reset_in),         // 1 to initialize module
+    .p1_x_in(x_in_p1), // player 1's x position
+    .p2_x_in(x_in_p2),  // player 2's x position
+    .p1_kick(p1_kick),
+    .p1_punch(p1_punch),
+    .p2_kick(p2_kick),
+    .p2_punch(p2_punch),
     
-    player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_motion), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
+    .p1_state(p1_state),
+    .p2_state(p2_state)
+//    output[6:0] p1_hitpoints,
+//    output[6:0] p2_hitpoints
+    );
     
-    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_motion), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
      // initialize everything
     always @(posedge vclock_in) begin

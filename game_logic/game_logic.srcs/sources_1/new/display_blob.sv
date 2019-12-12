@@ -63,19 +63,25 @@ module main(
     debounce db5(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
       
           
-          
-    // for testing----------------------------------------------------------------------------------
+    //display score------------------------------------------------------------------------------------      
+    logic [11:0] p1_score_pixel, p2_score_pixel;
+    number_display p1_score(.clk(clk_65mhz), .x_in(100), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
+    number_display p2_score(.clk(clk_65mhz), .x_in(600), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
+    
+    // for testing--------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
     wire [1:0] p2_motion = sw[3:2]; //use switches 3 and 2 to select between at rest, kicking, and punching
 
     wire phsync,pvsync,pblank;
-        // display pong game's padde w/ sw14 and 15 for p1 left and right respectively
+    
+    // define players and their movement logic
+    
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
     .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
-   .p1_motion(p1_motion),
-   .p2_motion(p2_motion),
+//   .p1_motion(p1_motion),
+//   .p2_motion(p2_motion),
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
    .initial_x_p2(600),         // p2 0 default when p1 selected
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
@@ -91,8 +97,14 @@ module main(
    .phsync_out(phsync),       // pong game's horizontal sync
    .pvsync_out(pvsync),       // pong game's vertical sync
    .pblank_out(pblank),       // pong game's blanking
+    
+     // player combat
+    .p1_kick(btnd),
+    .p1_punch(btnr),
+    .p2_kick(btnu),
+    .p2_punch(btnl),
         
-   .pixel_out(player_1_pixel)
+    .pixel_out(player_1_pixel)
    );
    
     player_move move_player_2(
@@ -100,8 +112,8 @@ module main(
     .reset_in(reset),         // 1 to initialize module
 
    .is_p1(0),
-   .p1_motion(p1_motion),
-   .p2_motion(p2_motion),
+//   .p1_motion(p1_motion),
+//   .p2_motion(p2_motion),
    .initial_x_p1(100),
    .initial_x_p2(600),
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
@@ -117,17 +129,23 @@ module main(
    .phsync_out(phsync),       // pong game's horizontal sync
    .pvsync_out(pvsync),       // pong game's vertical sync
    .pblank_out(pblank),       // pong game's blanking
+
+    // player combat
+    .p1_kick(btnd),
+    .p1_punch(btnr),
+    .p2_kick(btnu),
+    .p2_punch(btnl),
+
         
    .pixel_out(player_2_pixel)
    );
-   
     
     // .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank), DON'T YOU FORGET ABOUT ME!!!! 
     
     wire [11:0] white_square_pixel;
-    blob white_square(.x_in(0), .hcount_in(hcount), .y_in(0), .vcount_in(vcount), .pixel_out(white_square_pixel));
+    //blob white_square(.x_in(0), .hcount_in(hcount), .y_in(0), .vcount_in(vcount), .pixel_out(white_square_pixel));
     wire [11:0] pixel;
-    assign pixel = white_square_pixel | player_1_pixel | player_2_pixel;
+    assign pixel = white_square_pixel | player_1_pixel | player_2_pixel | p1_score_pixel | p2_score_pixel;
     
     wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
                    hcount == 512 | vcount == 384);
@@ -312,6 +330,31 @@ module player_2_blob
    p2_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
    p2_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
 
+endmodule
+
+module number_display #(
+    parameter WIDTH = 64,            // default width: 64 pixel
+               HEIGHT = 64,           // default height: 64 pixels
+               COLOR = 12'hFFF)  // default color: white
+    (
+        input clk,
+        input [10:0] x_in, hcount_in,
+        input [9:0] y_in,vcount_in,
+        output logic [11:0] pixel_out
+    );
+    
+    
+    logic [14:0] image_addr;   // num of bits for 23040 line COE
+    logic [7:0] image_bits;
+
+    numbers num(.clka(clk), .addra(image_addr), .douta(image_bits));
+    
+    always @(posedge clk) begin
+        if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
+          (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
+            pixel_out <= image_bits;
+        end
+    end  
 endmodule
 
 //////////////////////////////////////////////////////////////////////////////////
