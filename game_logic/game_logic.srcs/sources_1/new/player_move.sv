@@ -50,8 +50,7 @@ module player_move(
     
     player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
-
-       // Game Logic
+    // Game Logic
     game_state game(
     .vclock_in(vclock_in),        // 65MHz clock
     .reset_in(reset_in),         // 1 to initialize module

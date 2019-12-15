@@ -55,10 +55,10 @@ module game_state(
     logic[8:0] p2_hit_time_stamp = 0;
     logic[8:0] cycle_counter = 0;
     
-    logic[2:0] player_1_state = AT_REST;
-    logic[2:0] p1_next_state;
-    logic[2:0] player_2_state = AT_REST;
-    logic[2:0] p2_next_state;
+    logic[1:0] player_1_state = AT_REST;
+    logic[1:0] p1_next_state;
+    logic[1:0] player_2_state = AT_REST;
+    logic[1:0] p2_next_state;
     assign p1_state = player_1_state;
     assign p2_state = player_2_state;
     
@@ -89,6 +89,7 @@ module game_state(
                     p2_hp <= p2_hp - 5;
                 end
                 p1_next_state <= AT_REST;
+                p1_hit_time_stamp <= 0;
             end
             
             KICKING: begin
@@ -101,6 +102,8 @@ module game_state(
                     p2_hp <= p2_hp - 10;
                 end
                 p1_next_state <= AT_REST;
+                p1_hit_time_stamp <= 0;
+
             end
             
             default: p1_next_state <= AT_REST;
@@ -118,7 +121,7 @@ module game_state(
                 end
                 if(p2_kick && distance_p1_to_p2 < KICKING_DISTANCE) begin
                     p2_next_state <= KICKING;
-                    p2_hit_time_stamp <= cycle_counter;
+                    p2_hit_time_stamp <= cycle_counter; // will the counter overflow?
                 end
             end
             
@@ -131,7 +134,8 @@ module game_state(
                 end else begin
                     p1_hp <= p1_hp - 5;
                 end
-                p2_next_state <= AT_REST; 
+                p2_next_state <= AT_REST;
+                p2_hit_time_stamp <= 0;
             end
             
             
@@ -145,6 +149,7 @@ module game_state(
                     p1_hp <= p1_hp - 10;
                 end
                 p2_next_state <= AT_REST;
+                p2_hit_time_stamp <= 0;
             end
         
         default: p2_next_state <= AT_REST;

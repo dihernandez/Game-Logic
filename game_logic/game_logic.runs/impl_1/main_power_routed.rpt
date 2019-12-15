@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Thu Dec 12 17:32:29 2019
+| Date             : Sun Dec 15 16:33:38 2019
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.237        |
+| Total On-Chip Power (W)  | 0.232        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.139        |
+| Dynamic (W)              | 0.134        |
 | Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.9         |
@@ -53,18 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      767 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      328 |     63400 |            0.52 |
+| Slice Logic    |    <0.001 |      708 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      321 |     63400 |            0.51 |
 |   CARRY4       |    <0.001 |       67 |     15850 |            0.42 |
-|   Register     |    <0.001 |      176 |    126800 |            0.14 |
-|   Others       |     0.000 |       66 |       --- |             --- |
-|   F7/F8 Muxes  |     0.000 |       16 |     63400 |            0.03 |
-| Signals        |    <0.001 |      490 |       --- |             --- |
-| Block RAM      |     0.011 |       13 |       135 |            9.63 |
+|   Register     |    <0.001 |      160 |    126800 |            0.13 |
+|   Others       |     0.000 |       48 |       --- |             --- |
+| Signals        |    <0.001 |      430 |       --- |             --- |
+| Block RAM      |     0.009 |        9 |       135 |            6.67 |
 | MMCM           |     0.122 |        1 |         6 |           16.67 |
-| I/O            |     0.003 |       25 |       210 |           11.90 |
+| I/O            |     0.001 |       25 |       210 |           11.90 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.237 |          |           |                 |
+| Total          |     0.232 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.029 |       0.013 |      0.016 |
+| Vccint    |       1.000 |     0.027 |       0.011 |      0.016 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.002 |       0.001 |      0.001 |
+| Vccbram   |       1.000 |     0.001 |       0.001 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -148,7 +147,7 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| main                |     0.139 |
+| main                |     0.134 |
 |   clkdivider        |     0.122 |
 |     inst            |     0.122 |
 |   move_player_1     |     0.005 |
@@ -161,12 +160,6 @@ Table of Contents
 |       p2_rest_blue  |     0.001 |
 |       p2_rest_green |     0.001 |
 |       p2_rest_red   |     0.001 |
-|   p1_score          |     0.001 |
-|     num             |     0.001 |
-|       U0            |     0.001 |
-|   p2_score          |     0.001 |
-|     num             |     0.001 |
-|       U0            |     0.001 |
 +---------------------+-----------+
 
 

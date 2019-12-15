@@ -15,15 +15,15 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5681 
+INFO: Helper process launched with PID 12621 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1809.820 ; gain = 154.527 ; free physical = 1326 ; free virtual = 10625
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1809.852 ; gain = 154.527 ; free physical = 650 ; free virtual = 9976
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-5658-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-5658-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-12583-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-12583-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
 WARNING: [Synth 8-7023] instance 'clkdivider' of module 'clk_wiz_final' has 4 connections declared, but only 3 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:40]
-INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:408]
+INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:410]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
 	Parameter DISPLAY_HEIGHT bound to: 768 - type: integer 
 	Parameter H_FP bound to: 24 - type: integer 
@@ -32,12 +32,12 @@ INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/di
 	Parameter V_FP bound to: 3 - type: integer 
 	Parameter V_SYNC_PULSE bound to: 6 - type: integer 
 	Parameter V_BP bound to: 29 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xvga' (2#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:408]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:467]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:467]
+INFO: [Synth 8-6155] done synthesizing module 'xvga' (2#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:410]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:469]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:469]
 INFO: [Synth 8-6157] synthesizing module 'number_display' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:335]
-	Parameter WIDTH bound to: 64 - type: integer 
-	Parameter HEIGHT bound to: 64 - type: integer 
+	Parameter WIDTH bound to: 48 - type: integer 
+	Parameter HEIGHT bound to: 48 - type: integer 
 	Parameter COLOR bound to: 12'b111111111111 
 	Parameter NUMBER_OFFSET bound to: 2304 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'numbers' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/numbers/synth/numbers.vhd:67]
@@ -119,9 +119,89 @@ INFO: [Synth 8-638] synthesizing module 'numbers' [/afs/athena.mit.edu/user/d/i/
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/numbers/synth/numbers.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'numbers' (14#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/numbers/synth/numbers.vhd:67]
 WARNING: [Synth 8-689] width (32) of port connection 'addra' does not match port width (15) of module 'numbers' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:353]
-WARNING: [Synth 8-6014] Unused sequential element offset_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:361]
+INFO: [Synth 8-638] synthesizing module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:67]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: p2_motions_red.mif - type: string 
+	Parameter C_INIT_FILE bound to: p2_motions_red.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 4 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 4 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 16 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 16 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 4 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 4 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 4 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 16 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 16 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 4 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:230]
+INFO: [Synth 8-256] done synthesizing module 'p2_motions_red' (15#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:67]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:354]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:354]
+WARNING: [Synth 8-6014] Unused sequential element offset_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:363]
 WARNING: [Synth 8-3848] Net image_addr in module/entity number_display does not have driver. [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:350]
-INFO: [Synth 8-6155] done synthesizing module 'number_display' (15#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:335]
+INFO: [Synth 8-6155] done synthesizing module 'number_display' (16#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:335]
 INFO: [Synth 8-6157] synthesizing module 'player_move' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:4]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
@@ -208,7 +288,7 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions' [/afs/athena.mit.edu/user/d
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.3264 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/synth/p1_motions.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p1_motions' (16#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/synth/p1_motions.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'p1_motions' (17#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions/synth/p1_motions.vhd:67]
 INFO: [Synth 8-638] synthesizing module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:67]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -286,7 +366,7 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_red' [/afs/athena.mit.edu/us
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p1_motions_red' (17#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'p1_motions_red' (18#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:67]
 WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:272]
 WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:272]
 INFO: [Synth 8-638] synthesizing module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:67]
@@ -366,7 +446,7 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_green' [/afs/athena.mit.edu/
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p1_motions_green' (18#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'p1_motions_green' (19#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:67]
 WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:273]
 WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:273]
 INFO: [Synth 8-638] synthesizing module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:67]
@@ -446,10 +526,10 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_blue' [/afs/athena.mit.edu/u
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p1_motions_blue' (19#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'p1_motions_blue' (20#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:67]
 WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:274]
 WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:274]
-INFO: [Synth 8-6155] done synthesizing module 'player_1_blob' (20#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:224]
+INFO: [Synth 8-6155] done synthesizing module 'player_1_blob' (21#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:224]
 INFO: [Synth 8-6157] synthesizing module 'player_2_blob' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:281]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
@@ -533,85 +613,7 @@ INFO: [Synth 8-638] synthesizing module 'p2_motions' [/afs/athena.mit.edu/user/d
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.3264 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions/synth/p2_motions.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p2_motions' (21#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions/synth/p2_motions.vhd:67]
-INFO: [Synth 8-638] synthesizing module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:67]
-	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
-	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
-	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
-	Parameter C_AXI_TYPE bound to: 1 - type: integer 
-	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
-	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
-	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
-	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
-	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_MEM_TYPE bound to: 3 - type: integer 
-	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
-	Parameter C_ALGORITHM bound to: 1 - type: integer 
-	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
-	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
-	Parameter C_INIT_FILE_NAME bound to: p2_motions_red.mif - type: string 
-	Parameter C_INIT_FILE bound to: p2_motions_red.mem - type: string 
-	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
-	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
-	Parameter C_HAS_RSTA bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
-	Parameter C_RSTRAM_A bound to: 0 - type: integer 
-	Parameter C_INITA_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENA bound to: 0 - type: integer 
-	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
-	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
-	Parameter C_WRITE_WIDTH_A bound to: 4 - type: integer 
-	Parameter C_READ_WIDTH_A bound to: 4 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 16 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 16 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 4 - type: integer 
-	Parameter C_HAS_RSTB bound to: 0 - type: integer 
-	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
-	Parameter C_RSTRAM_B bound to: 0 - type: integer 
-	Parameter C_INITB_VAL bound to: 0 - type: string 
-	Parameter C_HAS_ENB bound to: 0 - type: integer 
-	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
-	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
-	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
-	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
-	Parameter C_WRITE_WIDTH_B bound to: 4 - type: integer 
-	Parameter C_READ_WIDTH_B bound to: 4 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 16 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 16 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 4 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
-	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
-	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
-	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
-	Parameter C_USE_ECC bound to: 0 - type: integer 
-	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
-	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
-	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
-	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
-	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
-	Parameter C_COMMON_CLK bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
-	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_USE_URAM bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
-	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
-	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
-	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
-	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
-	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:230]
-INFO: [Synth 8-256] done synthesizing module 'p2_motions_red' (22#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'p2_motions' (22#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions/synth/p2_motions.vhd:67]
 WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:329]
 WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:329]
 INFO: [Synth 8-638] synthesizing module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/synth/p2_motions_green.vhd:67]
@@ -781,10 +783,8 @@ INFO: [Synth 8-6157] synthesizing module 'game_state' [/afs/athena.mit.edu/user/
 	Parameter PUNCHING bound to: 2'b10 
 	Parameter KICKING_DISTANCE bound to: 32 - type: integer 
 	Parameter PUNCHING_DISTANCE bound to: 64 - type: integer 
-WARNING: [Synth 8-3936] Found unconnected internal register 'player_1_state_reg' and it is trimmed from '3' to '2' bits. [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:62]
-WARNING: [Synth 8-3936] Found unconnected internal register 'player_2_state_reg' and it is trimmed from '3' to '2' bits. [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:63]
 INFO: [Synth 8-6155] done synthesizing module 'game_state' (26#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:23]
-WARNING: [Synth 8-7023] instance 'game' of module 'game_state' has 12 connections declared, but only 10 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:55]
+WARNING: [Synth 8-7023] instance 'game' of module 'game_state' has 12 connections declared, but only 10 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:54]
 INFO: [Synth 8-6155] done synthesizing module 'player_move' (27#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:4]
 WARNING: [Synth 8-3848] Net white_square_pixel in module/entity main does not have driver. [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:145]
 INFO: [Synth 8-6155] done synthesizing module 'main' (28#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:23]
@@ -855,42 +855,42 @@ WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized7 has unco
 WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized7 has unconnected port REGCEB[0]
 WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized7 has unconnected port INJECTSBITERR
 WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized7 has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port DOUTB_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port DOUTB_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port DOUTB_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port DOUTB_I[0]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port SBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port DBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port RDADDRECC_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port RDADDRECC_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port RDADDRECC_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized1 has unconnected port RDADDRECC_I[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port RSTA
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ENA
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port REGCEA
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port WEA[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINA[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINA[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINA[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINA[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port RSTB
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ENB
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port REGCEB
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port WEB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ADDRB[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ADDRB[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ADDRB[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port ADDRB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINB[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINB[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINB[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port DINB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized1 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port WEA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTDBITERR
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:06:06 ; elapsed = 00:06:22 . Memory (MB): peak = 2553.395 ; gain = 898.102 ; free physical = 908 ; free virtual = 10267
+Finished RTL Elaboration : Time (s): cpu = 00:06:01 ; elapsed = 00:06:17 . Memory (MB): peak = 2553.730 ; gain = 898.406 ; free physical = 800 ; free virtual = 9806
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -903,12 +903,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:07 ; elapsed = 00:06:25 . Memory (MB): peak = 2553.395 ; gain = 898.102 ; free physical = 937 ; free virtual = 10291
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:01 ; elapsed = 00:06:20 . Memory (MB): peak = 2553.730 ; gain = 898.406 ; free physical = 824 ; free virtual = 9830
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:07 ; elapsed = 00:06:25 . Memory (MB): peak = 2553.395 ; gain = 898.102 ; free physical = 937 ; free virtual = 10291
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:01 ; elapsed = 00:06:20 . Memory (MB): peak = 2553.730 ; gain = 898.406 ; free physical = 824 ; free virtual = 9830
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 38 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -963,20 +963,20 @@ Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logi
 Finished Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2617.426 ; gain = 0.000 ; free physical = 852 ; free virtual = 10206
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2617.762 ; gain = 0.000 ; free physical = 740 ; free virtual = 9746
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2617.426 ; gain = 0.000 ; free physical = 852 ; free virtual = 10206
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 2617.762 ; gain = 0.000 ; free physical = 740 ; free virtual = 9746
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:06:14 ; elapsed = 00:06:36 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 908 ; free virtual = 10262
+Finished Constraint Validation : Time (s): cpu = 00:06:09 ; elapsed = 00:06:31 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 810 ; free virtual = 9821
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:06:14 ; elapsed = 00:06:36 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 908 ; free virtual = 10262
+Finished Loading Part and Timing Information : Time (s): cpu = 00:06:09 ; elapsed = 00:06:31 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 810 ; free virtual = 9821
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -989,6 +989,8 @@ Applied set_property DONT_TOUCH = true for move_player_1/p2_blob/p2_rest_green. 
 Applied set_property DONT_TOUCH = true for move_player_2/p2_blob/p2_rest_green. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for move_player_1/p2_blob/p2_rest_red. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for move_player_2/p2_blob/p2_rest_red. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for p1_score/test_red_num. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for p2_score/test_red_num. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for move_player_1/p2_blob/p2_motions. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for move_player_2/p2_blob/p2_motions. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for move_player_1/p1_blob/p1_rest_blue. (constraint file  auto generated constraint, line ).
@@ -1003,14 +1005,14 @@ Applied set_property DONT_TOUCH = true for p1_score/num. (constraint file  auto 
 Applied set_property DONT_TOUCH = true for p2_score/num. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clkdivider. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:14 ; elapsed = 00:06:36 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 903 ; free virtual = 10257
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:09 ; elapsed = 00:06:31 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 803 ; free virtual = 9813
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'player_1_state_reg' in module 'game_state'
 INFO: [Synth 8-802] inferred FSM for state register 'player_2_state_reg' in module 'game_state'
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:95]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:113]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:95]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:113]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:94]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:112]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:94]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:112]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -1028,7 +1030,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'player_2_state_reg' using 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'player_1_state_reg' using encoding 'one-hot' in module 'game_state'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:16 ; elapsed = 00:06:40 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 908 ; free virtual = 10264
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:11 ; elapsed = 00:06:36 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 820 ; free virtual = 9825
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1048,17 +1050,16 @@ Detailed RTL Component Info :
 	   2 Input     12 Bit       Adders := 2     
 	   2 Input     11 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 1     
-	   2 Input      9 Bit       Adders := 2     
 	   3 Input      9 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
 	   2 Input      7 Bit       Adders := 8     
 +---Registers : 
 	               15 Bit    Registers := 2     
 	               14 Bit    Registers := 8     
-	               12 Bit    Registers := 5     
+	               12 Bit    Registers := 7     
 	               11 Bit    Registers := 5     
 	               10 Bit    Registers := 1     
 	                9 Bit    Registers := 8     
-	                8 Bit    Registers := 2     
 	                7 Bit    Registers := 4     
 	                3 Bit    Registers := 6     
 	                2 Bit    Registers := 12    
@@ -1068,6 +1069,7 @@ Detailed RTL Component Info :
 	   2 Input     12 Bit        Muxes := 6     
 	   3 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 4     
+	   3 Input      9 Bit        Muxes := 4     
 	   4 Input      8 Bit        Muxes := 8     
 	   3 Input      7 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 3     
@@ -1129,7 +1131,7 @@ Detailed RTL Component Info :
 	   3 Input     13 Bit       Adders := 1     
 	   3 Input     12 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
 Module number_display 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1137,7 +1139,7 @@ Detailed RTL Component Info :
 	   3 Input     13 Bit       Adders := 1     
 	   3 Input     12 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
 Module bindec__parameterized0 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -1183,13 +1185,14 @@ Detailed RTL Component Info :
 Module game_state 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      9 Bit       Adders := 1     
 	   3 Input      9 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
 	   2 Input      7 Bit       Adders := 4     
 +---Registers : 
 	                9 Bit    Registers := 4     
 	                7 Bit    Registers := 2     
 +---Muxes : 
+	   3 Input      9 Bit        Muxes := 2     
 	   3 Input      7 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 2     
@@ -1257,7 +1260,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'move_player_2/vsync_old_reg' into 'move_player_1/vsync_old_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:85]
+INFO: [Synth 8-4471] merging register 'move_player_2/vsync_old_reg' into 'move_player_1/vsync_old_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:84]
 INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[0]' (FDE) to 'move_player_2/p2_blob/offset_reg[11]'
 INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[1]' (FDE) to 'move_player_2/p2_blob/offset_reg[11]'
 INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[2]' (FDE) to 'move_player_2/p2_blob/offset_reg[11]'
@@ -1282,8 +1285,32 @@ INFO: [Synth 8-3886] merging instance 'move_player_1/p1_blob/offset_reg[8]' (FDE
 INFO: [Synth 8-3886] merging instance 'move_player_1/p1_blob/offset_reg[9]' (FDE) to 'move_player_1/p1_blob/offset_reg[11]'
 INFO: [Synth 8-3886] merging instance 'move_player_1/p1_blob/offset_reg[10]' (FDE) to 'move_player_1/p1_blob/offset_reg[11]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\move_player_1/p1_blob/offset_reg[11] )
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[4]' (FDE) to 'p2_score/pixel_out_reg[5]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[4]' (FDE) to 'p1_score/pixel_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[5]' (FDE) to 'p2_score/pixel_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[5]' (FDE) to 'p1_score/pixel_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[6]' (FDRE) to 'p2_score/pixel_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[6]' (FDRE) to 'p1_score/pixel_out_reg[7]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[7]' (FDRE) to 'p2_score/pixel_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[7]' (FDRE) to 'p1_score/pixel_out_reg[8]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[0]' (FDE) to 'p2_score/pixel_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[0]' (FDE) to 'p1_score/pixel_out_reg[1]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[1]' (FDE) to 'p2_score/pixel_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[1]' (FDE) to 'p1_score/pixel_out_reg[2]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[2]' (FDE) to 'p2_score/pixel_out_reg[3]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[2]' (FDE) to 'p1_score/pixel_out_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\p2_score/pixel_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\p1_score/pixel_out_reg[3] )
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[8]' (FDRE) to 'p2_score/pixel_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[8]' (FDRE) to 'p1_score/pixel_out_reg[9]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[9]' (FDRE) to 'p2_score/pixel_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[9]' (FDRE) to 'p1_score/pixel_out_reg[10]'
+INFO: [Synth 8-3886] merging instance 'p2_score/pixel_out_reg[10]' (FDRE) to 'p2_score/pixel_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'p1_score/pixel_out_reg[10]' (FDRE) to 'p1_score/pixel_out_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\p2_score/pixel_out_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\p1_score/pixel_out_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:17 ; elapsed = 00:06:44 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 820 ; free virtual = 10261
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:12 ; elapsed = 00:06:39 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 735 ; free virtual = 9825
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1297,13 +1324,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkdivider/clk_out1' to pin 'clkdivider/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:22 ; elapsed = 00:06:49 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 695 ; free virtual = 10136
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:17 ; elapsed = 00:06:44 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 610 ; free virtual = 9700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:06:23 ; elapsed = 00:06:50 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 690 ; free virtual = 10131
+Finished Timing Optimization : Time (s): cpu = 00:06:18 ; elapsed = 00:06:45 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1315,7 +1342,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:23 ; elapsed = 00:06:50 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 690 ; free virtual = 10131
+Finished Technology Mapping : Time (s): cpu = 00:06:18 ; elapsed = 00:06:45 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1339,7 +1366,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:24 ; elapsed = 00:06:51 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 690 ; free virtual = 10131
+Finished IO Insertion : Time (s): cpu = 00:06:19 ; elapsed = 00:06:46 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1352,7 +1379,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:24 ; elapsed = 00:06:51 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 690 ; free virtual = 10131
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:19 ; elapsed = 00:06:46 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1364,25 +1391,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 689 ; free virtual = 10130
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 689 ; free virtual = 10130
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 689 ; free virtual = 10130
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 689 ; free virtual = 10130
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1400,15 +1427,15 @@ Report Cell Usage:
 |      |Cell          |Count |
 +------+--------------+------+
 |1     |clk_wiz_final |     1|
-|2     |CARRY4        |   109|
+|2     |CARRY4        |   113|
 |3     |LUT1          |    44|
-|4     |LUT2          |   228|
-|5     |LUT3          |    94|
-|6     |LUT4          |   153|
-|7     |LUT5          |    71|
-|8     |LUT6          |    90|
+|4     |LUT2          |   229|
+|5     |LUT3          |    92|
+|6     |LUT4          |   148|
+|7     |LUT5          |    82|
+|8     |LUT6          |    76|
 |9     |MUXF7         |    16|
-|10    |RAMB18E1      |     2|
+|10    |RAMB18E1      |     4|
 |11    |RAMB18E1_1    |     2|
 |12    |RAMB18E1_2    |     2|
 |13    |RAMB18E1_3    |     2|
@@ -1426,7 +1453,7 @@ Report Cell Usage:
 |25    |RAMB36E1_7    |     2|
 |26    |RAMB36E1_8    |     2|
 |27    |RAMB36E1_9    |     2|
-|28    |FDRE          |   204|
+|28    |FDRE          |   188|
 |29    |FDSE          |    12|
 |30    |IBUF          |    10|
 |31    |OBUF          |    14|
@@ -1436,135 +1463,135 @@ Report Instance Areas:
 +------+---------------------------------------------------+--------------------------------------------------+------+
 |      |Instance                                           |Module                                            |Cells |
 +------+---------------------------------------------------+--------------------------------------------------+------+
-|1     |top                                                |                                                  |  1083|
+|1     |top                                                |                                                  |  1064|
 |2     |  db1                                              |debounce                                          |    41|
-|3     |  move_player_1                                    |player_move__xdcDup__1                            |   329|
-|4     |    game                                           |game_state_18                                     |    45|
-|5     |    p1_blob                                        |player_1_blob__xdcDup__1                          |    98|
+|3     |  move_player_1                                    |player_move__xdcDup__1                            |   324|
+|4     |    game                                           |game_state_28                                     |    45|
+|5     |    p1_blob                                        |player_1_blob__xdcDup__1                          |    93|
 |6     |      p1_motions                                   |p1_motions__2                                     |    18|
-|7     |        U0                                         |blk_mem_gen_v8_4_3__parameterized1__2             |    18|
-|8     |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized0_59       |    18|
-|9     |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_60                |    18|
-|10    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_61       |    18|
-|11    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_62                |    12|
-|12    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized5_63         |     2|
-|13    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized5_68  |     2|
-|14    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized6_64         |     2|
-|15    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized6_67  |     2|
-|16    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized7_65         |     2|
-|17    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized7_66  |     2|
+|7     |        U0                                         |blk_mem_gen_v8_4_3__parameterized3__2             |    18|
+|8     |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized1_69       |    18|
+|9     |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1_70                |    18|
+|10    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1_71       |    18|
+|11    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_72                |    12|
+|12    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized6_73         |     2|
+|13    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized6_78  |     2|
+|14    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized7_74         |     2|
+|15    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized7_77  |     2|
+|16    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized8_75         |     2|
+|17    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized8_76  |     2|
 |18    |      p1_rest_red                                  |p1_motions_red__2                                 |     1|
-|19    |        U0                                         |blk_mem_gen_v8_4_3__parameterized3__2             |     1|
-|20    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized1_54       |     1|
-|21    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1_55                |     1|
-|22    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1_56       |     1|
-|23    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized8_57         |     1|
-|24    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized8_58  |     1|
+|19    |        U0                                         |blk_mem_gen_v8_4_3__parameterized5__2             |     1|
+|20    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized2_64       |     1|
+|21    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized2_65                |     1|
+|22    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized2_66       |     1|
+|23    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized9_67         |     1|
+|24    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized9_68  |     1|
 |25    |      p1_rest_green                                |p1_motions_green__2                               |     1|
-|26    |        U0                                         |blk_mem_gen_v8_4_3__parameterized5__2             |     1|
-|27    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized2_49       |     1|
-|28    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized2_50                |     1|
-|29    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized2_51       |     1|
-|30    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized9_52         |     1|
-|31    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized9_53  |     1|
+|26    |        U0                                         |blk_mem_gen_v8_4_3__parameterized7__2             |     1|
+|27    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized3_59       |     1|
+|28    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized3_60                |     1|
+|29    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized3_61       |     1|
+|30    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized10_62        |     1|
+|31    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized10_63 |     1|
 |32    |      p1_rest_blue                                 |p1_motions_blue__2                                |     1|
-|33    |        U0                                         |blk_mem_gen_v8_4_3__parameterized7__2             |     1|
-|34    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized3_44       |     1|
-|35    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized3_45                |     1|
-|36    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized3_46       |     1|
-|37    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized10_47        |     1|
-|38    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized10_48 |     1|
+|33    |        U0                                         |blk_mem_gen_v8_4_3__parameterized9__2             |     1|
+|34    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized4_54       |     1|
+|35    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized4_55                |     1|
+|36    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized4_56       |     1|
+|37    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized11_57        |     1|
+|38    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized11_58 |     1|
 |39    |    p2_blob                                        |player_2_blob__xdcDup__1                          |    87|
 |40    |      p2_motions                                   |p2_motions__2                                     |    18|
-|41    |        U0                                         |blk_mem_gen_v8_4_3__parameterized9__2             |    18|
-|42    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized4_34       |    18|
-|43    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized4_35                |    18|
-|44    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized4_36       |    18|
-|45    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_37                |    12|
-|46    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized11_38        |     2|
-|47    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized11_43 |     2|
-|48    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized12_39        |     2|
-|49    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized12_42 |     2|
-|50    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized13_40        |     2|
-|51    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized13_41 |     2|
-|52    |      p2_rest_red                                  |p2_motions_red__2                                 |     1|
-|53    |        U0                                         |blk_mem_gen_v8_4_3__parameterized11__2            |     1|
-|54    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized5_29       |     1|
-|55    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized5_30                |     1|
-|56    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized5_31       |     1|
-|57    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized14_32        |     1|
-|58    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized14_33 |     1|
+|41    |        U0                                         |blk_mem_gen_v8_4_3__parameterized11__2            |    18|
+|42    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized5_44       |    18|
+|43    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized5_45                |    18|
+|44    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized5_46       |    18|
+|45    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_47                |    12|
+|46    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized12_48        |     2|
+|47    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized12_53 |     2|
+|48    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized13_49        |     2|
+|49    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized13_52 |     2|
+|50    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized14_50        |     2|
+|51    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized14_51 |     2|
+|52    |      p2_rest_red                                  |p2_motions_red__5                                 |     1|
+|53    |        U0                                         |blk_mem_gen_v8_4_3__parameterized1__5             |     1|
+|54    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized0_39       |     1|
+|55    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_40                |     1|
+|56    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_41       |     1|
+|57    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized5_42         |     1|
+|58    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized5_43  |     1|
 |59    |      p2_rest_green                                |p2_motions_green__2                               |     1|
 |60    |        U0                                         |blk_mem_gen_v8_4_3__parameterized13__2            |     1|
-|61    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized6_24       |     1|
-|62    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized6_25                |     1|
-|63    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized6_26       |     1|
-|64    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized15_27        |     1|
-|65    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized15_28 |     1|
+|61    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized6_34       |     1|
+|62    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized6_35                |     1|
+|63    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized6_36       |     1|
+|64    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized15_37        |     1|
+|65    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized15_38 |     1|
 |66    |      p2_rest_blue                                 |p2_motions_blue__2                                |     1|
 |67    |        U0                                         |blk_mem_gen_v8_4_3__parameterized15__2            |     1|
-|68    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized7_19       |     1|
-|69    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized7_20                |     1|
-|70    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized7_21       |     1|
-|71    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized16_22        |     1|
-|72    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized16_23 |     1|
-|73    |  move_player_2                                    |player_move                                       |   320|
+|68    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized7_29       |     1|
+|69    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized7_30                |     1|
+|70    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized7_31       |     1|
+|71    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized16_32        |     1|
+|72    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized16_33 |     1|
+|73    |  move_player_2                                    |player_move                                       |   316|
 |74    |    game                                           |game_state                                        |    45|
 |75    |    p1_blob                                        |player_1_blob                                     |    87|
 |76    |      p1_motions                                   |p1_motions                                        |    18|
-|77    |        U0                                         |blk_mem_gen_v8_4_3__parameterized1                |    18|
-|78    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized0          |    18|
-|79    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0                   |    18|
-|80    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0          |    18|
+|77    |        U0                                         |blk_mem_gen_v8_4_3__parameterized3                |    18|
+|78    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized1          |    18|
+|79    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1                   |    18|
+|80    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1          |    18|
 |81    |                \bindec_a.bindec_inst_a            |bindec__parameterized0                            |     3|
-|82    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_17                |    12|
-|83    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized5            |     1|
-|84    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized5     |     1|
-|85    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized6            |     1|
-|86    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized6     |     1|
-|87    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized7            |     1|
-|88    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized7     |     1|
+|82    |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1_27                |    12|
+|83    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized6            |     1|
+|84    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized6     |     1|
+|85    |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized7            |     1|
+|86    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized7     |     1|
+|87    |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized8            |     1|
+|88    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized8     |     1|
 |89    |      p1_rest_red                                  |p1_motions_red                                    |     1|
-|90    |        U0                                         |blk_mem_gen_v8_4_3__parameterized3                |     1|
-|91    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized1          |     1|
-|92    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1                   |     1|
-|93    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1          |     1|
-|94    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized8            |     1|
-|95    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized8     |     1|
+|90    |        U0                                         |blk_mem_gen_v8_4_3__parameterized5                |     1|
+|91    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized2          |     1|
+|92    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized2                   |     1|
+|93    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized2          |     1|
+|94    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized9            |     1|
+|95    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized9     |     1|
 |96    |      p1_rest_green                                |p1_motions_green                                  |     1|
-|97    |        U0                                         |blk_mem_gen_v8_4_3__parameterized5                |     1|
-|98    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized2          |     1|
-|99    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized2                   |     1|
-|100   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized2          |     1|
-|101   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized9            |     1|
-|102   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized9     |     1|
+|97    |        U0                                         |blk_mem_gen_v8_4_3__parameterized7                |     1|
+|98    |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized3          |     1|
+|99    |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized3                   |     1|
+|100   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized3          |     1|
+|101   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized10           |     1|
+|102   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized10    |     1|
 |103   |      p1_rest_blue                                 |p1_motions_blue                                   |     1|
-|104   |        U0                                         |blk_mem_gen_v8_4_3__parameterized7                |     1|
-|105   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized3          |     1|
-|106   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized3                   |     1|
-|107   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized3          |     1|
-|108   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized10           |     1|
-|109   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized10    |     1|
-|110   |    p2_blob                                        |player_2_blob                                     |    91|
+|104   |        U0                                         |blk_mem_gen_v8_4_3__parameterized9                |     1|
+|105   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized4          |     1|
+|106   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized4                   |     1|
+|107   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized4          |     1|
+|108   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized11           |     1|
+|109   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized11    |     1|
+|110   |    p2_blob                                        |player_2_blob                                     |    87|
 |111   |      p2_motions                                   |p2_motions                                        |    18|
-|112   |        U0                                         |blk_mem_gen_v8_4_3__parameterized9                |    18|
-|113   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized4          |    18|
-|114   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized4                   |    18|
-|115   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized4          |    18|
+|112   |        U0                                         |blk_mem_gen_v8_4_3__parameterized11               |    18|
+|113   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized5          |    18|
+|114   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized5                   |    18|
+|115   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized5          |    18|
 |116   |                \has_mux_a.A                       |blk_mem_gen_mux__parameterized1                   |    12|
-|117   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized11           |     2|
-|118   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized11    |     2|
-|119   |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized12           |     2|
-|120   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized12    |     2|
-|121   |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized13           |     2|
-|122   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized13    |     2|
+|117   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized12           |     2|
+|118   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized12    |     2|
+|119   |                \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized13           |     2|
+|120   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized13    |     2|
+|121   |                \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized14           |     2|
+|122   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized14    |     2|
 |123   |      p2_rest_red                                  |p2_motions_red                                    |     1|
-|124   |        U0                                         |blk_mem_gen_v8_4_3__parameterized11               |     1|
-|125   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized5          |     1|
-|126   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized5                   |     1|
-|127   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized5          |     1|
-|128   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized14           |     1|
-|129   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized14    |     1|
+|124   |        U0                                         |blk_mem_gen_v8_4_3__parameterized1                |     1|
+|125   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized0_22       |     1|
+|126   |            \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_23                |     1|
+|127   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_24       |     1|
+|128   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized5_25         |     1|
+|129   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized5_26  |     1|
 |130   |      p2_rest_green                                |p2_motions_green                                  |     1|
 |131   |        U0                                         |blk_mem_gen_v8_4_3__parameterized13               |     1|
 |132   |          inst_blk_mem_gen                         |blk_mem_gen_v8_4_3_synth__parameterized6          |     1|
@@ -1579,70 +1606,84 @@ Report Instance Areas:
 |141   |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized7          |     1|
 |142   |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized16           |     1|
 |143   |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized16    |     1|
-|144   |  p1_score                                         |number_display__xdcDup__1                         |    50|
+|144   |  p1_score                                         |number_display__xdcDup__1                         |    45|
 |145   |    num                                            |numbers__2                                        |    42|
 |146   |      U0                                           |blk_mem_gen_v8_4_3__2                             |    42|
-|147   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth_0                        |    42|
-|148   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top_1                                 |    42|
-|149   |            \valid.cstr                            |blk_mem_gen_generic_cstr_2                        |    42|
-|150   |              \bindec_a.bindec_inst_a              |bindec_3                                          |     5|
-|151   |              \has_mux_a.A                         |blk_mem_gen_mux_4                                 |    30|
-|152   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width_5                          |     1|
-|153   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init_16                  |     1|
-|154   |              \ramloop[1].ram.r                    |blk_mem_gen_prim_width__parameterized0_6          |     1|
-|155   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized0_15  |     1|
-|156   |              \ramloop[2].ram.r                    |blk_mem_gen_prim_width__parameterized1_7          |     2|
-|157   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized1_14  |     2|
-|158   |              \ramloop[3].ram.r                    |blk_mem_gen_prim_width__parameterized2_8          |     1|
-|159   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized2_13  |     1|
-|160   |              \ramloop[4].ram.r                    |blk_mem_gen_prim_width__parameterized3_9          |     1|
-|161   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized3_12  |     1|
-|162   |              \ramloop[5].ram.r                    |blk_mem_gen_prim_width__parameterized4_10         |     1|
-|163   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized4_11  |     1|
-|164   |  p2_score                                         |number_display                                    |    50|
-|165   |    num                                            |numbers                                           |    42|
-|166   |      U0                                           |blk_mem_gen_v8_4_3                                |    42|
-|167   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth                          |    42|
-|168   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top                                   |    42|
-|169   |            \valid.cstr                            |blk_mem_gen_generic_cstr                          |    42|
-|170   |              \bindec_a.bindec_inst_a              |bindec                                            |     5|
-|171   |              \has_mux_a.A                         |blk_mem_gen_mux                                   |    30|
-|172   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width                            |     1|
-|173   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init                     |     1|
-|174   |              \ramloop[1].ram.r                    |blk_mem_gen_prim_width__parameterized0            |     1|
-|175   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized0     |     1|
-|176   |              \ramloop[2].ram.r                    |blk_mem_gen_prim_width__parameterized1            |     2|
-|177   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized1     |     2|
-|178   |              \ramloop[3].ram.r                    |blk_mem_gen_prim_width__parameterized2            |     1|
-|179   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized2     |     1|
-|180   |              \ramloop[4].ram.r                    |blk_mem_gen_prim_width__parameterized3            |     1|
-|181   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized3     |     1|
-|182   |              \ramloop[5].ram.r                    |blk_mem_gen_prim_width__parameterized4            |     1|
-|183   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized4     |     1|
-|184   |  xvga1                                            |xvga                                              |   238|
+|147   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth_5                        |    42|
+|148   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top_6                                 |    42|
+|149   |            \valid.cstr                            |blk_mem_gen_generic_cstr_7                        |    42|
+|150   |              \bindec_a.bindec_inst_a              |bindec_8                                          |     5|
+|151   |              \has_mux_a.A                         |blk_mem_gen_mux_9                                 |    30|
+|152   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width_10                         |     1|
+|153   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init_21                  |     1|
+|154   |              \ramloop[1].ram.r                    |blk_mem_gen_prim_width__parameterized0_11         |     1|
+|155   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized0_20  |     1|
+|156   |              \ramloop[2].ram.r                    |blk_mem_gen_prim_width__parameterized1_12         |     2|
+|157   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized1_19  |     2|
+|158   |              \ramloop[3].ram.r                    |blk_mem_gen_prim_width__parameterized2_13         |     1|
+|159   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized2_18  |     1|
+|160   |              \ramloop[4].ram.r                    |blk_mem_gen_prim_width__parameterized3_14         |     1|
+|161   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized3_17  |     1|
+|162   |              \ramloop[5].ram.r                    |blk_mem_gen_prim_width__parameterized4_15         |     1|
+|163   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized4_16  |     1|
+|164   |    test_red_num                                   |p2_motions_red__3                                 |     1|
+|165   |      U0                                           |blk_mem_gen_v8_4_3__parameterized1__3             |     1|
+|166   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth__parameterized0_0        |     1|
+|167   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top__parameterized0_1                 |     1|
+|168   |            \valid.cstr                            |blk_mem_gen_generic_cstr__parameterized0_2        |     1|
+|169   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width__parameterized5_3          |     1|
+|170   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized5_4   |     1|
+|171   |  p2_score                                         |number_display                                    |    45|
+|172   |    num                                            |numbers                                           |    42|
+|173   |      U0                                           |blk_mem_gen_v8_4_3                                |    42|
+|174   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth                          |    42|
+|175   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top                                   |    42|
+|176   |            \valid.cstr                            |blk_mem_gen_generic_cstr                          |    42|
+|177   |              \bindec_a.bindec_inst_a              |bindec                                            |     5|
+|178   |              \has_mux_a.A                         |blk_mem_gen_mux                                   |    30|
+|179   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width                            |     1|
+|180   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init                     |     1|
+|181   |              \ramloop[1].ram.r                    |blk_mem_gen_prim_width__parameterized0            |     1|
+|182   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized0     |     1|
+|183   |              \ramloop[2].ram.r                    |blk_mem_gen_prim_width__parameterized1            |     2|
+|184   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized1     |     2|
+|185   |              \ramloop[3].ram.r                    |blk_mem_gen_prim_width__parameterized2            |     1|
+|186   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized2     |     1|
+|187   |              \ramloop[4].ram.r                    |blk_mem_gen_prim_width__parameterized3            |     1|
+|188   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized3     |     1|
+|189   |              \ramloop[5].ram.r                    |blk_mem_gen_prim_width__parameterized4            |     1|
+|190   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized4     |     1|
+|191   |    test_red_num                                   |p2_motions_red__4                                 |     1|
+|192   |      U0                                           |blk_mem_gen_v8_4_3__parameterized1__4             |     1|
+|193   |        inst_blk_mem_gen                           |blk_mem_gen_v8_4_3_synth__parameterized0          |     1|
+|194   |          \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top__parameterized0                   |     1|
+|195   |            \valid.cstr                            |blk_mem_gen_generic_cstr__parameterized0          |     1|
+|196   |              \ramloop[0].ram.r                    |blk_mem_gen_prim_width__parameterized5            |     1|
+|197   |                \prim_init.ram                     |blk_mem_gen_prim_wrapper_init__parameterized5     |     1|
+|198   |  xvga1                                            |xvga                                              |   238|
 +------+---------------------------------------------------+--------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 689 ; free virtual = 10131
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 600 ; free virtual = 9690
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1340 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:06:19 ; elapsed = 00:06:46 . Memory (MB): peak = 2617.426 ; gain = 898.102 ; free physical = 739 ; free virtual = 10180
-Synthesis Optimization Complete : Time (s): cpu = 00:06:25 ; elapsed = 00:06:52 . Memory (MB): peak = 2617.426 ; gain = 962.133 ; free physical = 752 ; free virtual = 10193
+Synthesis Optimization Runtime : Time (s): cpu = 00:06:14 ; elapsed = 00:06:41 . Memory (MB): peak = 2617.762 ; gain = 898.406 ; free physical = 651 ; free virtual = 9741
+Synthesis Optimization Complete : Time (s): cpu = 00:06:19 ; elapsed = 00:06:47 . Memory (MB): peak = 2617.762 ; gain = 962.438 ; free physical = 665 ; free virtual = 9755
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 161 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 167 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2617.426 ; gain = 0.000 ; free physical = 685 ; free virtual = 10126
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2633.773 ; gain = 0.000 ; free physical = 597 ; free virtual = 9688
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-95 Infos, 159 Warnings, 0 Critical Warnings and 0 Errors encountered.
+119 Infos, 159 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:06:29 ; elapsed = 00:06:56 . Memory (MB): peak = 2617.426 ; gain = 1184.461 ; free physical = 809 ; free virtual = 10250
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2617.426 ; gain = 0.000 ; free physical = 809 ; free virtual = 10250
+synth_design: Time (s): cpu = 00:06:23 ; elapsed = 00:06:59 . Memory (MB): peak = 2633.773 ; gain = 1200.777 ; free physical = 720 ; free virtual = 9809
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2633.773 ; gain = 0.000 ; free physical = 720 ; free virtual = 9809
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 17:31:33 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 15 16:32:45 2019...

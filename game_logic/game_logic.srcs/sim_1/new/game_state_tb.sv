@@ -12,8 +12,8 @@ module game_state_tb();
     
     logic reset = 1'b0;
     logic[10:0] p1_x_in, p2_x_in;
-    logic[2:0] p1_state = AT_REST;
-    logic[2:0] p2_state = AT_REST;
+    logic[1:0] p1_state = AT_REST;
+    logic[1:0] p2_state = AT_REST;
     logic p1_left, p1_right, p1_kick, p1_punch;
     logic p2_left, p2_right, p2_kick, p2_punch;
     logic start_timer = 0;

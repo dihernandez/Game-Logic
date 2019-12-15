@@ -65,8 +65,8 @@ module main(
           
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_score_pixel, p2_score_pixel;
-    number_display p1_score(.clk(clk_65mhz), .x_in(100), .digit(1), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
-    number_display p2_score(.clk(clk_65mhz), .x_in(600), .digit(2), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
+    number_display p1_score(.clk(clk_65mhz), .x_in(100), .digit(0), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
+    number_display p2_score(.clk(clk_65mhz), .x_in(600), .digit(1), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
     
     // for testing--------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
@@ -333,8 +333,8 @@ module player_2_blob
 endmodule
 
 module number_display #(
-    parameter WIDTH = 64,            // default width: 64 pixel
-               HEIGHT = 64,           // default height: 64 pixels
+    parameter WIDTH = 48,            // default width: 64 pixel
+               HEIGHT = 48,           // default height: 64 pixels
                COLOR = 12'hFFF,
                NUMBER_OFFSET = 2304 // the value to offset by in order to change number display value
 )  // default color: white
@@ -348,14 +348,16 @@ module number_display #(
     
     logic [14:0] offset;
     logic [14:0] image_addr;   // num of bits for 23040 line COE
-    logic [7:0] image_bits;
+    logic [7:0] image_bits, red_mapped;
 
     numbers num(.clka(clk), .addra(image_addr + NUMBER_OFFSET), .douta(image_bits));
+    p2_motions_red test_red_num(.clka(clk), .addra(image_bits), .douta(red_mapped));
+
     
     always @(posedge clk) begin
         if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
-            pixel_out <= image_bits;
+            pixel_out <= {red_mapped[7:4]}*3;
             case(digit)
                 0:
                     offset <= 0;
