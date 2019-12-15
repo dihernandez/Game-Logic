@@ -66,14 +66,14 @@ module game_state(
     always @(posedge vclock_in) begin
         cycle_counter <= cycle_counter + 1; // only need one counter
         player_1_state <= p1_next_state;
-        distance_p1_to_p2 = p2_x_in - p1_x_in;
+        distance_p1_to_p2 = p2_x_in - (p1_x_in + 64); // offset for p1 width
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
-                if(p1_punch &&  distance_p1_to_p2 < PUNCHING_DISTANCE) begin
+                if(p1_punch &&  (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
                     p1_next_state <= PUNCHING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
-                if(p1_punch &&  distance_p1_to_p2 < KICKING_DISTANCE) begin
+                if(p1_punch &&  (distance_p1_to_p2 < KICKING_DISTANCE)) begin
                     p1_next_state <= KICKING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
@@ -115,11 +115,11 @@ module game_state(
         player_2_state <= p2_next_state;
         case(p2_state)
             AT_REST: begin
-                if(p2_punch && distance_p1_to_p2 < PUNCHING_DISTANCE) begin
+                if(p2_punch && (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
                     p2_next_state <= PUNCHING;
                     p2_hit_time_stamp <= cycle_counter;
                 end
-                if(p2_kick && distance_p1_to_p2 < KICKING_DISTANCE) begin
+                if(p2_kick && (distance_p1_to_p2 < KICKING_DISTANCE)) begin
                     p2_next_state <= KICKING;
                     p2_hit_time_stamp <= cycle_counter; // will the counter overflow?
                 end
