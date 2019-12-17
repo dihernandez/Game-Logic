@@ -55,6 +55,18 @@ module game_state(
     logic[8:0] p2_hit_time_stamp = 0;
     logic[8:0] cycle_counter = 0;
     
+    // keep track of toggled punches and kicks. This fixes the bug where lots of rapid punches took place while the button is pressed down
+    logic p1_punch_previous, p2_punch_previous, p1_kick_previous, p2_kick_previous;
+    logic p1_punch_on = ((p1_punch_previous == 0) && (p1_punch == 1)); //check if attack button has been let go
+    logic p2_punch_on = ((p2_punch_previous == 0) && (p2_punch == 1)); 
+    logic p1_kick_on = ((p1_kick_previous == 0) && (p1_kick == 1));
+    logic p2_kick_on = ((p2_kick_previous == 0) && (p2_kick == 1)); 
+    logic p1_punch_off = ((p1_punch_previous == 1) && (p1_punch == 0)); //check if attack button has been let go
+    logic p2_punch_off = ((p2_punch_previous == 1) && (p2_punch == 0)); 
+    logic p1_kick_off = ((p1_kick_previous == 1) && (p1_kick == 0));
+    logic p2_kick_off = ((p2_kick_previous == 1) && (p2_kick == 0)); 
+
+    
     logic[1:0] player_1_state = AT_REST;
     logic[1:0] p1_next_state;
     logic[1:0] player_2_state = AT_REST;
@@ -66,14 +78,20 @@ module game_state(
     always @(posedge vclock_in) begin
         cycle_counter <= cycle_counter + 1; // only need one counter
         player_1_state <= p1_next_state;
+        
+        p1_punch_previous <= p1_punch;
+        p1_kick_previous <= p1_kick;
+        p2_punch_previous <= p2_punch;
+        p2_kick_previous <= p2_kick;
+        
         distance_p1_to_p2 = p2_x_in - (p1_x_in + 64); // offset for p1 width
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
-                if(p1_punch &&  (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
+                if(p1_punch_on &&  (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
                     p1_next_state <= PUNCHING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
-                if(p1_punch &&  (distance_p1_to_p2 < KICKING_DISTANCE)) begin
+                if(p1_kick_on &&  (distance_p1_to_p2 < KICKING_DISTANCE)) begin
                     p1_next_state <= KICKING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
@@ -88,12 +106,14 @@ module game_state(
                 end else begin
                     p2_hp <= p2_hp - 5;
                 end
-                p1_next_state <= AT_REST;
+                if (p1_punch_off) begin
+                    p1_next_state <= AT_REST;
+                end
                 p1_hit_time_stamp <= 0;
             end
             
             KICKING: begin
-                // handle both in punching state
+                // handle both in kicking state
                 if(p2_state == KICKING) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
                         p2_hp <= p2_hp - 10;
@@ -101,9 +121,10 @@ module game_state(
                 end else begin
                     p2_hp <= p2_hp - 10;
                 end
-                p1_next_state <= AT_REST;
+                if (p1_kick_off) begin
+                    p1_next_state <= AT_REST;
+                end
                 p1_hit_time_stamp <= 0;
-
             end
             
             default: p1_next_state <= AT_REST;
@@ -134,13 +155,15 @@ module game_state(
                 end else begin
                     p1_hp <= p1_hp - 5;
                 end
-                p2_next_state <= AT_REST;
+                if (p2_punch_on) begin
+                    p2_next_state <= AT_REST;
+                end
                 p2_hit_time_stamp <= 0;
             end
             
             
             KICKING: begin
-                // handle both in punching state
+                // handle both in kicking state
                 if(p1_state == KICKING) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp) begin
                         p1_hp <= p1_hp - 10;
@@ -148,7 +171,9 @@ module game_state(
                 end else begin
                     p1_hp <= p1_hp - 10;
                 end
-                p2_next_state <= AT_REST;
+                if (p2_kick_off) begin
+                    p2_next_state <= AT_REST;
+                end
                 p2_hit_time_stamp <= 0;
             end
         

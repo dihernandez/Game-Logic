@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Sun Dec 15 16:58:46 2019
+| Date         : Tue Dec 17 14:42:08 2019
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    12 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    56 |
+| Unused register locations in slices containing registers |    60 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              38 |           20 |
+| No           | No                    | No                     |              42 |           20 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              47 |           19 |
+| No           | Yes                   | No                     |              47 |           23 |
 | Yes          | No                    | No                     |              45 |           13 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              30 |            9 |
+| Yes          | Yes                   | No                     |              30 |           10 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -74,17 +74,17 @@ Table of Contents
 |        Clock Signal       |      Enable Signal     |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
 +---------------------------+------------------------+---------------------------+------------------+----------------+
 |  clkdivider/inst/clk_out1 | db1/new_input_i_1_n_0  |                           |                1 |              1 |
-|  clkdivider/inst/clk_out1 | xvga1/hreset           | xvga1/vcount_out0         |                4 |             10 |
+|  clkdivider/inst/clk_out1 | xvga1/hreset           | xvga1/vcount_out0         |                5 |             10 |
 |  clkdivider/inst/clk_out1 |                        | xvga1/hreset              |                4 |             11 |
 |  clkdivider/inst/clk_out1 | db1/clean_out_reg_2[0] |                           |                3 |             11 |
 |  clkdivider/inst/clk_out1 | db1/clean_out_reg_1[0] |                           |                3 |             11 |
 |  clkdivider/inst/clk_out1 | db1/clean_out_reg_0[0] |                           |                3 |             11 |
 |  clkdivider/inst/clk_out1 | db1/E[0]               |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 |                        | xvga1/sw[1]               |                6 |             12 |
-|  clkdivider/inst/clk_out1 |                        | xvga1/vcount_out_reg[8]_0 |                4 |             12 |
+|  clkdivider/inst/clk_out1 |                        | xvga1/sw[1]               |                7 |             12 |
+|  clkdivider/inst/clk_out1 |                        | xvga1/vcount_out_reg[8]_0 |                7 |             12 |
 |  clkdivider/inst/clk_out1 |                        | xvga1/vcount_out_reg[8]_1 |                5 |             12 |
 |  clkdivider/inst/clk_out1 | db1/count              | db1/new_input_i_1_n_0     |                5 |             20 |
-|  clkdivider/inst/clk_out1 |                        |                           |               20 |             38 |
+|  clkdivider/inst/clk_out1 |                        |                           |               20 |             42 |
 +---------------------------+------------------------+---------------------------+------------------+----------------+
 
 
