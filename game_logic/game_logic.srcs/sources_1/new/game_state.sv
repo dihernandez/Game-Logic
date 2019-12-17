@@ -50,10 +50,12 @@ module game_state(
     logic[8:0] distance_p1_to_p2; 
     
     // keep track of when hit action was initiated
-    // what behaviour to expect when value is exceeded
+    // what behaviour to expect when counter value is exceeded
     logic[8:0] p1_hit_time_stamp = 0;
     logic[8:0] p2_hit_time_stamp = 0;
     logic[8:0] cycle_counter = 0;
+    
+    logic p1_hit, p2_hit; // keep track of when a hit has landed to avoid multiple point deductions
     
     // keep track of toggled punches and kicks. This fixes the bug where lots of rapid punches took place while the button is pressed down
     logic p1_punch_previous, p2_punch_previous, p1_kick_previous, p2_kick_previous;
@@ -76,8 +78,16 @@ module game_state(
     
     // handle p1 state logic. NOTE: can interact wtih state 2 logic
     always @(posedge vclock_in) begin
+        if (reset_in) begin
+            cycle_counter <= 0;
+            player_1_state <= AT_REST;
+            player_2_state <= AT_REST;
+            p1_hit <= 0;
+            p2_hit <= 0;
+        end
         cycle_counter <= cycle_counter + 1; // only need one counter
         player_1_state <= p1_next_state;
+        player_2_state <= p2_next_state;
         
         p1_punch_previous <= p1_punch;
         p1_kick_previous <= p1_kick;
@@ -99,30 +109,34 @@ module game_state(
             
             PUNCHING: begin
                 // handle both in punching state
-                if(p2_state == PUNCHING) begin
+                if(p2_state == PUNCHING && !p1_hit) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
                         p2_hp <= p2_hp - 5;
+                        p1_hit <= 1;
                     end
                 end else begin
                     p2_hp <= p2_hp - 5;
                 end
                 if (p1_punch_off) begin
                     p1_next_state <= AT_REST;
+                    p1_hit <= 0;
                 end
                 p1_hit_time_stamp <= 0;
             end
             
             KICKING: begin
                 // handle both in kicking state
-                if(p2_state == KICKING) begin
+                if(p2_state == KICKING && !p1_hit) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
                         p2_hp <= p2_hp - 10;
+                        p1_hit <= 1;
                     end
                 end else begin
                     p2_hp <= p2_hp - 10;
                 end
                 if (p1_kick_off) begin
                     p1_next_state <= AT_REST;
+                    p1_hit <= 0;
                 end
                 p1_hit_time_stamp <= 0;
             end
@@ -136,11 +150,11 @@ module game_state(
         player_2_state <= p2_next_state;
         case(p2_state)
             AT_REST: begin
-                if(p2_punch && (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
+                if(p2_punch_on && (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
                     p2_next_state <= PUNCHING;
                     p2_hit_time_stamp <= cycle_counter;
                 end
-                if(p2_kick && (distance_p1_to_p2 < KICKING_DISTANCE)) begin
+                if(p2_kick_on && (distance_p1_to_p2 < KICKING_DISTANCE)) begin
                     p2_next_state <= KICKING;
                     p2_hit_time_stamp <= cycle_counter; // will the counter overflow?
                 end
@@ -148,15 +162,17 @@ module game_state(
             
             PUNCHING: begin
                 // handle both in punching state
-                if(p1_state == PUNCHING) begin
+                if(p1_state == PUNCHING && !p2_hit) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp) begin
                         p1_hp <= p1_hp - 5;
+                        p2_hit <= 1;
                     end
                 end else begin
                     p1_hp <= p1_hp - 5;
                 end
-                if (p2_punch_on) begin
+                if (p2_punch_off) begin
                     p2_next_state <= AT_REST;
+                    p2_hit <= 0;
                 end
                 p2_hit_time_stamp <= 0;
             end
