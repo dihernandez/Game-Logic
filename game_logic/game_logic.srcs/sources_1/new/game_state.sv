@@ -116,6 +116,7 @@ module game_state(
                     end
                 end else begin
                     p2_hp <= p2_hp - 5;
+                    p1_hit <= 1;
                 end
                 if (p1_punch_off) begin
                     p1_next_state <= AT_REST;
@@ -133,6 +134,7 @@ module game_state(
                     end
                 end else begin
                     p2_hp <= p2_hp - 10;
+                    p1_hit <= 1;
                 end
                 if (p1_kick_off) begin
                     p1_next_state <= AT_REST;
@@ -169,6 +171,7 @@ module game_state(
                     end
                 end else begin
                     p1_hp <= p1_hp - 5;
+                    p2_hit <= 1;
                 end
                 if (p2_punch_off) begin
                     p2_next_state <= AT_REST;
@@ -181,14 +184,16 @@ module game_state(
             KICKING: begin
                 // handle both in kicking state
                 if(p1_state == KICKING) begin
-                    if(p2_hit_time_stamp < p1_hit_time_stamp) begin
+                    if(p2_hit_time_stamp < p1_hit_time_stamp && !p2_hit) begin
                         p1_hp <= p1_hp - 10;
                     end
                 end else begin
                     p1_hp <= p1_hp - 10;
+                    p2_hit <= 1;
                 end
                 if (p2_kick_off) begin
                     p2_next_state <= AT_REST;
+                    p2_hit <= 0;
                 end
                 p2_hit_time_stamp <= 0;
             end

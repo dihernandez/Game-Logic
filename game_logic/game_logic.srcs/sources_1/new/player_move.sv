@@ -25,7 +25,11 @@ module player_move(
     input p1_punch,
     input p2_kick,
     input p2_punch,
-        
+     
+    // hitpoints    
+    output logic [6:0] p1_hp,
+    output logic [6:0] p2_hp,
+    
     output logic phsync_out,       // pong game's horizontal sync
     output logic pvsync_out,       // pong game's vertical sync
     output logic pblank_out,       // pong game's blanking
@@ -43,6 +47,11 @@ module player_move(
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
    logic vsync_old; // keeping track of vsync state to see if it has changed from 0 to 1
    
+   // expose hitpoints
+   logic [6:0] p1_hitpoints, p2_hitpoints;
+   assign p1_hp = p1_hitpoints;
+   assign p2_hp = p2_hitpoints;
+//   assign p2_hp = 
 
     wire [1:0] p1_state, p2_state; 
     
@@ -62,9 +71,9 @@ module player_move(
     .p2_punch(p2_punch),
     
     .p1_state(p1_state),
-    .p2_state(p2_state)
-//    output[6:0] p1_hitpoints,
-//    output[6:0] p2_hitpoints
+    .p2_state(p2_state),
+    .p1_hitpoints(p1_hitpoints),
+    .p2_hitpoints(p2_hitpoints)
     );
     
     

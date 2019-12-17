@@ -64,9 +64,19 @@ module main(
       
           
     //display score------------------------------------------------------------------------------------      
-    logic [11:0] p1_score_pixel, p2_score_pixel;
-    number_display p1_score(.clk(clk_65mhz), .x_in(100), .digit(0), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_score_pixel));
-    number_display p2_score(.clk(clk_65mhz), .x_in(600), .digit(1), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_score_pixel));
+    logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
+    logic [6:0] player_1_hp, player_2_hp;
+    
+    logic [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
+    logic [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
+    assign p1_ones_digit = 7; 
+    assign p2_ones_digit = 9;
+    
+    number_display p1_ones_score(.clk(clk_65mhz), .x_in(100), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
+    number_display p2_ones_score(.clk(clk_65mhz), .x_in(600), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
+    
+    number_display p1_tens_score(.clk(clk_65mhz), .x_in(148), .digit(p1_tens_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_tens_pixel));
+    number_display p2_tens_score(.clk(clk_65mhz), .x_in(648), .digit(p2_tens_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_tens_pixel));
     
     // for testing--------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
@@ -74,14 +84,13 @@ module main(
 
     wire phsync,pvsync,pblank;
     
+
     // define players and their movement logic
     
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
     .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
-//   .p1_motion(p1_motion),
-//   .p2_motion(p2_motion),
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
    .initial_x_p2(600),         // p2 0 default when p1 selected
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
@@ -103,7 +112,9 @@ module main(
     .p1_punch(btnr),
     .p2_kick(btnu),
     .p2_punch(btnl),
-        
+     
+     .p1_hp(player_1_hp),
+     .p2_hp(player_2_hp),   
     .pixel_out(player_1_pixel)
    );
    
@@ -112,8 +123,6 @@ module main(
     .reset_in(reset),         // 1 to initialize module
 
    .is_p1(0),
-//   .p1_motion(p1_motion),
-//   .p2_motion(p2_motion),
    .initial_x_p1(100),
    .initial_x_p2(600),
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
@@ -142,10 +151,8 @@ module main(
     
     // .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank), DON'T YOU FORGET ABOUT ME!!!! 
     
-    wire [11:0] white_square_pixel;
-    //blob white_square(.x_in(0), .hcount_in(hcount), .y_in(0), .vcount_in(vcount), .pixel_out(white_square_pixel));
     wire [11:0] pixel;
-    assign pixel = white_square_pixel | player_1_pixel | player_2_pixel | p1_score_pixel | p2_score_pixel;
+    assign pixel = player_1_pixel | player_2_pixel | p1_ones_pixel | p2_ones_pixel | p1_tens_pixel | p2_tens_pixel | p1_hundred_pixel | p2_hundred_pixel;
     
     wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
                    hcount == 512 | vcount == 384);
@@ -346,42 +353,19 @@ module number_display #(
         output logic [11:0] pixel_out
     );
     
-    logic [14:0] offset;
     logic [14:0] image_addr;   // num of bits for 23040 line COE
-    logic [7:0] image_bits, red_mapped;
+    logic [7:0] image_bits;
+    logic [14:0] num_index;
+    
+    assign num_index = image_addr + digit*NUMBER_OFFSET;
+    assign image_addr = ((hcount_in-x_in) + (vcount_in-y_in) * WIDTH);
 
-    numbers num(.clka(clk), .addra(image_addr + NUMBER_OFFSET), .douta(image_bits));
-    p2_motions_red test_red_num(.clka(clk), .addra(image_bits), .douta(red_mapped));
-
+    numbers num(.clka(clk), .addra(num_index), .douta(image_bits));
     
     always @(posedge clk) begin
         if ((hcount_in >= x_in && hcount_in < (x_in+WIDTH)) &&
           (vcount_in >= y_in && vcount_in < (y_in+HEIGHT))) begin
-            pixel_out <= {red_mapped[7:4]}*3;
-            case(digit)
-                0:
-                    offset <= 0;
-                1:
-                    offset <= NUMBER_OFFSET;
-                2:
-                    offset <= 2*NUMBER_OFFSET;
-                3:
-                    offset <= 3*NUMBER_OFFSET;
-                4:
-                    offset <= 4*NUMBER_OFFSET;
-                5:
-                    offset <= 5*NUMBER_OFFSET;
-                6:
-                    offset <= 6*NUMBER_OFFSET;
-                7:
-                    offset <= 7*NUMBER_OFFSET;
-                8:
-                    offset <= 8*NUMBER_OFFSET;
-                9:
-                    offset <= 9*NUMBER_OFFSET;
-                default:
-                    offset <= 0;
-            endcase
+            pixel_out <= {image_bits[3:0], image_bits[3:0], image_bits[3:0]};
         end
     end  
 endmodule
