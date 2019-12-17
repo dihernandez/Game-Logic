@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Tue Dec 17 16:47:31 2019
+| Date         : Tue Dec 17 17:58:21 2019
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 4
+             Violations found: 8
 +----------+------------------+------------------------------------------------+------------+
 | Rule     | Severity         | Description                                    | Violations |
 +----------+------------------+------------------------------------------------+------------+
 | TIMING-6 | Critical Warning | No common primary clock between related clocks | 2          |
-| SYNTH-13 | Warning          | combinational multiplier                       | 2          |
+| SYNTH-13 | Warning          | combinational multiplier                       | 6          |
 +----------+------------------+------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -45,12 +45,32 @@ Related violations: <none>
 
 SYNTH-13#1 Warning
 combinational multiplier  
-Detected combinational multiplier in DSP instance p1_ones_score/num_index.
+Detected combinational multiplier in DSP instance p1_hundred_score/num_index.
 Related violations: <none>
 
 SYNTH-13#2 Warning
 combinational multiplier  
+Detected combinational multiplier in DSP instance p1_ones_score/num_index.
+Related violations: <none>
+
+SYNTH-13#3 Warning
+combinational multiplier  
 Detected combinational multiplier in DSP instance p1_tens_score/num_index.
+Related violations: <none>
+
+SYNTH-13#4 Warning
+combinational multiplier  
+Detected combinational multiplier in DSP instance p2_hundred_score/num_index.
+Related violations: <none>
+
+SYNTH-13#5 Warning
+combinational multiplier  
+Detected combinational multiplier in DSP instance p2_ones_score/num_index.
+Related violations: <none>
+
+SYNTH-13#6 Warning
+combinational multiplier  
+Detected combinational multiplier in DSP instance p2_tens_score/num_index.
 Related violations: <none>
 
 

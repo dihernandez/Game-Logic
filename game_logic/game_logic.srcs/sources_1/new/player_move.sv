@@ -51,7 +51,6 @@ module player_move(
    logic [6:0] p1_hitpoints, p2_hitpoints;
    assign p1_hp = p1_hitpoints;
    assign p2_hp = p2_hitpoints;
-//   assign p2_hp = 
 
     wire [1:0] p1_state, p2_state; 
     

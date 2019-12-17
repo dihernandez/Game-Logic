@@ -43,7 +43,8 @@ module game_state(
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;
  
-    logic[6:0] p1_hp, p2_hp;
+    logic[6:0] p1_hp = 100;
+    logic[6:0] p2_hp = 100;
     assign p1_hitpoints = p1_hp;
     assign p2_hitpoints = p2_hp;
     
@@ -84,6 +85,8 @@ module game_state(
             player_2_state <= AT_REST;
             p1_hit <= 0;
             p2_hit <= 0;
+            p1_hp <= 100;
+            p2_hp <= 100;
         end
         cycle_counter <= cycle_counter + 1; // only need one counter
         player_1_state <= p1_next_state;

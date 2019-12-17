@@ -61,22 +61,55 @@ module main(
     debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
     debounce db4(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
     debounce db5(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
-      
-          
+                      
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
     logic [6:0] player_1_hp, player_2_hp;
     
     logic [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     logic [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
-    assign p1_ones_digit = 7; 
-    assign p2_ones_digit = 9;
     
-    number_display p1_ones_score(.clk(clk_65mhz), .x_in(100), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
-    number_display p2_ones_score(.clk(clk_65mhz), .x_in(600), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
+    // calculate hp digits
+    logic [6:0] p1_hp_old, p2_hp_old;
+    
+    
+    always @(posedge clk_65mhz) begin
+        p1_hp_old <= player_1_hp;
+        if(player_1_hp == 100) begin
+                p1_ones_digit <= 0;
+                p1_tens_digit <= 0;
+                p1_hundred_digit <= 1;
+        end else if (p1_hp_old == player_1_hp - 5) begin
+            p1_hundred_digit <= 0;
+                p1_ones_digit <= (p1_ones_digit == 0) ? 5 : 0;
+            if(p1_tens_digit == 0 && (p1_ones_digit == 5)) begin
+                p1_tens_digit <= 9;
+            end else begin
+                p1_tens_digit <= (p1_ones_digit == 5) ? p1_tens_digit : p1_tens_digit - 1; 
+            end
+        end else if (p1_hp_old == player_1_hp - 10) begin
+            p1_hundred_digit <= 0;
+            // ones stays same
+            if(p1_tens_digit == 0) begin
+               p1_tens_digit <= 9; 
+            end else begin
+                p1_tens_digit <= p1_tens_digit - 1;
+            end
+        end else if(player_1_hp > p1_hp_old) begin
+            p1_hundred_digit <= 0;
+            p1_tens_digit <= 0;
+            p1_ones_digit <= 0;
+        end
+    end
+    number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
+    number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
     
     number_display p1_tens_score(.clk(clk_65mhz), .x_in(148), .digit(p1_tens_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_tens_pixel));
     number_display p2_tens_score(.clk(clk_65mhz), .x_in(648), .digit(p2_tens_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_tens_pixel));
+    
+    number_display p1_hundred_score(.clk(clk_65mhz), .x_in(100), .digit(p1_hundred_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_hundred_pixel));
+    number_display p2_hundred_score(.clk(clk_65mhz), .x_in(600), .digit(p2_hundred_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_hundred_pixel));
+        
     
     // for testing--------------------------------------------------------------------------------
     wire [1:0] p1_motion = sw[5:4]; //use switches 5 and 4 to select between at rest, kicking, and punching
