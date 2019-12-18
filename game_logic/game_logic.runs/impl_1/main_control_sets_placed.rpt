@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Wed Dec 18 14:52:31 2019
+| Date         : Wed Dec 18 15:55:44 2019
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    20 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    86 |
+| Unused register locations in slices containing registers |    85 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              76 |           32 |
+| No           | No                    | No                     |              76 |           36 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              47 |           19 |
-| Yes          | No                    | No                     |              69 |           28 |
+| No           | Yes                   | No                     |              47 |           12 |
+| Yes          | No                    | No                     |              69 |           26 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              34 |           15 |
+| Yes          | Yes                   | No                     |              35 |           17 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -75,24 +75,24 @@ Table of Contents
 +---------------------------+-------------------------------------------+---------------------------+------------------+----------------+
 |  clkdivider/inst/clk_out1 | db1/new_input_i_1_n_0                     |                           |                1 |              1 |
 |  clkdivider/inst/clk_out1 |                                           | xvga1/hcount_out_reg[6]_2 |                1 |              4 |
-|  clkdivider/inst/clk_out1 |                                           | xvga1/hcount_out_reg[7]_6 |                1 |              4 |
-|  clkdivider/inst/clk_out1 |                                           | xvga1/hcount_out_reg[8]_0 |                1 |              4 |
-|  clkdivider/inst/clk_out1 | p1_tens_score/pixel_out[11]_i_1__3_n_0    |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | p2_hundred_score/pixel_out[11]_i_1__6_n_0 |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | p1_hundred_score/pixel_out[11]_i_1__5_n_0 |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | p2_tens_score/pixel_out[11]_i_1__4_n_0    |                           |                3 |              4 |
-|  clkdivider/inst/clk_out1 | p1_ones_score/pixel_out[11]_i_1__1_n_0    |                           |                3 |              4 |
+|  clkdivider/inst/clk_out1 | p2_tens_score/pixel_out[11]_i_1__4_n_0    |                           |                2 |              4 |
 |  clkdivider/inst/clk_out1 | p2_ones_score/pixel_out[11]_i_1__2_n_0    |                           |                3 |              4 |
+|  clkdivider/inst/clk_out1 | p1_tens_score/pixel_out[11]_i_1__3_n_0    |                           |                2 |              4 |
+|  clkdivider/inst/clk_out1 | p1_ones_score/pixel_out[11]_i_1__1_n_0    |                           |                2 |              4 |
+|  clkdivider/inst/clk_out1 | p1_hundred_score/pixel_out[11]_i_1__5_n_0 |                           |                2 |              4 |
+|  clkdivider/inst/clk_out1 | p2_hundred_score/pixel_out[11]_i_1__6_n_0 |                           |                2 |              4 |
+|  clkdivider/inst/clk_out1 |                                           | xvga1/hcount_out_reg[8]_0 |                1 |              4 |
+|  clkdivider/inst/clk_out1 |                                           | xvga1/hcount_out_reg[7]_6 |                1 |              4 |
 |  clkdivider/inst/clk_out1 | move_player_1/x_in_p2[10]_i_1_n_0         |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 | xvga1/x_in_p2_reg[10][0]                  |                           |                3 |             11 |
+|  clkdivider/inst/clk_out1 |                                           | xvga1/hreset              |                3 |             11 |
 |  clkdivider/inst/clk_out1 | db1/E[0]                                  |                           |                3 |             11 |
 |  clkdivider/inst/clk_out1 | db1/clean_out_reg_0[0]                    |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 |                                           | xvga1/hreset              |                5 |             11 |
-|  clkdivider/inst/clk_out1 |                                           | xvga1/vcount_out_reg[8]_1 |                7 |             12 |
-|  clkdivider/inst/clk_out1 |                                           | xvga1/vcount_out_reg[8]_0 |                4 |             12 |
-|  clkdivider/inst/clk_out1 | xvga1/hreset                              | xvga1/vcount_out0         |               10 |             14 |
+|  clkdivider/inst/clk_out1 | xvga1/x_in_p2_reg[10][0]                  |                           |                3 |             11 |
+|  clkdivider/inst/clk_out1 |                                           | xvga1/vcount_out_reg[8]_1 |                3 |             12 |
+|  clkdivider/inst/clk_out1 |                                           | xvga1/vcount_out_reg[8]_0 |                3 |             12 |
+|  clkdivider/inst/clk_out1 | xvga1/hreset                              | xvga1/vcount_out0         |               12 |             15 |
 |  clkdivider/inst/clk_out1 | db1/count                                 | db1/new_input_i_1_n_0     |                5 |             20 |
-|  clkdivider/inst/clk_out1 |                                           |                           |               32 |             76 |
+|  clkdivider/inst/clk_out1 |                                           |                           |               36 |             76 |
 +---------------------------+-------------------------------------------+---------------------------+------------------+----------------+
 
 

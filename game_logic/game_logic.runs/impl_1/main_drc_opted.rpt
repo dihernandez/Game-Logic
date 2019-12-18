@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Wed Dec 18 14:52:24 2019
+| Date         : Wed Dec 18 15:55:36 2019
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_drc -file main_drc_opted.rpt -pb main_drc_opted.pb -rpx main_drc_opted.rpx
 | Design       : main

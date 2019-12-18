@@ -2,6 +2,7 @@
 
 module hp_display(
  // calculate hp digits
+ input reset,
  input clk_65mhz,
  input [6:0] hp,
  
