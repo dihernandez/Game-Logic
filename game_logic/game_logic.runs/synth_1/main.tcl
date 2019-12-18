@@ -17,8 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 2
 set_msg_config  -id {IP_Flow 19-98}  -string {{ERROR: [IP_Flow 19-98] Generation of the IP CORE failed.
 Failed to generate IP 'p2_kicking_red'. Failed to generate 'VHDL Synthesis Wrapper' outputs:}}  -suppress 
 create_project -in_memory -part xc7a100tcsg324-1
@@ -70,6 +68,7 @@ add_files /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/color_
 add_files /afs/athena.mit.edu/user/d/i/dianah13/Downloads/numbers_48.coe
 read_verilog -library xil_defaultlib -sv {
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv
+  /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/hp_display.sv
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv
   /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv
 }

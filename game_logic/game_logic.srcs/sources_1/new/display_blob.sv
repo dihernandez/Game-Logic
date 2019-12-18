@@ -64,43 +64,57 @@ module main(
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
-    logic [6:0] player_1_hp, player_2_hp;
+    logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
+    logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     
-    logic [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
-    logic [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
+    wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
+    wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    // calculate hp digits
-    logic [6:0] p1_hp_old, p2_hp_old;
+    hp_display p1_score(.clk_65mhz(clk_65mhz), .hp(sprite_1_p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_display p2_score(.clk_65mhz(clk_65mhz), .hp(sprite_2_p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+
+//    module hp_display(
+// // calculate hp digits
+// input clk_65mhz,
+// input [6:0] hp,
+ 
+// output [3:0] ones_digit,
+// output [3:0] tens_digit,
+// output [3:0] hundred_digit
+// );
+    
+//    // calculate hp digits
+//    logic [6:0] p1_hp_old, p2_hp_old;
     
     
-    always @(posedge clk_65mhz) begin
-        p1_hp_old <= player_1_hp;
-        if(player_1_hp == 100) begin
-                p1_ones_digit <= 0;
-                p1_tens_digit <= 0;
-                p1_hundred_digit <= 1;
-        end else if (p1_hp_old == player_1_hp - 5) begin
-            p1_hundred_digit <= 0;
-                p1_ones_digit <= (p1_ones_digit == 0) ? 5 : 0;
-            if(p1_tens_digit == 0 && (p1_ones_digit == 5)) begin
-                p1_tens_digit <= 9;
-            end else begin
-                p1_tens_digit <= (p1_ones_digit == 5) ? p1_tens_digit : p1_tens_digit - 1; 
-            end
-        end else if (p1_hp_old == player_1_hp - 10) begin
-            p1_hundred_digit <= 0;
-            // ones stays same
-            if(p1_tens_digit == 0) begin
-               p1_tens_digit <= 9; 
-            end else begin
-                p1_tens_digit <= p1_tens_digit - 1;
-            end
-        end else if(player_1_hp > p1_hp_old) begin
-            p1_hundred_digit <= 0;
-            p1_tens_digit <= 0;
-            p1_ones_digit <= 0;
-        end
-    end
+//    always @(posedge clk_65mhz) begin
+//        p1_hp_old <= player_1_hp;
+//        if(player_1_hp == 100) begin
+//                p1_ones_digit <= 0;
+//                p1_tens_digit <= 0;
+//                p1_hundred_digit <= 1;
+//        end else if (p1_hp_old == player_1_hp - 5) begin
+//            p1_hundred_digit <= 0;
+//                p1_ones_digit <= (p1_ones_digit == 0) ? 5 : 0;
+//            if(p1_tens_digit == 0 && (p1_ones_digit == 5)) begin
+//                p1_tens_digit <= 9;
+//            end else begin
+//                p1_tens_digit <= (p1_ones_digit == 5) ? p1_tens_digit : p1_tens_digit - 1; 
+//            end
+//        end else if (p1_hp_old == player_1_hp - 10) begin
+//            p1_hundred_digit <= 0;
+//            // ones stays same
+//            if(p1_tens_digit == 0) begin
+//               p1_tens_digit <= 9; 
+//            end else begin
+//                p1_tens_digit <= p1_tens_digit - 1;
+//            end
+//        end else if(player_1_hp > p1_hp_old) begin
+//            p1_hundred_digit <= 0;
+//            p1_tens_digit <= 0;
+//            p1_ones_digit <= 0;
+//        end
+//    end
     number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
     number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
     
@@ -178,7 +192,8 @@ module main(
     .p2_kick(btnu),
     .p2_punch(btnl),
 
-        
+     .p1_hp(sprite_2_p1_hp),
+     .p2_hp(sprite_2_p2_hp),      
    .pixel_out(player_2_pixel)
    );
     

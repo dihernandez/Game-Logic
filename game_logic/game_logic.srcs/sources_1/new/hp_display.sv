@@ -1,46 +1,50 @@
 `timescale 1ns / 1ps
 
 module hp_display(
- // calculate hp digitsinput clk_65mhz,
- input
-    
+ // calculate hp digits
+ input clk_65mhz,
+ input [6:0] hp,
+ 
+ output [3:0] ones_digit,
+ output [3:0] tens_digit,
+ output [3:0] hundred_digit
  );
  
-     logic [6:0] player_1_hp, player_2_hp;
+    logic [6:0] player_hp;
+    logic [6:0] hp_old;
     
-    logic [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
-    logic [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
-    assign p1_ones_digit = player_1_hp; 
-    assign p2_ones_digit = 9;
-    logic [6:0] p1_hp_old, p2_hp_old;
-    
+        
+    logic [3:0] player_ones_digit, player_tens_digit, player_hundred_digit;
+    assign ones_digit = player_ones_digit;
+    assign tens_digit = player_tens_digit;
+    assign hundred_digit = player_hundred_digit;
     
     always @(posedge clk_65mhz) begin
-        p1_hp_old <= player_1_hp;
-        if(player_1_hp == 100) begin
-                p1_ones_digit <= 0;
-                p1_tens_digit <= 0;
-                p1_hundred_digit <= 1;
-        end else if (p1_hp_old == player_1_hp - 5) begin
-            p1_hundred_digit <= 0;
-                p1_ones_digit <= (p1_ones_digit == 0) ? 5 : 0;
-            if(p1_tens_digit == 0 && (p1_ones_digit == 5)) begin
-                p1_tens_digit <= 9;
+        hp_old <= player_hp;
+        if(player_hp == 100) begin
+                player_ones_digit <= 0;
+                player_tens_digit <= 0;
+                player_hundred_digit <= 1;
+        end else if (hp_old == player_hp - 5) begin
+            player_hundred_digit <= 0;
+                player_ones_digit <= (player_ones_digit == 0) ? 5 : 0;
+            if(player_tens_digit == 0 && (player_ones_digit == 5)) begin
+                player_tens_digit <= 9;
             end else begin
-                p1_tens_digit <= (p1_ones_digit == 5) ? p1_tens_digit : p1_tens_digit - 1; 
+                player_tens_digit <= (player_ones_digit == 5) ? player_tens_digit : player_tens_digit - 1; 
             end
-        end else if (p1_hp_old == player_1_hp - 10) begin
-            p1_hundred_digit <= 0;
+        end else if (hp_old == player_hp - 10) begin
+            player_hundred_digit <= 0;
             // ones stays same
-            if(p1_tens_digit == 0) begin
-               p1_tens_digit <= 9; 
+            if(player_tens_digit == 0) begin
+               player_tens_digit <= 9; 
             end else begin
-                p1_tens_digit <= p1_tens_digit - 1;
+                player_tens_digit <= player_tens_digit - 1;
             end
-        end else if(player_1_hp > p1_hp_old) begin
-            p1_hundred_digit <= 0;
-            p1_tens_digit <= 0;
-            p1_ones_digit <= 0;
+        end else if(player_hp > hp_old) begin
+            player_hundred_digit <= 0;
+            player_tens_digit <= 0;
+            player_ones_digit <= 0;
         end
     end
 endmodule
