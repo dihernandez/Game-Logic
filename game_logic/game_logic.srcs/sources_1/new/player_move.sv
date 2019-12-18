@@ -27,8 +27,8 @@ module player_move(
     input p2_punch,
      
     // hitpoints    
-    output logic [6:0] p1_hp,
-    output logic [6:0] p2_hp,
+    output logic [6:0] hp,
+    // output logic [6:0] p2_hp,
     
     output logic phsync_out,       // pong game's horizontal sync
     output logic pvsync_out,       // pong game's vertical sync
@@ -49,8 +49,7 @@ module player_move(
    
    // expose hitpoints
    logic [6:0] p1_hitpoints, p2_hitpoints;
-   assign p1_hp = p1_hitpoints;
-   assign p2_hp = p2_hitpoints;
+   assign hp = is_p1 ? p1_hitpoints : p2_hitpoints;
 
     wire [1:0] p1_state, p2_state; 
     

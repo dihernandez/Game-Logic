@@ -64,14 +64,16 @@ module main(
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
-    logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
-    logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
-    
+//    logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
+//    logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
+    logic [6:0] p1_hp, p2_hp;
+    logic [6:0] p1_hp_test = 100;
+    logic [6:0] p2_hp_test = 95;
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    hp_display p1_score(.clk_65mhz(clk_65mhz), .hp(sprite_1_p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
-    hp_display p2_score(.clk_65mhz(clk_65mhz), .hp(sprite_2_p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+    hp_display p1_score(.clk_65mhz(clk_65mhz), .hp(p1_hp_test), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_display p2_score(.clk_65mhz(clk_65mhz), .hp(p2_hp_test), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
 
 //    module hp_display(
 // // calculate hp digits
@@ -160,8 +162,7 @@ module main(
     .p2_kick(btnu),
     .p2_punch(btnl),
      
-     .p1_hp(player_1_hp),
-     .p2_hp(player_2_hp),   
+    .hp(p1_hp),
     .pixel_out(player_1_pixel)
    );
    
@@ -169,7 +170,7 @@ module main(
     .vclock_in(clk_65mhz),        // 65MHz clock
     .reset_in(reset),         // 1 to initialize module
 
-   .is_p1(0),
+   .is_p1(0), // select player 2
    .initial_x_p1(100),
    .initial_x_p2(600),
    .p1_right_in(sw[15]),         // 1 when player 1 should move right
@@ -191,10 +192,8 @@ module main(
     .p1_punch(btnr),
     .p2_kick(btnu),
     .p2_punch(btnl),
-
-     .p1_hp(sprite_2_p1_hp),
-     .p2_hp(sprite_2_p2_hp),      
-   .pixel_out(player_2_pixel)
+    .hp(p2_hp),     
+    .pixel_out(player_2_pixel)
    );
     
     // .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank), DON'T YOU FORGET ABOUT ME!!!! 

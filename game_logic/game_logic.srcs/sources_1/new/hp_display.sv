@@ -9,23 +9,20 @@ module hp_display(
  output [3:0] tens_digit,
  output [3:0] hundred_digit
  );
- 
-    logic [6:0] player_hp;
-    logic [6:0] hp_old;
     
-        
+    logic [6:0] hp_old;    
     logic [3:0] player_ones_digit, player_tens_digit, player_hundred_digit;
     assign ones_digit = player_ones_digit;
     assign tens_digit = player_tens_digit;
     assign hundred_digit = player_hundred_digit;
     
     always @(posedge clk_65mhz) begin
-        hp_old <= player_hp;
-        if(player_hp == 100) begin
+        hp_old <= hp;
+        if(hp == 100) begin
                 player_ones_digit <= 0;
                 player_tens_digit <= 0;
                 player_hundred_digit <= 1;
-        end else if (hp_old == player_hp - 5) begin
+        end else if (hp_old == hp - 5) begin
             player_hundred_digit <= 0;
                 player_ones_digit <= (player_ones_digit == 0) ? 5 : 0;
             if(player_tens_digit == 0 && (player_ones_digit == 5)) begin
@@ -33,7 +30,7 @@ module hp_display(
             end else begin
                 player_tens_digit <= (player_ones_digit == 5) ? player_tens_digit : player_tens_digit - 1; 
             end
-        end else if (hp_old == player_hp - 10) begin
+        end else if (hp_old == hp - 10) begin
             player_hundred_digit <= 0;
             // ones stays same
             if(player_tens_digit == 0) begin
@@ -41,7 +38,7 @@ module hp_display(
             end else begin
                 player_tens_digit <= player_tens_digit - 1;
             end
-        end else if(player_hp > hp_old) begin
+        end else if(hp > hp_old) begin
             player_hundred_digit <= 0;
             player_tens_digit <= 0;
             player_ones_digit <= 0;
