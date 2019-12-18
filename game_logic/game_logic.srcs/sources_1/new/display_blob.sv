@@ -67,8 +67,8 @@ module main(
 //    logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
 //    logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     logic [6:0] p1_hp, p2_hp;
-    logic [6:0] p1_hp_test = 100;
-    logic [6:0] p2_hp_test = 100;
+    logic [6:0] p1_hp_test = 95;
+    logic [6:0] p2_hp_test = 5;
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
