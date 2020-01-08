@@ -29,7 +29,12 @@ module hp_display(
                     player_ones_digit <= 0;
                     player_tens_digit <= 0;
                     player_hundred_digit <= 1;
-            end else if (hp_old == hp - 5) begin
+            end else if(hp_old <= hp) begin 
+                player_ones_digit <= player_ones_digit;
+                player_tens_digit <= player_tens_digit;
+                player_hundred_digit <= player_hundred_digit;
+            end
+             else if (hp_old == hp - 5) begin
                 player_hundred_digit <= 0;
                     player_ones_digit <= (player_ones_digit == 0) ? 5 : 0;
                 if(player_tens_digit == 0 && (player_ones_digit == 5)) begin

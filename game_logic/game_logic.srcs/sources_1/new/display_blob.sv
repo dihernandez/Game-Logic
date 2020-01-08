@@ -64,16 +64,16 @@ module main(
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
-//    logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
-//    logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
+    //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
+   // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     logic [6:0] p1_hp, p2_hp;
-    logic [6:0] p1_hp_test = 95;
-    logic [6:0] p2_hp_test = 5;
+    //logic [6:0] p1_hp_test = 5;
+   // logic [6:0] p2_hp_test = 100;
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p1_hp_test), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
-    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p2_hp_test), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
 
     number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
     number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
@@ -192,9 +192,6 @@ module main(
 
     assign vga_hs = ~hs;
     assign vga_vs = ~vs;
-    
-
-    
     
 endmodule
 
