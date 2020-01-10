@@ -1,0 +1,29 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|              sys_clk_pin |   clk_out1_clk_wiz_final |                                                                    move_player_1/p1_blob/offset_reg[13]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                            move_player_1/game/distance_p2_to_p1_reg[11]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[9]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[6]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[7]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[8]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[9]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[5]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                            move_player_1/game/distance_p1_to_p2_reg[11]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                            move_player_1/game/distance_p2_to_p1_reg[10]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                            move_player_1/game/distance_p1_to_p2_reg[10]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[7]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[2]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[5]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[3]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[4]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[6]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[8]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[3]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[4]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[2]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[1]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[1]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p2_to_p1_reg[0]/D|
+|   clk_out1_clk_wiz_final |              sys_clk_pin |                                                             move_player_1/game/distance_p1_to_p2_reg[0]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

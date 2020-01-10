@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="game_state_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="game_state_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="70600001fs"></ZoomEndTime>
+      <Cursor1Time time="115000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="162"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="36" />
+   <wvobject type="logic" fp_name="/game_state_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p1_x_in">
+      <obj_property name="ElementShortName">p1_x_in[10:0]</obj_property>
+      <obj_property name="ObjectShortName">p1_x_in[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p2_x_in">
+      <obj_property name="ElementShortName">p2_x_in[10:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_x_in[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/game/distance_between">
+      <obj_property name="ElementShortName">distance_between[11:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_between[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p1_state">
+      <obj_property name="ElementShortName">p1_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">p1_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/game/p1_next_state">
+      <obj_property name="ElementShortName">p1_next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">p1_next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p2_state">
+      <obj_property name="ElementShortName">p2_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/game/p2_next_state">
+      <obj_property name="ElementShortName">p2_next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_next_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/game/player_2_state">
+      <obj_property name="ElementShortName">player_2_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">player_2_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p2_state_testing">
+      <obj_property name="ElementShortName">p2_state_testing[1:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_state_testing[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p1_left">
+      <obj_property name="ElementShortName">p1_left</obj_property>
+      <obj_property name="ObjectShortName">p1_left</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p1_right">
+      <obj_property name="ElementShortName">p1_right</obj_property>
+      <obj_property name="ObjectShortName">p1_right</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p1_kick">
+      <obj_property name="ElementShortName">p1_kick</obj_property>
+      <obj_property name="ObjectShortName">p1_kick</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p1_kick_previous">
+      <obj_property name="ElementShortName">p1_kick_previous</obj_property>
+      <obj_property name="ObjectShortName">p1_kick_previous</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p1_kick_on">
+      <obj_property name="ElementShortName">p1_kick_on</obj_property>
+      <obj_property name="ObjectShortName">p1_kick_on</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p1_punch">
+      <obj_property name="ElementShortName">p1_punch</obj_property>
+      <obj_property name="ObjectShortName">p1_punch</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p1_punch_on">
+      <obj_property name="ElementShortName">p1_punch_on</obj_property>
+      <obj_property name="ObjectShortName">p1_punch_on</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p1_punch_previous">
+      <obj_property name="ElementShortName">p1_punch_previous</obj_property>
+      <obj_property name="ObjectShortName">p1_punch_previous</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p2_hit">
+      <obj_property name="ElementShortName">p2_hit</obj_property>
+      <obj_property name="ObjectShortName">p2_hit</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p2_left">
+      <obj_property name="ElementShortName">p2_left</obj_property>
+      <obj_property name="ObjectShortName">p2_left</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p2_right">
+      <obj_property name="ElementShortName">p2_right</obj_property>
+      <obj_property name="ObjectShortName">p2_right</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p2_kick">
+      <obj_property name="ElementShortName">p2_kick</obj_property>
+      <obj_property name="ObjectShortName">p2_kick</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p2_kick_on">
+      <obj_property name="ElementShortName">p2_kick_on</obj_property>
+      <obj_property name="ObjectShortName">p2_kick_on</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p2_punch">
+      <obj_property name="ElementShortName">p2_punch</obj_property>
+      <obj_property name="ObjectShortName">p2_punch</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p2_punch_previous">
+      <obj_property name="ElementShortName">p2_punch_previous</obj_property>
+      <obj_property name="ObjectShortName">p2_punch_previous</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p2_punch_on">
+      <obj_property name="ElementShortName">p2_punch_on</obj_property>
+      <obj_property name="ObjectShortName">p2_punch_on</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/start_timer">
+      <obj_property name="ElementShortName">start_timer</obj_property>
+      <obj_property name="ObjectShortName">start_timer</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/distance_p1_to_p2_testing">
+      <obj_property name="ElementShortName">distance_p1_to_p2_testing[8:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_p1_to_p2_testing[8:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p1_hp">
+      <obj_property name="ElementShortName">p1_hp[6:0]</obj_property>
+      <obj_property name="ObjectShortName">p1_hp[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p2_hp">
+      <obj_property name="ElementShortName">p2_hp[6:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_hp[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/AT_REST">
+      <obj_property name="ElementShortName">AT_REST[2:0]</obj_property>
+      <obj_property name="ObjectShortName">AT_REST[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/KICKING">
+      <obj_property name="ElementShortName">KICKING[2:0]</obj_property>
+      <obj_property name="ObjectShortName">KICKING[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/PUNCHING">
+      <obj_property name="ElementShortName">PUNCHING[2:0]</obj_property>
+      <obj_property name="ObjectShortName">PUNCHING[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/KICKING_DISTANCE">
+      <obj_property name="ElementShortName">KICKING_DISTANCE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">KICKING_DISTANCE[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/PUNCHING_DISTANCE">
+      <obj_property name="ElementShortName">PUNCHING_DISTANCE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PUNCHING_DISTANCE[31:0]</obj_property>
+   </wvobject>
+</wave_config>

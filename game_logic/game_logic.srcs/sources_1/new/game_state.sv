@@ -21,7 +21,7 @@
 
 
 module game_state(
-    input vclock_in,        // 65MHz clock
+    input pixel_clk,        // 5MHz clock
     input reset_in,         // 1 to initialize module
     input [10:0] p1_x_in, // player 1's x position
     input [10:0] p2_x_in,  // player 2's x position
@@ -29,11 +29,15 @@ module game_state(
     input p1_punch,
     input p2_kick,
     input p2_punch,
+
     
     output [1:0] p1_state,
     output [1:0] p2_state,
     output[6:0] p1_hitpoints,
-    output[6:0] p2_hitpoints
+    output[6:0] p2_hitpoints,
+    // for testing
+    input[8:0] distance_p1_to_p2_testing,
+    input[1:0] p2_state_testing
     );
     
     parameter AT_REST = 2'b00;
@@ -48,7 +52,7 @@ module game_state(
     assign p1_hitpoints = p1_hp;
     assign p2_hitpoints = p2_hp;
     
-    logic[8:0] distance_p1_to_p2; 
+    logic[11:0] distance_p1_to_p2, distance_p2_to_p1, distance_between;
     
     // keep track of when hit action was initiated
     // what behaviour to expect when counter value is exceeded
@@ -59,15 +63,19 @@ module game_state(
     logic p1_hit, p2_hit; // keep track of when a hit has landed to avoid multiple point deductions
     
     // keep track of toggled punches and kicks. This fixes the bug where lots of rapid punches took place while the button is pressed down
-    logic p1_punch_previous, p2_punch_previous, p1_kick_previous, p2_kick_previous;
-    logic p1_punch_on = ((p1_punch_previous == 0) && (p1_punch == 1)); //check if attack button has been let go
-    logic p2_punch_on = ((p2_punch_previous == 0) && (p2_punch == 1)); 
-    logic p1_kick_on = ((p1_kick_previous == 0) && (p1_kick == 1));
-    logic p2_kick_on = ((p2_kick_previous == 0) && (p2_kick == 1)); 
-    logic p1_punch_off = ((p1_punch_previous == 1) && (p1_punch == 0)); //check if attack button has been let go
-    logic p2_punch_off = ((p2_punch_previous == 1) && (p2_punch == 0)); 
-    logic p1_kick_off = ((p1_kick_previous == 1) && (p1_kick == 0));
-    logic p2_kick_off = ((p2_kick_previous == 1) && (p2_kick == 0)); 
+    logic p1_punch_previous = 0;
+    logic p2_punch_previous = 0;
+    logic p1_kick_previous = 0;
+    logic p2_kick_previous = 0;
+    logic p1_punch_on, p2_punch_on, p1_kick_on, p2_kick_on, p1_punch_off, p2_punch_off, p1_kick_off, p2_kick_off;
+    assign p1_punch_on = ((p1_punch_previous == 0) && (p1_punch == 1)); //check if attack button has been let go
+    assign p2_punch_on = ((p2_punch_previous == 0) && (p2_punch == 1)); 
+    assign p1_kick_on = ((p1_kick_previous == 0) && (p1_kick == 1));
+    assign p2_kick_on = ((p2_kick_previous == 0) && (p2_kick == 1)); 
+    assign p1_punch_off = ((p1_punch_previous == 1) && (p1_punch == 0)); //check if attack button has been let go
+    assign p2_punch_off = ((p2_punch_previous == 1) && (p2_punch == 0)); 
+    assign p1_kick_off = ((p1_kick_previous == 1) && (p1_kick == 0));
+    assign p2_kick_off = ((p2_kick_previous == 1) && (p2_kick == 0)); 
 
     
     logic[1:0] player_1_state = AT_REST;
@@ -78,7 +86,7 @@ module game_state(
     assign p2_state = player_2_state;
     
     // handle p1 state logic. NOTE: can interact wtih state 2 logic
-    always @(posedge vclock_in) begin
+    always @(posedge pixel_clk) begin
         if (reset_in) begin
             cycle_counter <= 0;
             player_1_state <= AT_REST;
@@ -87,6 +95,10 @@ module game_state(
             p2_hit <= 0;
             p1_hp <= 100;
             p2_hp <= 100;
+            p1_punch_previous <= 0;
+            p2_punch_previous <= 0;
+            p1_kick_previous <= 0;
+            p2_kick_previous <= 0;
         end
         cycle_counter <= cycle_counter + 1; // only need one counter
         player_1_state <= p1_next_state;
@@ -97,14 +109,17 @@ module game_state(
         p2_punch_previous <= p2_punch;
         p2_kick_previous <= p2_kick;
         
-        distance_p1_to_p2 = p2_x_in - (p1_x_in + 64); // offset for p1 width
+        distance_p1_to_p2 <= p2_x_in - (p1_x_in + 64); // offset for p1 width
+        distance_p2_to_p1 <= (p1_x_in + 64) - p2_x_in;
+        // account for overflow error
+        distance_between <= distance_p1_to_p2 < distance_p2_to_p1 ? distance_p1_to_p2 : distance_p2_to_p1;
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
-                if(p1_punch_on &&  (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
+                if(p1_punch_on &&  (distance_between < PUNCHING_DISTANCE)) begin
                     p1_next_state <= PUNCHING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
-                if(p1_kick_on &&  (distance_p1_to_p2 < KICKING_DISTANCE)) begin
+                if(p1_kick_on &&  (distance_between < KICKING_DISTANCE)) begin
                     p1_next_state <= KICKING;
                     p1_hit_time_stamp <= cycle_counter;
                 end
@@ -151,15 +166,15 @@ module game_state(
     end
     
     // handle p2 state logic. NOTE: can interact wtih state 1 logic
-    always @(posedge vclock_in) begin
+    always @(posedge pixel_clk) begin
         player_2_state <= p2_next_state;
-        case(p2_state)
+        case(p2_state) /// p2_state_testing
             AT_REST: begin
-                if(p2_punch_on && (distance_p1_to_p2 < PUNCHING_DISTANCE)) begin
+                if(p2_punch_on && (distance_between < PUNCHING_DISTANCE)) begin
                     p2_next_state <= PUNCHING;
                     p2_hit_time_stamp <= cycle_counter;
                 end
-                if(p2_kick_on && (distance_p1_to_p2 < KICKING_DISTANCE)) begin
+                if(p2_kick_on && (distance_between < KICKING_DISTANCE)) begin
                     p2_next_state <= KICKING;
                     p2_hit_time_stamp <= cycle_counter; // will the counter overflow?
                 end

@@ -3,6 +3,7 @@
 
 module player_move(
     input vclock_in,        // 65MHz clock
+    input pixel_clk,        // 100mhz clock
     input reset_in,         // 1 to initialize module
     input is_p1,            // 1 if is player 1 2 if is player 2
     //input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
@@ -59,7 +60,7 @@ module player_move(
     
     // Game Logic
     game_state game(
-    .vclock_in(vclock_in),        // 65MHz clock
+    .pixel_clk(pixel_clk),        // 100MHz clock
     .reset_in(reset_in),         // 1 to initialize module
     .p1_x_in(x_in_p1), // player 1's x position
     .p2_x_in(x_in_p2),  // player 2's x position

@@ -66,7 +66,7 @@ module main(
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
     //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
    // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
-    logic [6:0] p1_hp, p2_hp;
+    wire [6:0] p1_hp, p2_hp;
     //logic [6:0] p1_hp_test = 5;
    // logic [6:0] p2_hp_test = 100;
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
@@ -96,6 +96,7 @@ module main(
     
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
+    .pixel_clk(clk_100mhz),       // 100mhz clock
     .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
