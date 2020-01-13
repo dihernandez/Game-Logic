@@ -2,8 +2,8 @@
 # Webtalk v2019.1.2 (64-bit)
 # SW Build 2615518 on Fri Aug  9 15:53:29 MDT 2019
 # IP Build 2614745 on Fri Aug  9 20:55:02 MDT 2019
-# Start of session at: Fri Jan 10 16:28:48 2020
-# Process ID: 9070
+# Start of session at: Mon Jan 13 15:47:54 2020
+# Process ID: 9738
 # Current directory: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim
 # Command line: wbtcv -mode batch -source /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/xsim.dir/game_state_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.sim/sim_1/behav/xsim/webtalk.log

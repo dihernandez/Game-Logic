@@ -32,8 +32,6 @@ module main(
 //   output led16_b, led16_g, led16_r,
 //   output led17_b, led17_g, led17_r,
 //   output[15:0] led,
-//   output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
-//   output[7:0] an    // Display location 0-7
     );
     
     wire clk_65mhz;
@@ -127,6 +125,7 @@ module main(
    
     player_move move_player_2(
     .vclock_in(clk_65mhz),        // 65MHz clock
+    .pixel_clk(clk_65mhz),       // 65mhz clock
     .reset_in(reset),         // 1 to initialize module
 
    .is_p1(0), // select player 2
@@ -194,7 +193,9 @@ module main(
     assign vga_hs = ~hs;
     assign vga_vs = ~vs;
     
+    
 endmodule
+
 
 //////////////////////////////////////////////////////////////////////
 //
