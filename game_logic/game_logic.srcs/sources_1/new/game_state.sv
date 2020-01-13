@@ -133,7 +133,7 @@ module game_state(
                         p1_hit <= 1;
                     end
                 end else begin
-                    p2_hp <= p2_hp - 5;
+                    p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                     p1_hit <= 1;
                 end
                 if (p1_punch_off) begin

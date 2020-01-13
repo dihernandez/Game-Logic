@@ -67,8 +67,8 @@ module main(
     //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
    // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     wire [6:0] p1_hp, p2_hp;
-    //logic [6:0] p1_hp_test = 5;
-   // logic [6:0] p2_hp_test = 100;
+    logic [6:0] p1_hp_test = 5;
+    logic [6:0] p2_hp_test = 95;
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
@@ -96,7 +96,7 @@ module main(
     
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
-    .pixel_clk(clk_100mhz),       // 100mhz clock
+    .pixel_clk(clk_65mhz),       // 100mhz clock
     .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
@@ -116,10 +116,10 @@ module main(
    .pblank_out(pblank),       // pong game's blanking
     
      // player combat
-    .p1_kick(btnd),
-    .p1_punch(btnr),
-    .p2_kick(btnu),
-    .p2_punch(btnl),
+    .p1_kick(btnu),
+    .p1_punch(btnl),
+    .p2_kick(btnd),
+    .p2_punch(btnr),
      
     .hp(p1_hp),
     .pixel_out(player_1_pixel)
@@ -147,10 +147,10 @@ module main(
    .pblank_out(pblank),       // pong game's blanking
 
     // player combat
-    .p1_kick(btnd),
-    .p1_punch(btnr),
-    .p2_kick(btnu),
-    .p2_punch(btnl),
+    .p1_kick(btnu),
+    .p1_punch(btnl),
+    .p2_kick(btnd),
+    .p2_punch(btnr),
     .hp(p2_hp),     
     .pixel_out(player_2_pixel)
    );
@@ -333,12 +333,12 @@ module player_2_blob
      end
    end
  
-   p1_motions p2_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+   p2_motions p2_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
 
 
-   p1_motions_red p2_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
-   p1_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
-   p1_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
+   p2_motions_red p2_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
+   p2_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
+   p2_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
 
 endmodule
 
