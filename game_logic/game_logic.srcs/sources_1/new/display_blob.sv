@@ -333,12 +333,12 @@ module player_2_blob
      end
    end
  
-   p2_motions p2_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+   p1_motions p2_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
 
 
-   p2_motions_red p2_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
-   p2_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
-   p2_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
+   p1_motions_red p2_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
+   p1_motions_green p2_rest_green(.clka(pixel_clk_in), .addra(image_bits), .douta(green_mapped));
+   p1_motions_blue p2_rest_blue(.clka(pixel_clk_in), .addra(image_bits), .douta(blue_mapped));
 
 endmodule
 

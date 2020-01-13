@@ -1,0 +1,6 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
+Error: Assertion violation
+Time: 10 ns  Iteration: 0  Process: /game_state_tb/Initial32_3  File: /afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sim_1/new/game_state_tb.sv
