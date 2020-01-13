@@ -56,7 +56,7 @@ module player_move(
     
     player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_state), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
-    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
+    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p1_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
     // Game Logic
     game_state game(

@@ -50,7 +50,7 @@ module hp_display(
                 end else begin
                     player_tens_digit <= player_tens_digit - 1;
                 end
-            end else if(hp > hp_old) begin
+            end else if(hp > hp_old) begin // wrap around, hp reaches zero
                 player_hundred_digit <= 0;
                 player_tens_digit <= 0;
                 player_ones_digit <= 0;

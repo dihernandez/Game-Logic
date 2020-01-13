@@ -126,37 +126,38 @@ module game_state(
             end
             
             PUNCHING: begin
+                if (p1_punch_off) begin
+                    p1_next_state <= AT_REST;
+                    p1_hit <= 0;
+                end else
                 // handle both in punching state
                 if(p2_state == PUNCHING && !p1_hit) begin
                     if(p1_hit_time_stamp < p2_hit_time_stamp) begin
-                        p2_hp <= p2_hp - 5;
+                        p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                         p1_hit <= 1;
                     end
                 end else begin
                     p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                     p1_hit <= 1;
                 end
-                if (p1_punch_off) begin
-                    p1_next_state <= AT_REST;
-                    p1_hit <= 0;
-                end
+
                 p1_hit_time_stamp <= 0;
             end
             
             KICKING: begin
-                // handle both in kicking state
-                if(p2_state == KICKING && !p1_hit) begin
-                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin
-                        p2_hp <= p2_hp - 10;
-                        p1_hit <= 1;
-                    end
-                end else begin
-                    p2_hp <= p2_hp - 10;
-                    p1_hit <= 1;
-                end
                 if (p1_kick_off) begin
                     p1_next_state <= AT_REST;
                     p1_hit <= 0;
+                end else
+                // handle both in kicking state
+                if(p2_state == KICKING && !p1_hit) begin
+                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin
+                        p2_hp <= (p2_hp >= 10) ? (p2_hp - 10) : 0;
+                        p1_hit <= 1;
+                    end
+                end else begin
+                    p2_hp <= (p2_hp >= 10) ? (p2_hp - 10) : 0;
+                    p1_hit <= 1;
                 end
                 p1_hit_time_stamp <= 0;
             end

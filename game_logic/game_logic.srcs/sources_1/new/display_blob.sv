@@ -67,8 +67,8 @@ module main(
     //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
    // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     wire [6:0] p1_hp, p2_hp;
-    logic [6:0] p1_hp_test = 5;
-    logic [6:0] p2_hp_test = 95;
+    //logic [6:0] p1_hp_test = 5;
+    //logic [6:0] p2_hp_test = 95;  testing with constants won't work because hp digits need to be initialized at 100
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
@@ -96,7 +96,7 @@ module main(
     
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
-    .pixel_clk(clk_65mhz),       // 100mhz clock
+    .pixel_clk(clk_65mhz),       // 65mhz clock
     .reset_in(reset),         // 1 to initialize module
    .is_p1(1), 
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
@@ -111,9 +111,9 @@ module main(
    .hsync_in(hsync),         // XVGA horizontal sync signal (active low)
    .vsync_in(vsync),         // XVGA vertical sync signal (active low)
    .blank_in(blank),         // XVGA blanking (1 means output black pixel)
-   .phsync_out(phsync),       // pong game's horizontal sync
-   .pvsync_out(pvsync),       // pong game's vertical sync
-   .pblank_out(pblank),       // pong game's blanking
+   .phsync_out(phsync),       // game's horizontal sync
+   .pvsync_out(pvsync),       // game's vertical sync
+   .pblank_out(pblank),       // game's blanking
     
      // player combat
     .p1_kick(btnu),
@@ -142,9 +142,9 @@ module main(
    .hsync_in(hsync),         // XVGA horizontal sync signal (active low)
    .vsync_in(vsync),         // XVGA vertical sync signal (active low)
    .blank_in(blank),         // XVGA blanking (1 means output black pixel)
-   .phsync_out(phsync),       // pong game's horizontal sync
-   .pvsync_out(pvsync),       // pong game's vertical sync
-   .pblank_out(pblank),       // pong game's blanking
+   .phsync_out(phsync),       // game's horizontal sync
+   .pvsync_out(pvsync),       // game's vertical sync
+   .pblank_out(pblank),       // game's blanking
 
     // player combat
     .p1_kick(btnu),
