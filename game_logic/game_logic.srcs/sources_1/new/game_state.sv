@@ -136,7 +136,7 @@ module game_state(
                         p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                         p1_hit <= 1;
                     end
-                end else begin
+                end else if(!p1_hit) begin
                     p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                     p1_hit <= 1;
                 end
@@ -155,7 +155,7 @@ module game_state(
                         p2_hp <= (p2_hp >= 10) ? (p2_hp - 10) : 0;
                         p1_hit <= 1;
                     end
-                end else begin
+                end else if(!p2_hit) begin
                     p2_hp <= (p2_hp >= 10) ? (p2_hp - 10) : 0;
                     p1_hit <= 1;
                 end
@@ -189,17 +189,17 @@ module game_state(
                 // handle both in punching state
                 if(p1_state == PUNCHING && !p2_hit) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp) begin
-                        p1_hp <= p1_hp - 5;
+                        p1_hp <= (p1_hp >= 5) ? p1_hp - 5 : 0;
                         p2_hit <= 1;
                     end
-                end else begin
-                    p1_hp <= p1_hp - 5;
+                end else if (!p2_hit) begin
+                    p1_hp <= (p1_hp >= 5) ? p1_hp - 5 : 0;
                     p2_hit <= 1;
                 end
                 p2_hit_time_stamp <= 0;
             end
             
-            
+            // THIS IS DIFFERENT LOGIC
             KICKING: begin
                 if (p2_kick_off) begin
                     p2_next_state <= AT_REST;
@@ -208,10 +208,10 @@ module game_state(
                 // handle both in kicking state
                 if(p1_state == KICKING) begin
                     if(p2_hit_time_stamp < p1_hit_time_stamp && !p2_hit) begin
-                        p1_hp <= p1_hp - 10;
+                        p1_hp <= (p1_hp >= 10) ? p1_hp - 10 : 0;
                     end
                 end else begin
-                    p1_hp <= p1_hp - 10;
+                    p1_hp <= (p1_hp >= 10) ? p1_hp - 10 : 0;
                     p2_hit <= 1;
                 end
                 p2_hit_time_stamp <= 0;

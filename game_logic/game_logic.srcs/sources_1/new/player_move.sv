@@ -34,23 +34,11 @@ module player_move(
     output logic phsync_out,       // pong game's horizontal sync
     output logic pvsync_out,       // pong game's vertical sync
     output logic pblank_out,       // pong game's blanking
-    output [11:0] pixel_out,  // pong game's pixel  // r=11:7, g=7:3, b=3:0 
+    output [11:0] pixel_out, // pong game's pixel  // r=11:7, g=7:3, b=3:0 
     
-    output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
-    output[7:0] an    // Display location 0-7
-    
+    // for testing
+    output state
     );
-    
-    
-    // Segment Display Logic    
-    logic[31:0] seven_seg_val_in;
-    logic[7:0] cat_out, an_out;
-    assign cat_out = {cg, cf, ce, cd, cc, cb, ca};
-    assign an_out = an;
-    // assign seven_seg_val_in = {, {1'b0, 1'b0, 1'b0, ignition_on}, time_value, {1'b0, 1'b0, time_parameter_selector},12'b0, counter};
-    
-    //  seven_seg_controller seven_seg(.clk_in(clk_100mhz), .rst_in(system_reset), .val_in(seven_seg_val_in) ,.cat_out(cat_out), .an_out(an_out)
-    //   );
     
     
    parameter WIDTH = 64;
@@ -68,7 +56,8 @@ module player_move(
    logic [6:0] p1_hitpoints, p2_hitpoints;
    assign hp = is_p1 ? p1_hitpoints : p2_hitpoints;
 
-    wire [1:0] p1_state, p2_state; 
+    wire [1:0] p1_state, p2_state;
+    assign state = is_p1 ? p1_state : p2_state; 
     
     player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_state), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
