@@ -44,21 +44,22 @@ module game_state_tb();
         assert (p1_state == AT_REST);
         assert (p2_state == AT_REST);
         #100
-        p1_kick <= 1;
+        //p1_kick <= 1;
         p1_punch <= 1;
         #10
         //assert (p1_state == KICKING);
         #10
-        p2_kick <= 1;
+        //p2_kick <= 1;
+        p1_punch <= 0;
         #10
         //assert (p2_state == KICKING);
-        #10
-        p1_kick <= 0;
-        #10
+       // #10
+       // p1_kick <= 0;
+       // #10
         //assert (p1_state == AT_REST);
-        p2_kick <= 0;
+      //  p2_kick <= 0;
         //assert (p2_state == AT_REST);
-        #100
+     //   #100
         p2_punch <= 1;
         #100
         //assert (p2_state == PUNCHING);
@@ -66,11 +67,11 @@ module game_state_tb();
         //#100
         //assert (p2_state == AT_REST);
         p2_punch <= 0;
-        p1_kick <= 1;
-        #100
-        p1_kick <= 0; // expect to stay in kick state until p1 driven down
-        p2_punch <= 1; // stay in punch state since not driven down      
-        p2_state_testing <= PUNCHING;
+     //   p1_kick <= 1;
+       // #100
+      //  p1_kick <= 0; // expect to stay in kick state until p1 driven down
+      //  p2_punch <= 1; // stay in punch state since not driven down      
+      //  p2_state_testing <= PUNCHING;
        // #10
     end
     

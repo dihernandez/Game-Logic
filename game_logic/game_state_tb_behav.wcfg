@@ -11,12 +11,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="308610000fs"></ZoomStartTime>
-      <ZoomEndTime time="1018610001fs"></ZoomEndTime>
-      <Cursor1Time time="673610000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="714000001fs"></ZoomEndTime>
+      <Cursor1Time time="145000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="158"></NameColumnWidth>
+      <NameColumnWidth column_width="154"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="38" />
@@ -150,10 +150,12 @@
    <wvobject type="array" fp_name="/game_state_tb/p1_hp">
       <obj_property name="ElementShortName">p1_hp[6:0]</obj_property>
       <obj_property name="ObjectShortName">p1_hp[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/game_state_tb/p2_hp">
       <obj_property name="ElementShortName">p2_hp[6:0]</obj_property>
       <obj_property name="ObjectShortName">p2_hp[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/game_state_tb/AT_REST">
       <obj_property name="ElementShortName">AT_REST[2:0]</obj_property>
