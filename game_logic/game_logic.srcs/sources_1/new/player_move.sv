@@ -37,7 +37,7 @@ module player_move(
     output [11:0] pixel_out, // pong game's pixel  // r=11:7, g=7:3, b=3:0 
     
     // for testing
-    output state
+    output[1:0] state // changed from single bit, fixes LED state display
     );
     
     

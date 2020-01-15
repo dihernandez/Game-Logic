@@ -51,29 +51,67 @@ module main(
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
         // btnc button is user reset
-    wire reset;
-    debounce db1(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(reset));
+    wire reset_in, system_reset;
+    assign reset_in = sw[13];
+    debounce db1(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(system_reset));
    
    
     // UP, DOWN, LEFT, RIGHT buttons for punching and kicking
     wire up, down, left, right;
-    debounce db2(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
-    debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
-    debounce db4(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
-    debounce db5(.reset_in(reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
+    debounce db2(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
+    debounce db3(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
+    debounce db4(.reset_in(reset_in),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
+    debounce db5(.reset_in(reset_in),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
     //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
    // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
     wire [6:0] p1_hp, p2_hp;
-    //logic [6:0] p1_hp_test = 5;
-    //logic [6:0] p2_hp_test = 95;  testing with constants won't work because hp digits need to be initialized at 100
+    logic [6:0] p1_hp_test = 100;
+    logic [6:0] p2_hp_test = 100;
+    
+    logic up_previous = 0;
+    logic down_previous = 0;
+    logic left_previous = 0;
+    logic right_previous = 0;
+    
+    logic up_toggled, down_toggled, left_toggled, right_toggled;
+    assign up_toggled = (up_previous == 0 && up == 1);
+    assign down_toggled = (down_previous == 0 && down == 1);
+    assign left_toggled = (left_previous == 0 && left == 1);
+    assign right_toggled = (right_previous == 0 && right == 1);  
+    
+    // testing with constants won't work because hp digits need to be initialized at 100 
+    always @(posedge clk_65mhz) begin
+        up_previous <= up;
+        down_previous <= down;
+        left_previous <= left;
+        right_previous <= right;
+        
+        if (system_reset) begin
+            p1_hp_test <= 100;
+            p2_hp_test <= 100;
+        end
+        
+        if(up_toggled) begin
+            p1_hp_test  <= p1_hp_test >= 10 ? p1_hp_test - 10 : 0;
+        end
+        if(right_toggled) begin
+            p1_hp_test  <= p1_hp_test >= 5 ? p1_hp_test - 5 : 0;
+        end
+        if(down_toggled) begin
+            p2_hp_test  <= p2_hp_test >= 10 ? p2_hp_test - 10 : 0;
+        end
+        if(left_toggled) begin
+            p2_hp_test  <= p2_hp_test >= 5 ? p2_hp_test - 5 : 0;
+        end
+    end
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
-    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp_test), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp_test), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
 
     number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
     number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
@@ -99,7 +137,7 @@ module main(
     player_move move_player_1(
     .vclock_in(clk_65mhz),        // 65MHz clock
     .pixel_clk(clk_65mhz),       // 65mhz clock
-    .reset_in(reset),         // 1 to initialize module
+    .reset_in(system_reset),         // 1 to initialize module
    .is_p1(1), 
    .initial_x_p1(100),      // p1 initial position used when is_p1 is high
    .initial_x_p2(600),         // p2 0 default when p1 selected
@@ -131,7 +169,7 @@ module main(
     player_move move_player_2(
     .vclock_in(clk_65mhz),        // 65MHz clock
     .pixel_clk(clk_65mhz),       // 65mhz clock
-    .reset_in(reset),         // 1 to initialize module
+    .reset_in(system_reset),         // 1 to initialize module
 
    .is_p1(0), // select player 2
    .initial_x_p1(100),
@@ -204,7 +242,7 @@ module main(
     assign an_out = an;
     assign seven_seg_val_in = {{2'b0, p1_state}, {1'b0, p1_hp}, 8'b0, {1'b0, p2_hp}, {2'b0, p2_state}};
     
-    seven_seg_controller seven_seg(.clk_in(clk_100mhz), .rst_in(reset), .val_in(seven_seg_val_in) ,.cat_out(cat_out), .an_out(an_out)
+    seven_seg_controller seven_seg(.clk_in(clk_100mhz), .rst_in(system_reset), .val_in(seven_seg_val_in) ,.cat_out(cat_out), .an_out(an_out)
     );
     
     

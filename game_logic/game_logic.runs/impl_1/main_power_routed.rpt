@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Wed Jan 15 13:28:24 2020
+| Date             : Wed Jan 15 16:03:24 2020
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.247        |
+| Total On-Chip Power (W)  | 0.257        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.148        |
+| Dynamic (W)              | 0.157        |
 | Device Static (W)        | 0.100        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 83.9         |
-| Junction Temperature (C) | 26.1         |
+| Max Ambient (C)          | 83.8         |
+| Junction Temperature (C) | 26.2         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,20 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        6 |       --- |             --- |
-| Slice Logic    |     0.002 |     1993 |       --- |             --- |
-|   LUT as Logic |     0.001 |      974 |     63400 |            1.54 |
-|   CARRY4       |    <0.001 |      227 |     15850 |            1.43 |
-|   Register     |    <0.001 |      374 |    126800 |            0.29 |
+| Clocks         |     0.005 |        6 |       --- |             --- |
+| Slice Logic    |     0.003 |     2272 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1095 |     63400 |            1.73 |
+|   CARRY4       |    <0.001 |      241 |     15850 |            1.52 |
+|   Register     |    <0.001 |      495 |    126800 |            0.39 |
 |   F7/F8 Muxes  |    <0.001 |       24 |     63400 |            0.04 |
-|   Others       |     0.000 |      160 |       --- |             --- |
-| Signals        |     0.003 |     1478 |       --- |             --- |
+|   Others       |     0.000 |      170 |       --- |             --- |
+| Signals        |     0.004 |     1724 |       --- |             --- |
 | Block RAM      |     0.014 |       45 |       135 |           33.33 |
 | MMCM           |     0.122 |        1 |         6 |           16.67 |
 | DSPs           |    <0.001 |        6 |       240 |            2.50 |
-| I/O            |     0.002 |       42 |       210 |           20.00 |
+| I/O            |     0.009 |       43 |       210 |           20.48 |
 | Static Power   |     0.100 |          |           |                 |
-| Total          |     0.247 |          |           |                 |
+| Total          |     0.257 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,9 +75,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.039 |       0.023 |      0.016 |
+| Vccint    |       1.000 |     0.042 |       0.025 |      0.017 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -147,7 +147,7 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| main                |     0.148 |
+| main                |     0.157 |
 |   clkdivider        |     0.122 |
 |     inst            |     0.122 |
 |   move_player_1     |     0.006 |
@@ -155,7 +155,7 @@ Table of Contents
 |       p1_rest_blue  |     0.001 |
 |       p1_rest_green |     0.001 |
 |       p1_rest_red   |     0.001 |
-|   move_player_2     |     0.006 |
+|   move_player_2     |     0.007 |
 |     game            |     0.001 |
 |     p2_blob         |     0.005 |
 |       p2_rest_blue  |     0.001 |

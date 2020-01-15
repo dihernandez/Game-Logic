@@ -12,7 +12,7 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="714000001fs"></ZoomEndTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
       <Cursor1Time time="145000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
@@ -27,6 +27,16 @@
    <wvobject type="logic" fp_name="/game_state_tb/reset">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p1_hp">
+      <obj_property name="ElementShortName">p1_hp[6:0]</obj_property>
+      <obj_property name="ObjectShortName">p1_hp[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/game_state_tb/p2_hp">
+      <obj_property name="ElementShortName">p2_hp[6:0]</obj_property>
+      <obj_property name="ObjectShortName">p2_hp[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/game_state_tb/p1_x_in">
       <obj_property name="ElementShortName">p1_x_in[10:0]</obj_property>
@@ -95,6 +105,14 @@
       <obj_property name="ElementShortName">p1_punch</obj_property>
       <obj_property name="ObjectShortName">p1_punch</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/p2_punch">
+      <obj_property name="ElementShortName">p2_punch</obj_property>
+      <obj_property name="ObjectShortName">p2_punch</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/game_state_tb/game/p2_punch_on">
+      <obj_property name="ElementShortName">p2_punch_on</obj_property>
+      <obj_property name="ObjectShortName">p2_punch_on</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/game_state_tb/game/p1_punch_on">
       <obj_property name="ElementShortName">p1_punch_on</obj_property>
       <obj_property name="ObjectShortName">p1_punch_on</obj_property>
@@ -127,17 +145,9 @@
       <obj_property name="ElementShortName">p2_kick_on</obj_property>
       <obj_property name="ObjectShortName">p2_kick_on</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/game_state_tb/p2_punch">
-      <obj_property name="ElementShortName">p2_punch</obj_property>
-      <obj_property name="ObjectShortName">p2_punch</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="/game_state_tb/game/p2_punch_previous">
       <obj_property name="ElementShortName">p2_punch_previous</obj_property>
       <obj_property name="ObjectShortName">p2_punch_previous</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/game_state_tb/game/p2_punch_on">
-      <obj_property name="ElementShortName">p2_punch_on</obj_property>
-      <obj_property name="ObjectShortName">p2_punch_on</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/game_state_tb/start_timer">
       <obj_property name="ElementShortName">start_timer</obj_property>
@@ -146,16 +156,6 @@
    <wvobject type="array" fp_name="/game_state_tb/distance_p1_to_p2_testing">
       <obj_property name="ElementShortName">distance_p1_to_p2_testing[8:0]</obj_property>
       <obj_property name="ObjectShortName">distance_p1_to_p2_testing[8:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/game_state_tb/p1_hp">
-      <obj_property name="ElementShortName">p1_hp[6:0]</obj_property>
-      <obj_property name="ObjectShortName">p1_hp[6:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/game_state_tb/p2_hp">
-      <obj_property name="ElementShortName">p2_hp[6:0]</obj_property>
-      <obj_property name="ObjectShortName">p2_hp[6:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/game_state_tb/AT_REST">
       <obj_property name="ElementShortName">AT_REST[2:0]</obj_property>
