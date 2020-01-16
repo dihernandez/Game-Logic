@@ -2,8 +2,7 @@
 
 
 module player_move(
-    input vclock_in,        // 65MHz clock
-    input pixel_clk,        // 100mhz clock
+    input pixel_clk,        // 65mhz clock
     input reset_in,         // 1 to initialize module
     input is_p1,            // 1 if is player 1 2 if is player 2
     //input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
@@ -59,9 +58,9 @@ module player_move(
     wire [1:0] p1_state, p2_state;
     assign state = is_p1 ? p1_state : p2_state; 
     
-    player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(vclock_in), .motion(p1_state), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
+    player_1_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p1_blob(.pixel_clk_in(pixel_clk), .motion(p1_state), .x_in(x_in_p1), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p1_pixel));
     
-    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(vclock_in), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
+    player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(pixel_clk), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
     // Game Logic
     game_state game(
@@ -82,14 +81,14 @@ module player_move(
     
     
      // initialize everything
-    always @(posedge vclock_in) begin
+    always @(posedge pixel_clk) begin
         phsync_out <= hsync_in;
         pvsync_out <= vsync_in;
         pblank_out <= blank_in;
     end    
     
     
-    always @(posedge vclock_in) begin
+    always @(posedge pixel_clk) begin
         if(reset_in) begin
             x_in_p1 <= initial_x_p1;
             x_in_p2 <= initial_x_p2;

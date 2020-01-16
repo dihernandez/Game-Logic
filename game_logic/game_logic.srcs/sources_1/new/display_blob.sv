@@ -58,10 +58,10 @@ module main(
    
     // UP, DOWN, LEFT, RIGHT buttons for punching and kicking
     wire up, down, left, right;
-    debounce db2(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
-    debounce db3(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
-    debounce db4(.reset_in(reset_in),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
-    debounce db5(.reset_in(reset_in),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
+    debounce db2(.reset_in(system_reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
+    debounce db3(.reset_in(system_reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
+    debounce db4(.reset_in(system_reset),.clock_in(clk_65mhz), .noisy_in(btnr), .clean_out(right));
+    debounce db5(.reset_in(system_reset),.clock_in(clk_65mhz), .noisy_in(btnl), .clean_out(left));
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
@@ -110,8 +110,8 @@ module main(
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp_test), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
-    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp_test), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
 
     number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
     number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));
@@ -135,7 +135,6 @@ module main(
     // define players and their movement logic
     
     player_move move_player_1(
-    .vclock_in(clk_65mhz),        // 65MHz clock
     .pixel_clk(clk_65mhz),       // 65mhz clock
     .reset_in(system_reset),         // 1 to initialize module
    .is_p1(1), 
@@ -167,7 +166,6 @@ module main(
    );
    
     player_move move_player_2(
-    .vclock_in(clk_65mhz),        // 65MHz clock
     .pixel_clk(clk_65mhz),       // 65mhz clock
     .reset_in(system_reset),         // 1 to initialize module
 

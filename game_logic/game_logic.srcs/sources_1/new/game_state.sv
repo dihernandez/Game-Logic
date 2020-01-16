@@ -115,7 +115,7 @@ module game_state(
         distance_between <= distance_p1_to_p2 < distance_p2_to_p1 ? distance_p1_to_p2 : distance_p2_to_p1;
         case(p1_state)
             AT_REST: begin // stay here unless signals to move or attack
-                if(p1_punch_on &&  (distance_between < PUNCHING_DISTANCE)) begin
+                if(p1_punch_on && (distance_between < PUNCHING_DISTANCE)) begin
                     p1_next_state <= PUNCHING;
                     p1_hit_time_stamp <= cycle_counter;
                 end else // punching takes precedense over kicking, arbitrary
@@ -132,7 +132,7 @@ module game_state(
                 end else
                 // handle both in punching state
                 if(p2_state == PUNCHING && !p1_hit) begin
-                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin
+                    if(p1_hit_time_stamp < p2_hit_time_stamp) begin 
                         p2_hp <= (p2_hp >= 5) ? (p2_hp - 5) : 0;
                         p1_hit <= 1;
                     end
@@ -186,17 +186,18 @@ module game_state(
                     p2_next_state <= AT_REST;
                     p2_hit <= 0;
                 end else
-                if(p1_state == PUNCHING && !p2_hit) begin
-                    if(p2_hit_time_stamp < p1_hit_time_stamp) begin
-                        p1_hp <= (p1_hp >= 5) ? p1_hp - 5 : 0;
-                        p2_hit <= 1;
-                    end
-                end else if (!p2_hit) begin
+//                if(p1_state == PUNCHING && !p2_hit) begin 
+//                    //if(p2_hit_time_stamp < p1_hit_time_stamp) begin // is p2_hit_time_stamp ever < p1_hit_time_stamp?
+//                        p1_hp <= (p1_hp >= 5) ? p1_hp - 5 : 0;
+//                        p2_hit <= 1;
+//                    //end
+//                end else 
+               // if (!p2_hit) begin
                     p1_hp <= (p1_hp >= 5) ? p1_hp - 5 : 0;
                     p2_hit <= 1;
-                end
+               // end
                 
-                p2_hit_time_stamp <= 0;
+                //p2_hit_time_stamp <= 0;
             end
             
             // THIS IS DIFFERENT LOGIC
@@ -206,16 +207,18 @@ module game_state(
                     p2_hit <= 0;
                 end else
                 // handle both in kicking state
-                if(p1_state == KICKING && !p2_hit) begin
-                    if(p2_hit_time_stamp < p1_hit_time_stamp && !p2_hit) begin
-                        p1_hp <= (p1_hp >= 10) ? p1_hp - 10 : 0;
-                        p2_hit <= 1; // added at 2:28pm 1/15
-                    end
-                end else begin
+//                if(p1_state == KICKING && !p2_hit) begin
+//                    //if(p2_hit_time_stamp < p1_hit_time_stamp && !p2_hit) begin
+//                        p1_hp <= (p1_hp >= 10) ? p1_hp - 10 : 0;
+//                        p2_hit <= 1; // added at 2:28pm 1/15
+//                    //end
+//                end 
+                //else
+                 //if (!p2_hit) begin
                     p1_hp <= (p1_hp >= 10) ? p1_hp - 10 : 0;
                     p2_hit <= 1;
-                end
-                p2_hit_time_stamp <= 0;
+                //end
+                //p2_hit_time_stamp <= 0;
             end
         
         default: p2_next_state <= AT_REST;

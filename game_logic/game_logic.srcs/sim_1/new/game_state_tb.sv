@@ -37,6 +37,7 @@ module game_state_tb();
         reset <= 1'b0;
         start_timer <= 1'b1;
         p1_punch <= 0;
+        p2_punch <= 0;
         p1_x_in <= 500;
         p2_x_in <= 520; // within punch and kick range
         
@@ -61,12 +62,13 @@ module game_state_tb();
         //assert (p2_state == AT_REST);
      //   #100
         p2_punch <= 1;
-        #100
+        #10;
         //assert (p2_state == PUNCHING);
         //p2_x_in <= 700; //move out of range
         //#100
         //assert (p2_state == AT_REST);
         p2_punch <= 0;
+        #10;
      //   p1_kick <= 1;
        // #100
       //  p1_kick <= 0; // expect to stay in kick state until p1 driven down
