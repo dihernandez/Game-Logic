@@ -60,18 +60,18 @@ endmodule
 
 // decimal counter
 module hp_countdown (
-     input[6:0] countdown_interval,
      input clk,
      input reset,
+     input [6:0] hp,
      
-     output [6:0] hp,
      output [3:0] ones_digit,
      output [3:0] tens_digit,
      output [3:0] hundred_digit
 );
 
-    logic[6:0] counter = hp;
     logic[3:0] tens_counter = 0;
+    logic[6:0] interval;
+    logic[6:0] hp_old;
 
     logic [3:0] player_ones_digit, player_tens_digit, player_hundred_digit;
     assign ones_digit = player_ones_digit;
@@ -81,12 +81,23 @@ module hp_countdown (
     
     always @(posedge clk) begin
         if(reset) begin
-            counter = hp;
+            player_ones_digit <= 0;
+            player_tens_digit <= 0;
+            player_hundred_digit <= 1;
+        end
+        hp_old <= hp;
+        interval <= hp - hp_old; // never increments, just decrements
+        player_ones_digit <= hp % 10; 
+        player_tens_digit <= 10 - tens_counter;
+        if (hp < 100) begin
+            player_hundred_digit = 0;
         end
         
-        if(counter) begin
-            player_tens_digit = counter % 100;
-            player_ones_digit = counter % 10;     
+        if(interval > player_ones_digit && tens_counter < 10) begin // if interval is greater than ones digit, we decrement tens by 1; note cannot decrement by > 10 and still be accurate
+            tens_counter <= tens_counter + 1;
+        end else if (tens_counter == 10) begin
+            tens_counter <= 0;
+            player_tens_digit <= 0;
         end
     end
 

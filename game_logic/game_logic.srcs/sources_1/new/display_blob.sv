@@ -110,8 +110,12 @@ module main(
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
-    hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
-    hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+ //   hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+ //   hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+
+    hp_countdown p1_score(.clk(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
+    hp_countdown p2_score(.clk(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
+
 
     number_display p1_ones_score(.clk(clk_65mhz), .x_in(196), .digit(p1_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p1_ones_pixel));
     number_display p2_ones_score(.clk(clk_65mhz), .x_in(696), .digit(p2_ones_digit), .hcount_in(hcount), .y_in(10), .vcount_in(vcount), .pixel_out(p2_ones_pixel));

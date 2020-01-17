@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Thu Jan 16 17:03:13 2020
+| Date         : Fri Jan 17 12:39:20 2020
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    23 |
-|    Minimum number of control sets                        |    23 |
+| Total control sets                                       |    26 |
+|    Minimum number of control sets                        |    26 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    86 |
+| Unused register locations in slices containing registers |   104 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,14 +39,14 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    23 |
+| Total control sets |    26 |
 | >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     6 |
+| >= 4 to < 6        |    10 |
 | >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     2 |
 | >= 10 to < 12      |     5 |
 | >= 12 to < 14      |     3 |
-| >= 14 to < 16      |     1 |
+| >= 14 to < 16      |     0 |
 | >= 16              |     3 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
@@ -58,44 +58,47 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             165 |           62 |
+| No           | No                    | No                     |             185 |           65 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              79 |           32 |
-| Yes          | No                    | No                     |              97 |           40 |
+| No           | Yes                   | No                     |              87 |           31 |
+| Yes          | No                    | No                     |              83 |           34 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              37 |           11 |
+| Yes          | Yes                   | No                     |              45 |           12 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------+--------------------------------------+---------------------------+------------------+----------------+
-|        Clock Signal       |             Enable Signal            |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+---------------------------+--------------------------------------+---------------------------+------------------+----------------+
-|  clkdivider/inst/clk_out1 | xvga1/hreset                         |                           |                1 |              1 |
-|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_7[0]        |                           |                3 |              4 |
-|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_5[0]        |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_2[0]        |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_13[0]       |                           |                3 |              4 |
-|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_10[0]       |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | xvga1/E[0]                           |                           |                2 |              4 |
-|  clkdivider/inst/clk_out1 | move_player_2/game/p2_hp             |                           |                4 |              7 |
-|  clkdivider/inst/clk_out1 | move_player_1/game/p1_hp             |                           |                3 |              7 |
-|  clk_100mhz_IBUF_BUFG     | seven_seg/segment_state              | db1/system_reset          |                2 |              8 |
-|  clkdivider/inst/clk_out1 | xvga1/hreset                         | xvga1/vcount_out0         |                4 |              9 |
-|  clkdivider/inst/clk_out1 |                                      | xvga1/hreset              |                5 |             11 |
-|  clkdivider/inst/clk_out1 | move_player_1/x_in_p2[10]_i_1__0_n_0 |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 | move_player_1/x_in_p1[10]_i_1__0_n_0 |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 | move_player_2/x_in_p2[10]_i_1_n_0    |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 | move_player_2/x_in_p1[10]_i_1_n_0    |                           |                3 |             11 |
-|  clkdivider/inst/clk_out1 |                                      | xvga1/vcount_out_reg[8]_1 |                6 |             12 |
-|  clkdivider/inst/clk_out1 |                                      | xvga1/vcount_out_reg[8]_0 |                7 |             12 |
-|  clkdivider/inst/clk_out1 |                                      | xvga1/sw[1]               |                6 |             12 |
-|  clkdivider/inst/clk_out1 | db1/E[0]                             |                           |                6 |             14 |
-|  clkdivider/inst/clk_out1 | db1/count                            | db1/count[0]_i_1_n_0      |                5 |             20 |
-|  clk_100mhz_IBUF_BUFG     |                                      | db1/system_reset          |                8 |             32 |
-|  clkdivider/inst/clk_out1 |                                      |                           |               62 |            165 |
-+---------------------------+--------------------------------------+---------------------------+------------------+----------------+
++---------------------------+--------------------------------------+-------------------------------------+------------------+----------------+
+|        Clock Signal       |             Enable Signal            |           Set/Reset Signal          | Slice Load Count | Bel Load Count |
++---------------------------+--------------------------------------+-------------------------------------+------------------+----------------+
+|  clkdivider/inst/clk_out1 | xvga1/hreset                         |                                     |                1 |              1 |
+|  clkdivider/inst/clk_out1 |                                      | p1_score/player_tens_digit          |                1 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_7[0]        |                                     |                2 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_4[0]        |                                     |                3 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_13[0]       |                                     |                2 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_10[0]       |                                     |                2 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/hcount_out_reg[10]_1[0]        |                                     |                2 |              4 |
+|  clkdivider/inst/clk_out1 | xvga1/E[0]                           |                                     |                2 |              4 |
+|  clkdivider/inst/clk_out1 | p1_score/tens_counter[3]_i_2_n_0     | p1_score/tens_counter[3]_i_1_n_0    |                1 |              4 |
+|  clkdivider/inst/clk_out1 | p2_score/tens_counter[3]_i_2__0_n_0  | p2_score/tens_counter[3]_i_1__0_n_0 |                1 |              4 |
+|  clkdivider/inst/clk_out1 |                                      | p2_score/player_tens_digit          |                2 |              4 |
+|  clkdivider/inst/clk_out1 | move_player_1/game/p1_hp             |                                     |                4 |              7 |
+|  clkdivider/inst/clk_out1 | move_player_2/game/p2_hp             |                                     |                4 |              7 |
+|  clk_100mhz_IBUF_BUFG     | seven_seg/segment_state              | db1/system_reset                    |                2 |              8 |
+|  clkdivider/inst/clk_out1 | xvga1/hreset                         | xvga1/vcount_out0                   |                3 |              9 |
+|  clkdivider/inst/clk_out1 | move_player_1/x_in_p1[10]_i_1__0_n_0 |                                     |                3 |             11 |
+|  clkdivider/inst/clk_out1 | move_player_1/x_in_p2[10]_i_1__0_n_0 |                                     |                3 |             11 |
+|  clkdivider/inst/clk_out1 | move_player_2/x_in_p2[10]_i_1_n_0    |                                     |                3 |             11 |
+|  clkdivider/inst/clk_out1 | move_player_2/x_in_p1[10]_i_1_n_0    |                                     |                3 |             11 |
+|  clkdivider/inst/clk_out1 |                                      | xvga1/hreset                        |                6 |             11 |
+|  clkdivider/inst/clk_out1 |                                      | xvga1/vcount_out_reg[8]_1           |                4 |             12 |
+|  clkdivider/inst/clk_out1 |                                      | xvga1/vcount_out_reg[8]_0           |                5 |             12 |
+|  clkdivider/inst/clk_out1 |                                      | xvga1/sw[1]                         |                4 |             12 |
+|  clkdivider/inst/clk_out1 | db1/count                            | db1/count[0]_i_1_n_0                |                5 |             20 |
+|  clk_100mhz_IBUF_BUFG     |                                      | db1/system_reset                    |                9 |             32 |
+|  clkdivider/inst/clk_out1 |                                      |                                     |               65 |            185 |
++---------------------------+--------------------------------------+-------------------------------------+------------------+----------------+
 
 
