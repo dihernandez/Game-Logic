@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Fri Jan 17 12:38:39 2020
+| Date         : Wed Jan 22 15:03:39 2020
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
 | Design       : main
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1182 |     0 |     63400 |  1.86 |
-|   LUT as Logic          | 1182 |     0 |     63400 |  1.86 |
+| Slice LUTs*             | 1242 |     0 |     63400 |  1.96 |
+|   LUT as Logic          | 1242 |     0 |     63400 |  1.96 |
 |   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |  412 |     0 |    126800 |  0.32 |
-|   Register as Flip Flop |  412 |     0 |    126800 |  0.32 |
+| Slice Registers         |  471 |     0 |    126800 |  0.37 |
+|   Register as Flip Flop |  471 |     0 |    126800 |  0.37 |
 |   Register as Latch     |    0 |     0 |    126800 |  0.00 |
 | F7 Muxes                |   48 |     0 |     31700 |  0.15 |
 | F8 Muxes                |    0 |     0 |     15850 |  0.00 |
@@ -56,8 +56,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 13    |          Yes |         Set |            - |
-| 399   |          Yes |       Reset |            - |
+| 23    |          Yes |         Set |            - |
+| 448   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,19 +149,19 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  486 |                 LUT |
-| FDRE     |  399 |        Flop & Latch |
-| LUT4     |  275 |                 LUT |
-| CARRY4   |  263 |          CarryLogic |
-| LUT1     |  234 |                 LUT |
-| LUT6     |  190 |                 LUT |
-| LUT3     |  141 |                 LUT |
-| LUT5     |  114 |                 LUT |
+| LUT2     |  508 |                 LUT |
+| FDRE     |  448 |        Flop & Latch |
+| LUT4     |  304 |                 LUT |
+| CARRY4   |  267 |          CarryLogic |
+| LUT1     |  231 |                 LUT |
+| LUT6     |  208 |                 LUT |
+| LUT3     |  143 |                 LUT |
+| LUT5     |  129 |                 LUT |
 | RAMB36E1 |   48 |        Block Memory |
 | MUXF7    |   48 |               MuxFx |
 | OBUF     |   29 |                  IO |
+| FDSE     |   23 |        Flop & Latch |
 | IBUF     |   13 |                  IO |
-| FDSE     |   13 |        Flop & Latch |
 | RAMB18E1 |   12 |        Block Memory |
 | DSP48E1  |    6 |    Block Arithmetic |
 | OBUFT    |    1 |                  IO |
