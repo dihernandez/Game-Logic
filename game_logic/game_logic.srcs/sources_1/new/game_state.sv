@@ -50,7 +50,7 @@ module game_state(
     parameter KICKING_DISTANCE = 32;
     parameter PUNCHING_DISTANCE = 64;
  
-    logic hp = 100;
+    logic[6:0] hp = 100; // fixed from logic one bit on 1/22
  //   logic[6:0] p1_hp = 100;
  //   logic[6:0] p2_hp = 100;
     assign hitpoints = hp;

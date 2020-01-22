@@ -15,13 +15,13 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3096 
+INFO: Helper process launched with PID 17457 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 1826.781 ; gain = 154.496 ; free physical = 1493 ; free virtual = 10489
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1826.777 ; gain = 154.496 ; free physical = 1346 ; free virtual = 10521
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-3076-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-3076-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
 WARNING: [Synth 8-7023] instance 'clkdivider' of module 'clk_wiz_final' has 4 connections declared, but only 3 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:40]
 INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:450]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
@@ -781,12 +781,12 @@ INFO: [Synth 8-6157] synthesizing module 'game_state' [/afs/athena.mit.edu/user/
 	Parameter KICKING_DISTANCE bound to: 32 - type: integer 
 	Parameter PUNCHING_DISTANCE bound to: 64 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element cycle_counter_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:107]
-WARNING: [Synth 8-6014] Unused sequential element p1_hit_time_stamp_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:164]
+WARNING: [Synth 8-6014] Unused sequential element p1_hit_time_stamp_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:165]
 INFO: [Synth 8-6155] done synthesizing module 'game_state' (27#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'player_move' (28#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:4]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:199]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-3076-eecs-digital-17/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (29#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-3076-eecs-digital-17/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (29#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/ila_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'seven_seg_controller' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:171]
 INFO: [Synth 8-6157] synthesizing module 'binary_to_seven_seg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:219]
 INFO: [Synth 8-226] default block is never used [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:222]
@@ -913,7 +913,7 @@ WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized7 has unco
 WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized7 has unconnected port S_AXI_AWID[1]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:05:59 ; elapsed = 00:06:15 . Memory (MB): peak = 2570.355 ; gain = 898.070 ; free physical = 1030 ; free virtual = 10084
+Finished RTL Elaboration : Time (s): cpu = 00:06:03 ; elapsed = 00:06:19 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1414 ; free virtual = 10747
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -926,10 +926,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:00 ; elapsed = 00:06:18 . Memory (MB): peak = 2570.355 ; gain = 898.070 ; free physical = 1043 ; free virtual = 10114
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:04 ; elapsed = 00:06:22 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1440 ; free virtual = 10772
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:00 ; elapsed = 00:06:18 . Memory (MB): peak = 2570.355 ; gain = 898.070 ; free physical = 1042 ; free virtual = 10113
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:04 ; elapsed = 00:06:22 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1440 ; free virtual = 10772
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -949,20 +949,20 @@ Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logi
 Finished Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2634.387 ; gain = 0.000 ; free physical = 977 ; free virtual = 10050
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2633.688 ; gain = 0.000 ; free physical = 1347 ; free virtual = 10671
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2634.387 ; gain = 0.000 ; free physical = 977 ; free virtual = 10050
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2633.688 ; gain = 0.000 ; free physical = 1347 ; free virtual = 10671
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:06:09 ; elapsed = 00:06:30 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 1123 ; free virtual = 10203
+Finished Constraint Validation : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1420 ; free virtual = 10744
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:06:09 ; elapsed = 00:06:30 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 1123 ; free virtual = 10203
+Finished Loading Part and Timing Information : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1420 ; free virtual = 10744
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -994,7 +994,7 @@ Applied set_property DONT_TOUCH = true for p2_hundred_score/num. (constraint fil
 Applied set_property DONT_TOUCH = true for clkdivider. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mila. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:09 ; elapsed = 00:06:30 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 1112 ; free virtual = 10191
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1410 ; free virtual = 10734
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'player_state_reg' in module 'game_state'
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:133]
@@ -1010,7 +1010,7 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'player_state_reg' using encoding 'one-hot' in module 'game_state'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:11 ; elapsed = 00:06:36 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 1088 ; free virtual = 10174
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:14 ; elapsed = 00:06:40 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1442 ; free virtual = 10742
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1032,6 +1032,7 @@ Detailed RTL Component Info :
 	   2 Input     11 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 1     
 	   3 Input      7 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 8     
 	   2 Input      4 Bit       Adders := 4     
 +---Registers : 
 	               32 Bit    Registers := 1     
@@ -1041,11 +1042,11 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 5     
 	               10 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 4     
+	                7 Bit    Registers := 8     
 	                4 Bit    Registers := 8     
 	                3 Bit    Registers := 18    
 	                2 Bit    Registers := 12    
-	                1 Bit    Registers := 42    
+	                1 Bit    Registers := 38    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   4 Input     14 Bit        Muxes := 4     
@@ -1053,7 +1054,8 @@ Detailed RTL Component Info :
 	   3 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 4     
 	   4 Input      8 Bit        Muxes := 8     
-	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 10    
+	   3 Input      7 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 15    
 	   3 Input      4 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 4     
@@ -1215,11 +1217,15 @@ Detailed RTL Component Info :
 +---Adders : 
 	   3 Input     12 Bit       Adders := 2     
 	   2 Input     12 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
 +---Registers : 
 	               12 Bit    Registers := 3     
-	                1 Bit    Registers := 4     
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     12 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 2     
+	   3 Input      7 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
@@ -1421,7 +1427,7 @@ INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[9]' (FDE
 INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[10]' (FDE) to 'move_player_2/p2_blob/offset_reg[11]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (move_player_2/\p2_blob/offset_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:15 ; elapsed = 00:06:43 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 1030 ; free virtual = 10192
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:18 ; elapsed = 00:06:47 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1292 ; free virtual = 10689
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1455,13 +1461,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkdivider/clk_out1' to pin 'clkdivider/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:21 ; elapsed = 00:06:49 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 832 ; free virtual = 10010
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:24 ; elapsed = 00:06:53 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1106 ; free virtual = 10493
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:06:22 ; elapsed = 00:06:49 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 802 ; free virtual = 10000
+Finished Timing Optimization : Time (s): cpu = 00:06:25 ; elapsed = 00:06:53 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10488
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1473,7 +1479,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:23 ; elapsed = 00:06:51 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 822 ; free virtual = 9999
+Finished Technology Mapping : Time (s): cpu = 00:06:26 ; elapsed = 00:06:54 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10488
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1503,7 +1509,7 @@ WARNING: [Synth 8-5753] loadless multi-driven net pvsync with 2nd driver pin 'mo
 WARNING: [Synth 8-5753] loadless multi-driven net pblank with 1st driver pin 'move_player_1/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:141]
 WARNING: [Synth 8-5753] loadless multi-driven net pblank with 2nd driver pin 'move_player_2/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:170]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10002
+Finished IO Insertion : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1516,7 +1522,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10002
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1528,25 +1534,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10002
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10001
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10001
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10001
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1569,11 +1575,11 @@ Report Cell Usage:
 |3     |CARRY4        |   177|
 |4     |DSP48E1       |     6|
 |5     |LUT1          |    90|
-|6     |LUT2          |   321|
-|7     |LUT3          |   145|
-|8     |LUT4          |   277|
-|9     |LUT5          |   169|
-|10    |LUT6          |   218|
+|6     |LUT2          |   333|
+|7     |LUT3          |   161|
+|8     |LUT4          |   293|
+|9     |LUT5          |   177|
+|10    |LUT6          |   262|
 |11    |MUXF7         |    48|
 |12    |RAMB18E1      |     2|
 |13    |RAMB18E1_1    |     2|
@@ -1593,8 +1599,8 @@ Report Cell Usage:
 |27    |RAMB36E1_7    |     2|
 |28    |RAMB36E1_8    |     2|
 |29    |RAMB36E1_9    |     2|
-|30    |FDRE          |   510|
-|31    |FDSE          |    17|
+|30    |FDRE          |   522|
+|31    |FDSE          |    29|
 |32    |IBUF          |    12|
 |33    |OBUF          |    29|
 |34    |OBUFT         |    23|
@@ -1604,16 +1610,16 @@ Report Instance Areas:
 +------+---------------------------------------------------+---------------------------------------------------+------+
 |      |Instance                                           |Module                                             |Cells |
 +------+---------------------------------------------------+---------------------------------------------------+------+
-|1     |top                                                |                                                   |  2104|
+|1     |top                                                |                                                   |  2224|
 |2     |  db2                                              |debounce__2                                        |    39|
 |3     |  db3                                              |debounce__3                                        |    39|
 |4     |  db4                                              |debounce__4                                        |    39|
 |5     |  db5                                              |debounce                                           |    39|
 |6     |  p1_score                                         |hp_countdown__1                                    |    61|
 |7     |  p2_score                                         |hp_countdown                                       |    61|
-|8     |  move_player_1                                    |player_move__xdcDup__1                             |   467|
-|9     |    game2                                          |game_state_87                                      |    12|
-|10    |    game_1                                         |game_state_88                                      |   116|
+|8     |  move_player_1                                    |player_move__xdcDup__1                             |   527|
+|9     |    game2                                          |game_state_87                                      |    39|
+|10    |    game_1                                         |game_state_88                                      |   149|
 |11    |    p1_blob                                        |player_1_blob__xdcDup__1                           |   123|
 |12    |      p1_motions                                   |p1_motions__2                                      |    18|
 |13    |        U0                                         |blk_mem_gen_v8_4_3__parameterized1__2              |    18|
@@ -1682,9 +1688,9 @@ Report Instance Areas:
 |76    |              \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized7_91        |     1|
 |77    |                \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized16_92         |     1|
 |78    |                  \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized16_93  |     1|
-|79    |  move_player_2                                    |player_move                                        |   467|
-|80    |    game2                                          |game_state                                         |    12|
-|81    |    game_1                                         |game_state_85                                      |   116|
+|79    |  move_player_2                                    |player_move                                        |   527|
+|80    |    game2                                          |game_state                                         |    39|
+|81    |    game_1                                         |game_state_85                                      |   149|
 |82    |    p1_blob                                        |player_1_blob                                      |   123|
 |83    |      p1_motions                                   |p1_motions                                         |    18|
 |84    |        U0                                         |blk_mem_gen_v8_4_3__parameterized1                 |    18|
@@ -1878,30 +1884,30 @@ Report Instance Areas:
 |272   |  xvga1                                            |xvga                                               |   139|
 +------+---------------------------------------------------+---------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 824 ; free virtual = 10002
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1362 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:06:18 ; elapsed = 00:06:46 . Memory (MB): peak = 2634.387 ; gain = 898.070 ; free physical = 886 ; free virtual = 10064
-Synthesis Optimization Complete : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.387 ; gain = 962.102 ; free physical = 899 ; free virtual = 10076
+Synthesis Optimization Runtime : Time (s): cpu = 00:06:21 ; elapsed = 00:06:49 . Memory (MB): peak = 2633.688 ; gain = 897.375 ; free physical = 1162 ; free virtual = 10550
+Synthesis Optimization Complete : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1177 ; free virtual = 10565
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 291 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2642.387 ; gain = 0.000 ; free physical = 843 ; free virtual = 10022
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2641.688 ; gain = 0.000 ; free physical = 1104 ; free virtual = 10492
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 197 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:06:29 ; elapsed = 00:06:57 . Memory (MB): peak = 2642.387 ; gain = 1185.398 ; free physical = 971 ; free virtual = 10148
+synth_design: Time (s): cpu = 00:06:31 ; elapsed = 00:07:00 . Memory (MB): peak = 2641.688 ; gain = 1184.703 ; free physical = 1232 ; free virtual = 10619
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2642.387 ; gain = 0.000 ; free physical = 967 ; free virtual = 10145
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2641.688 ; gain = 0.000 ; free physical = 1232 ; free virtual = 10619
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jan 22 17:45:36 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 22 18:00:24 2020...
