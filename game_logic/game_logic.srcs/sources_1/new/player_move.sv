@@ -21,13 +21,14 @@ module player_move(
     input blank_in,         // XVGA blanking (1 means output black pixel)
     
     // controll for player combat
-    input p1_kick,
-    input p1_punch,
-    input p2_kick,
-    input p2_punch,
+    input punch,
+    input kick,
+    //input p1_kick,
+    //input p1_punch,
+    //input p2_kick,
+    //input p2_punch,
      
-    // hitpoints    
-    output logic [6:0] hp,
+
     // output logic [6:0] p2_hp,
     
     output logic phsync_out,       // pong game's horizontal sync
@@ -36,7 +37,9 @@ module player_move(
     output [11:0] pixel_out, // pong game's pixel  // r=11:7, g=7:3, b=3:0 
     
     // for testing
-    output[1:0] state // changed from single bit, fixes LED state display
+    output[1:0] state, // changed from single bit, fixes LED state display
+        // hitpoints    
+    output logic [6:0] hp
     );
     
     
@@ -63,22 +66,46 @@ module player_move(
     player_2_blob #(.WIDTH(WIDTH), .HEIGHT(HEIGHT)) p2_blob(.pixel_clk_in(pixel_clk), .motion(p2_state), .x_in(x_in_p2), .hcount_in(hcount_in), .y_in(500), .vcount_in(vcount_in), .pixel_out(p2_pixel));
     
     // Game Logic
-    game_state game(
+    game_state game_1(
     .pixel_clk(pixel_clk),        // 65MHz clock
     .reset_in(reset_in),         // 1 to initialize module
     .p1_x_in(x_in_p1), // player 1's x position
     .p2_x_in(x_in_p2),  // player 2's x position
-    .p1_kick(p1_kick),
-    .p1_punch(p1_punch),
-    .p2_kick(p2_kick),
-    .p2_punch(p2_punch),
+    //.p1_kick(p1_kick),
+    //.p1_punch(p1_punch),
+    //.p2_kick(p2_kick),
+    //.p2_punch(p2_punch),
+    .punch(punch),
+    .kick(kick),
     
-    .p1_state(p1_state),
-    .p2_state(p2_state),
-    .p1_hitpoints(p1_hitpoints),
-    .p2_hitpoints(p2_hitpoints)
+    .state(p1_state),
+    .hitpoints(p1_hitpoints)
+    //.p1_state(p1_state),
+    //.p2_state(p2_state),
+    //.p1_hitpoints(p1_hitpoints),
+    //.p2_hitpoints(p2_hitpoints)
     );
+ 
+     // Game Logic
+    game_state game2(
+    .pixel_clk(pixel_clk),        // 65MHz clock
+    .reset_in(reset_in),         // 1 to initialize module
+    .p1_x_in(x_in_p1), // player 1's x position
+    .p2_x_in(x_in_p2),  // player 2's x position
+    //.p1_kick(p1_kick),
+    //.p1_punch(p1_punch),
+    //.p2_kick(p2_kick),
+    //.p2_punch(p2_punch),
+    .punch(punch),
+    .kick(kick),
     
+    .state(p2_state),
+    .hitpoints(p2_hitpoints)
+    //.p1_state(p1_state),
+    //.p2_state(p2_state),
+    //.p1_hitpoints(p1_hitpoints),
+    //.p2_hitpoints(p2_hitpoints)
+    );   
     
      // initialize everything
     always @(posedge pixel_clk) begin

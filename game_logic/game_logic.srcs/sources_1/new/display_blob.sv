@@ -30,10 +30,10 @@ module main(
    output vga_hs,
    output vga_vs,
     output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
-    output[7:0] an    // Display location 0-7
-//   output led16_b, led16_g, led16_r,
-//   output led17_b, led17_g, led17_r,
-//   output[15:0] led,
+    output[7:0] an,    // Display location 0-7
+   output led16_b, led16_g, led16_r,
+   output led17_b, led17_g, led17_r,
+   output[15:0] led
     );
     
     wire clk_65mhz;
@@ -159,10 +159,8 @@ module main(
    .pblank_out(pblank),       // game's blanking
     
      // player combat
-    .p1_kick(btnu),
-    .p1_punch(btnl),
-    .p2_kick(btnd),
-    .p2_punch(btnr),
+    .kick(up),
+    .punch(left),
      
     .hp(p1_hp),
     .pixel_out(player_1_pixel),
@@ -191,15 +189,15 @@ module main(
    .pblank_out(pblank),       // game's blanking
 
     // player combat
-    .p1_kick(btnu),
-    .p1_punch(btnl),
-    .p2_kick(btnd),
-    .p2_punch(btnr),
+    .kick(down), // down for p2 kick
+    .punch(right), // right for p2 punch
     .hp(p2_hp),     
     .pixel_out(player_2_pixel),
     .state(p2_state)
    );
-        
+   
+    ila_0 mila (.clk(clk_65mhz), .probe0(p1_state), .probe1(p2_state), .probe2(p1_hp), .probe3(p2_hp), .probe4(up),.probe5(left), .probe6(down), .probe7(right));
+    
     wire [11:0] pixel;
     assign pixel = player_1_pixel | player_2_pixel | p1_ones_pixel | p2_ones_pixel | p1_tens_pixel | p2_tens_pixel | p1_hundred_pixel | p2_hundred_pixel;
     
@@ -239,12 +237,11 @@ module main(
     
     // Segment Display Logic    
     logic[31:0] seven_seg_val_in;
-    logic[7:0] cat_out, an_out;
-    assign cat_out = {cg, cf, ce, cd, cc, cb, ca};
-    assign an_out = an;
+    logic[7:0] cat_out;
+    assign {cg, cf, ce, cd, cc, cb, ca} = cat_out;
     assign seven_seg_val_in = {{2'b0, p1_state}, {1'b0, p1_hp}, 8'b0, {1'b0, p2_hp}, {2'b0, p2_state}};
     
-    seven_seg_controller seven_seg(.clk_in(clk_100mhz), .rst_in(system_reset), .val_in(seven_seg_val_in) ,.cat_out(cat_out), .an_out(an_out)
+    seven_seg_controller seven_seg(.clk_in(clk_100mhz), .rst_in(system_reset), .val_in(seven_seg_val_in) ,.cat_out(cat_out), .an_out(an)
     );
     
     
