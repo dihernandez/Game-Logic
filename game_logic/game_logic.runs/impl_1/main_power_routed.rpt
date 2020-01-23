@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Wed Jan 22 18:02:07 2020
+| Date             : Thu Jan 23 16:07:57 2020
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.268        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.167        |
+| Dynamic (W)              | 0.168        |
 | Device Static (W)        | 0.100        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.8         |
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.011 |        7 |       --- |             --- |
-| Slice Logic              |     0.003 |     6134 |       --- |             --- |
-|   LUT as Logic           |     0.002 |     2122 |     63400 |            3.35 |
-|   CARRY4                 |    <0.001 |      206 |     15850 |            1.30 |
+| Slice Logic              |     0.003 |     6150 |       --- |             --- |
+|   LUT as Logic           |     0.002 |     2136 |     63400 |            3.37 |
+|   CARRY4                 |    <0.001 |      208 |     15850 |            1.31 |
 |   Register               |    <0.001 |     2716 |    126800 |            2.14 |
 |   F7/F8 Muxes            |    <0.001 |       44 |     63400 |            0.07 |
 |   LUT as Shift Register  |    <0.001 |      111 |     19000 |            0.58 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     19000 |            0.13 |
 |   Others                 |     0.000 |      485 |       --- |             --- |
-| Signals                  |     0.006 |     4727 |       --- |             --- |
+| Signals                  |     0.006 |     4722 |       --- |             --- |
 | Block RAM                |     0.016 |     58.5 |       135 |           43.33 |
 | MMCM                     |     0.122 |        1 |         6 |           16.67 |
 | DSPs                     |    <0.001 |        6 |       240 |            2.50 |
@@ -150,7 +150,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| main                     |     0.167 |
+| main                     |     0.168 |
 |   clkdivider             |     0.122 |
 |     inst                 |     0.122 |
 |   dbg_hub                |     0.003 |
@@ -170,13 +170,17 @@ Table of Contents
 |       p2_rest_green      |     0.001 |
 |       p2_rest_red        |     0.001 |
 |   p1_hundred_score       |     0.001 |
-|   p1_ones_score          |     0.001 |
+|     num                  |     0.001 |
+|       U0                 |     0.001 |
+|   p1_ones_score          |     0.002 |
 |     num                  |     0.001 |
 |       U0                 |     0.001 |
 |   p1_tens_score          |     0.002 |
 |     num                  |     0.001 |
 |       U0                 |     0.001 |
 |   p2_hundred_score       |     0.001 |
+|     num                  |     0.001 |
+|       U0                 |     0.001 |
 |   p2_ones_score          |     0.001 |
 |     num                  |     0.001 |
 |       U0                 |     0.001 |

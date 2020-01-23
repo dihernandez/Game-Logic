@@ -15,15 +15,15 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17457 
+INFO: Helper process launched with PID 26535 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1826.777 ; gain = 154.496 ; free physical = 1346 ; free virtual = 10521
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1826.770 ; gain = 154.496 ; free physical = 1312 ; free virtual = 11131
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'main' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_final' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-26515-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_final' (1#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-26515-eecs-digital-17/realtime/clk_wiz_final_stub.v:5]
 WARNING: [Synth 8-7023] instance 'clkdivider' of module 'clk_wiz_final' has 4 connections declared, but only 3 given [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:40]
-INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:450]
+INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:409]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
 	Parameter DISPLAY_HEIGHT bound to: 768 - type: integer 
 	Parameter H_FP bound to: 24 - type: integer 
@@ -32,12 +32,12 @@ INFO: [Synth 8-6157] synthesizing module 'xvga' [/afs/athena.mit.edu/user/d/i/di
 	Parameter V_FP bound to: 3 - type: integer 
 	Parameter V_SYNC_PULSE bound to: 6 - type: integer 
 	Parameter V_BP bound to: 29 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xvga' (2#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:450]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:509]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:509]
-INFO: [Synth 8-6157] synthesizing module 'hp_countdown' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/hp_display.sv:62]
-INFO: [Synth 8-6155] done synthesizing module 'hp_countdown' (4#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/hp_display.sv:62]
-INFO: [Synth 8-6157] synthesizing module 'number_display' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:398]
+INFO: [Synth 8-6155] done synthesizing module 'xvga' (2#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:409]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:468]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (3#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:468]
+INFO: [Synth 8-6157] synthesizing module 'hp_countdown' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/hp_display.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'hp_countdown' (4#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/hp_display.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'number_display' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:357]
 	Parameter WIDTH bound to: 48 - type: integer 
 	Parameter HEIGHT bound to: 48 - type: integer 
 	Parameter COLOR bound to: 12'b111111111111 
@@ -120,11 +120,11 @@ INFO: [Synth 8-638] synthesizing module 'numbers' [/afs/athena.mit.edu/user/d/i/
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.3264 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/numbers/synth/numbers.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'numbers' (15#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/numbers/synth/numbers.vhd:67]
-INFO: [Synth 8-6155] done synthesizing module 'number_display' (16#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:398]
+INFO: [Synth 8-6155] done synthesizing module 'number_display' (16#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:357]
 INFO: [Synth 8-6157] synthesizing module 'player_move' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:4]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'player_1_blob' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:287]
+INFO: [Synth 8-6157] synthesizing module 'player_1_blob' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:246]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter REST_IMAGE_OFFSET bound to: 0 - type: integer 
@@ -286,8 +286,8 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_red' [/afs/athena.mit.edu/us
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p1_motions_red' (18#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_red/synth/p1_motions_red.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:335]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:335]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:294]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:294]
 INFO: [Synth 8-638] synthesizing module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:67]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -366,8 +366,8 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_green' [/afs/athena.mit.edu/
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p1_motions_green' (19#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_green/synth/p1_motions_green.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:336]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:336]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:295]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:295]
 INFO: [Synth 8-638] synthesizing module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:67]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -446,10 +446,10 @@ INFO: [Synth 8-638] synthesizing module 'p1_motions_blue' [/afs/athena.mit.edu/u
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p1_motions_blue' (20#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p1_motions_blue/synth/p1_motions_blue.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:337]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:337]
-INFO: [Synth 8-6155] done synthesizing module 'player_1_blob' (21#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:287]
-INFO: [Synth 8-6157] synthesizing module 'player_2_blob' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:344]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:296]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p1_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:296]
+INFO: [Synth 8-6155] done synthesizing module 'player_1_blob' (21#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:246]
+INFO: [Synth 8-6157] synthesizing module 'player_2_blob' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:303]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter REST_IMAGE_OFFSET bound to: 0 - type: integer 
@@ -611,8 +611,8 @@ INFO: [Synth 8-638] synthesizing module 'p2_motions_red' [/afs/athena.mit.edu/us
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p2_motions_red' (23#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_red/synth/p2_motions_red.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:392]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:392]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:351]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_red' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:351]
 INFO: [Synth 8-638] synthesizing module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/synth/p2_motions_green.vhd:67]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -691,8 +691,8 @@ INFO: [Synth 8-638] synthesizing module 'p2_motions_green' [/afs/athena.mit.edu/
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/synth/p2_motions_green.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p2_motions_green' (24#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_green/synth/p2_motions_green.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:393]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:393]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:352]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_green' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:352]
 INFO: [Synth 8-638] synthesizing module 'p2_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/synth/p2_motions_blue.vhd:67]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
@@ -771,33 +771,32 @@ INFO: [Synth 8-638] synthesizing module 'p2_motions_blue' [/afs/athena.mit.edu/u
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.210399 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_3' declared at '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_3' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/synth/p2_motions_blue.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'p2_motions_blue' (25#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/ip/p2_motions_blue/synth/p2_motions_blue.vhd:67]
-WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:394]
-WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:394]
-INFO: [Synth 8-6155] done synthesizing module 'player_2_blob' (26#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:344]
+WARNING: [Synth 8-689] width (8) of port connection 'addra' does not match port width (4) of module 'p2_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:353]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (4) of module 'p2_motions_blue' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:353]
+INFO: [Synth 8-6155] done synthesizing module 'player_2_blob' (26#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:303]
 INFO: [Synth 8-6157] synthesizing module 'game_state' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:23]
 	Parameter AT_REST bound to: 2'b00 
 	Parameter KICKING bound to: 2'b01 
 	Parameter PUNCHING bound to: 2'b10 
 	Parameter KICKING_DISTANCE bound to: 32 - type: integer 
 	Parameter PUNCHING_DISTANCE bound to: 64 - type: integer 
-WARNING: [Synth 8-6014] Unused sequential element cycle_counter_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:107]
-WARNING: [Synth 8-6014] Unused sequential element p1_hit_time_stamp_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:165]
+WARNING: [Synth 8-6014] Unused sequential element p1_hit_time_stamp_reg was removed.  [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:106]
 INFO: [Synth 8-6155] done synthesizing module 'game_state' (27#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'player_move' (28#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:4]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:199]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (29#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-17434-eecs-digital-17/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'seven_seg_controller' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:171]
-INFO: [Synth 8-6157] synthesizing module 'binary_to_seven_seg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:219]
-INFO: [Synth 8-226] default block is never used [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:222]
-INFO: [Synth 8-6155] done synthesizing module 'binary_to_seven_seg' (30#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:219]
-INFO: [Synth 8-6155] done synthesizing module 'seven_seg_controller' (31#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:171]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'move_player_1'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:141]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'seven_seg'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:244]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'mila'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:199]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'move_player_2'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:170]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'p1_score'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:116]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'p2_score'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:117]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:158]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-26515-eecs-digital-17/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (29#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/.Xil/Vivado-26515-eecs-digital-17/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'seven_seg_controller' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:147]
+INFO: [Synth 8-6157] synthesizing module 'binary_to_seven_seg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:195]
+INFO: [Synth 8-226] default block is never used [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:198]
+INFO: [Synth 8-6155] done synthesizing module 'binary_to_seven_seg' (30#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:195]
+INFO: [Synth 8-6155] done synthesizing module 'seven_seg_controller' (31#1) [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:147]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'move_player_1'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:100]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'seven_seg'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:203]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'mila'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:158]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'move_player_2'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:129]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'p1_score'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:75]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'p2_score'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:76]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'db2'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:61]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'db5'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:64]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'db3'. This will prevent further optimization [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:62]
@@ -913,7 +912,7 @@ WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized7 has unco
 WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_3_synth__parameterized7 has unconnected port S_AXI_AWID[1]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:06:03 ; elapsed = 00:06:19 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1414 ; free virtual = 10747
+Finished RTL Elaboration : Time (s): cpu = 00:06:03 ; elapsed = 00:06:20 . Memory (MB): peak = 2570.039 ; gain = 897.766 ; free physical = 1360 ; free virtual = 11098
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -926,10 +925,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:04 ; elapsed = 00:06:22 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1440 ; free virtual = 10772
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:04 ; elapsed = 00:06:23 . Memory (MB): peak = 2570.039 ; gain = 897.766 ; free physical = 1387 ; free virtual = 11122
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:04 ; elapsed = 00:06:22 . Memory (MB): peak = 2569.656 ; gain = 897.375 ; free physical = 1440 ; free virtual = 10772
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:06:04 ; elapsed = 00:06:23 . Memory (MB): peak = 2570.039 ; gain = 897.766 ; free physical = 1387 ; free virtual = 11122
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -949,20 +948,20 @@ Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logi
 Finished Parsing XDC File [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2633.688 ; gain = 0.000 ; free physical = 1347 ; free virtual = 10671
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2634.070 ; gain = 0.000 ; free physical = 1298 ; free virtual = 11033
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2633.688 ; gain = 0.000 ; free physical = 1347 ; free virtual = 10671
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2634.070 ; gain = 0.000 ; free physical = 1298 ; free virtual = 11033
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1420 ; free virtual = 10744
+Finished Constraint Validation : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1375 ; free virtual = 11110
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1420 ; free virtual = 10744
+Finished Loading Part and Timing Information : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1375 ; free virtual = 11110
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -994,13 +993,13 @@ Applied set_property DONT_TOUCH = true for p2_hundred_score/num. (constraint fil
 Applied set_property DONT_TOUCH = true for clkdivider. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mila. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:12 ; elapsed = 00:06:34 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1410 ; free virtual = 10734
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:06:12 ; elapsed = 00:06:35 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1365 ; free virtual = 11100
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'player_state_reg' in module 'game_state'
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:133]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:151]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:133]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:151]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:109]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:127]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:109]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/player_move.sv:127]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -1010,7 +1009,7 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'player_state_reg' using encoding 'one-hot' in module 'game_state'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:14 ; elapsed = 00:06:40 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1442 ; free virtual = 10742
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:14 ; elapsed = 00:06:40 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1368 ; free virtual = 11107
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1056,12 +1055,12 @@ Detailed RTL Component Info :
 	   4 Input      8 Bit        Muxes := 8     
 	   2 Input      7 Bit        Muxes := 10    
 	   3 Input      7 Bit        Muxes := 4     
-	   2 Input      4 Bit        Muxes := 15    
+	   2 Input      4 Bit        Muxes := 9     
 	   3 Input      4 Bit        Muxes := 2     
 	   3 Input      3 Bit        Muxes := 4     
 	   2 Input      3 Bit        Muxes := 4     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 190   
+	   2 Input      1 Bit        Muxes := 202   
 	   3 Input      1 Bit        Muxes := 16    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -1104,9 +1103,9 @@ Detailed RTL Component Info :
 	                7 Bit    Registers := 2     
 	                4 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input      4 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 3     
 	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 11    
 Module bindec 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -1305,16 +1304,16 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'game2/distance_p1_to_p2_reg[11:0]' into 'game_1/distance_p1_to_p2_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:127]
-INFO: [Synth 8-4471] merging register 'game2/punch_previous_reg' into 'game_1/punch_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:88]
-INFO: [Synth 8-4471] merging register 'game2/kick_previous_reg' into 'game_1/kick_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:89]
-INFO: [Synth 8-4471] merging register 'game2/distance_p2_to_p1_reg[11:0]' into 'game_1/distance_p2_to_p1_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:128]
-INFO: [Synth 8-4471] merging register 'game2/distance_between_reg[11:0]' into 'game_1/distance_between_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:130]
-INFO: [Synth 8-4471] merging register 'game2/distance_p1_to_p2_reg[11:0]' into 'game_1/distance_p1_to_p2_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:127]
-INFO: [Synth 8-4471] merging register 'game2/punch_previous_reg' into 'game_1/punch_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:88]
-INFO: [Synth 8-4471] merging register 'game2/kick_previous_reg' into 'game_1/kick_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:89]
-INFO: [Synth 8-4471] merging register 'game2/distance_p2_to_p1_reg[11:0]' into 'game_1/distance_p2_to_p1_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:128]
-INFO: [Synth 8-4471] merging register 'game2/distance_between_reg[11:0]' into 'game_1/distance_between_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:130]
+INFO: [Synth 8-4471] merging register 'game2/distance_p1_to_p2_reg[11:0]' into 'game_1/distance_p1_to_p2_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:80]
+INFO: [Synth 8-4471] merging register 'game2/punch_previous_reg' into 'game_1/punch_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:58]
+INFO: [Synth 8-4471] merging register 'game2/kick_previous_reg' into 'game_1/kick_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:59]
+INFO: [Synth 8-4471] merging register 'game2/distance_p2_to_p1_reg[11:0]' into 'game_1/distance_p2_to_p1_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:81]
+INFO: [Synth 8-4471] merging register 'game2/distance_between_reg[11:0]' into 'game_1/distance_between_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:83]
+INFO: [Synth 8-4471] merging register 'game2/distance_p1_to_p2_reg[11:0]' into 'game_1/distance_p1_to_p2_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:80]
+INFO: [Synth 8-4471] merging register 'game2/punch_previous_reg' into 'game_1/punch_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:58]
+INFO: [Synth 8-4471] merging register 'game2/kick_previous_reg' into 'game_1/kick_previous_reg' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:59]
+INFO: [Synth 8-4471] merging register 'game2/distance_p2_to_p1_reg[11:0]' into 'game_1/distance_p2_to_p1_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:81]
+INFO: [Synth 8-4471] merging register 'game2/distance_between_reg[11:0]' into 'game_1/distance_between_reg[11:0]' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/game_state.sv:83]
 DSP Report: Generating DSP p1_ones_score/image_addr0, operation Mode is: A*(B:0x30).
 DSP Report: operator p1_ones_score/image_addr0 is absorbed into DSP p1_ones_score/image_addr0.
 DSP Report: Generating DSP p2_ones_score/image_addr0, operation Mode is: A*(B:0x30).
@@ -1427,7 +1426,7 @@ INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[9]' (FDE
 INFO: [Synth 8-3886] merging instance 'move_player_2/p2_blob/offset_reg[10]' (FDE) to 'move_player_2/p2_blob/offset_reg[11]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (move_player_2/\p2_blob/offset_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:18 ; elapsed = 00:06:47 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1292 ; free virtual = 10689
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:06:18 ; elapsed = 00:06:47 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1286 ; free virtual = 11112
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1461,13 +1460,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkdivider/clk_out1' to pin 'clkdivider/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:24 ; elapsed = 00:06:53 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1106 ; free virtual = 10493
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:24 ; elapsed = 00:06:52 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1122 ; free virtual = 10948
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:06:25 ; elapsed = 00:06:53 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10488
+Finished Timing Optimization : Time (s): cpu = 00:06:24 ; elapsed = 00:06:53 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1118 ; free virtual = 10944
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1479,7 +1478,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:26 ; elapsed = 00:06:54 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10488
+Finished Technology Mapping : Time (s): cpu = 00:06:25 ; elapsed = 00:06:54 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1502,14 +1501,14 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-5753] loadless multi-driven net phsync with 1st driver pin 'move_player_1/phsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:141]
-WARNING: [Synth 8-5753] loadless multi-driven net phsync with 2nd driver pin 'move_player_2/phsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:170]
-WARNING: [Synth 8-5753] loadless multi-driven net pvsync with 1st driver pin 'move_player_1/pvsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:141]
-WARNING: [Synth 8-5753] loadless multi-driven net pvsync with 2nd driver pin 'move_player_2/pvsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:170]
-WARNING: [Synth 8-5753] loadless multi-driven net pblank with 1st driver pin 'move_player_1/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:141]
-WARNING: [Synth 8-5753] loadless multi-driven net pblank with 2nd driver pin 'move_player_2/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:170]
+WARNING: [Synth 8-5753] loadless multi-driven net phsync with 1st driver pin 'move_player_1/phsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:100]
+WARNING: [Synth 8-5753] loadless multi-driven net phsync with 2nd driver pin 'move_player_2/phsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:129]
+WARNING: [Synth 8-5753] loadless multi-driven net pvsync with 1st driver pin 'move_player_1/pvsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:100]
+WARNING: [Synth 8-5753] loadless multi-driven net pvsync with 2nd driver pin 'move_player_2/pvsync_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:129]
+WARNING: [Synth 8-5753] loadless multi-driven net pblank with 1st driver pin 'move_player_1/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:100]
+WARNING: [Synth 8-5753] loadless multi-driven net pblank with 2nd driver pin 'move_player_2/pblank_out' [/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.srcs/sources_1/new/display_blob.sv:129]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished IO Insertion : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1522,7 +1521,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1534,25 +1533,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:27 ; elapsed = 00:06:55 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1572,13 +1571,13 @@ Report Cell Usage:
 +------+--------------+------+
 |1     |clk_wiz_final |     1|
 |2     |ila_0         |     1|
-|3     |CARRY4        |   177|
+|3     |CARRY4        |   179|
 |4     |DSP48E1       |     6|
-|5     |LUT1          |    90|
-|6     |LUT2          |   333|
-|7     |LUT3          |   161|
-|8     |LUT4          |   293|
-|9     |LUT5          |   177|
+|5     |LUT1          |    86|
+|6     |LUT2          |   343|
+|7     |LUT3          |   157|
+|8     |LUT4          |   303|
+|9     |LUT5          |   179|
 |10    |LUT6          |   262|
 |11    |MUXF7         |    48|
 |12    |RAMB18E1      |     2|
@@ -1599,8 +1598,8 @@ Report Cell Usage:
 |27    |RAMB36E1_7    |     2|
 |28    |RAMB36E1_8    |     2|
 |29    |RAMB36E1_9    |     2|
-|30    |FDRE          |   522|
-|31    |FDSE          |    29|
+|30    |FDRE          |   520|
+|31    |FDSE          |    31|
 |32    |IBUF          |    12|
 |33    |OBUF          |    29|
 |34    |OBUFT         |    23|
@@ -1610,13 +1609,13 @@ Report Instance Areas:
 +------+---------------------------------------------------+---------------------------------------------------+------+
 |      |Instance                                           |Module                                             |Cells |
 +------+---------------------------------------------------+---------------------------------------------------+------+
-|1     |top                                                |                                                   |  2224|
+|1     |top                                                |                                                   |  2240|
 |2     |  db2                                              |debounce__2                                        |    39|
 |3     |  db3                                              |debounce__3                                        |    39|
 |4     |  db4                                              |debounce__4                                        |    39|
 |5     |  db5                                              |debounce                                           |    39|
-|6     |  p1_score                                         |hp_countdown__1                                    |    61|
-|7     |  p2_score                                         |hp_countdown                                       |    61|
+|6     |  p1_score                                         |hp_countdown__1                                    |    69|
+|7     |  p2_score                                         |hp_countdown                                       |    69|
 |8     |  move_player_1                                    |player_move__xdcDup__1                             |   527|
 |9     |    game2                                          |game_state_87                                      |    39|
 |10    |    game_1                                         |game_state_88                                      |   149|
@@ -1884,30 +1883,30 @@ Report Instance Areas:
 |272   |  xvga1                                            |xvga                                               |   139|
 +------+---------------------------------------------------+---------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1101 ; free virtual = 10489
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:26 ; elapsed = 00:06:55 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1115 ; free virtual = 10941
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1362 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:06:21 ; elapsed = 00:06:49 . Memory (MB): peak = 2633.688 ; gain = 897.375 ; free physical = 1162 ; free virtual = 10550
-Synthesis Optimization Complete : Time (s): cpu = 00:06:27 ; elapsed = 00:06:56 . Memory (MB): peak = 2633.688 ; gain = 961.406 ; free physical = 1177 ; free virtual = 10565
+Synthesis Optimization Runtime : Time (s): cpu = 00:06:21 ; elapsed = 00:06:49 . Memory (MB): peak = 2634.070 ; gain = 897.766 ; free physical = 1176 ; free virtual = 11002
+Synthesis Optimization Complete : Time (s): cpu = 00:06:26 ; elapsed = 00:06:56 . Memory (MB): peak = 2634.070 ; gain = 961.797 ; free physical = 1190 ; free virtual = 11016
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 291 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 293 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2641.688 ; gain = 0.000 ; free physical = 1104 ; free virtual = 10492
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2642.070 ; gain = 0.000 ; free physical = 1125 ; free virtual = 10951
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-197 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
+197 Infos, 129 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:06:31 ; elapsed = 00:07:00 . Memory (MB): peak = 2641.688 ; gain = 1184.703 ; free physical = 1232 ; free virtual = 10619
+synth_design: Time (s): cpu = 00:06:31 ; elapsed = 00:07:00 . Memory (MB): peak = 2642.070 ; gain = 1189.062 ; free physical = 1253 ; free virtual = 11078
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2641.688 ; gain = 0.000 ; free physical = 1232 ; free virtual = 10619
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2642.070 ; gain = 0.000 ; free physical = 1253 ; free virtual = 11078
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/afs/athena.mit.edu/user/d/i/dianah13/ddl/Game-Logic/game_logic/game_logic.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jan 22 18:00:24 2020...
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 23 16:06:10 2020...

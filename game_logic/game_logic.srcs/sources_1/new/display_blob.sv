@@ -50,7 +50,7 @@ module main(
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
           
-        // btnc button is user reset
+    // btnc button is user reset
     wire reset_in, system_reset;
     assign reset_in = sw[13];
     debounce db1(.reset_in(reset_in),.clock_in(clk_65mhz),.noisy_in(btnc),.clean_out(system_reset));
@@ -65,54 +65,13 @@ module main(
                       
     //display score------------------------------------------------------------------------------------      
     logic [11:0] p1_ones_pixel, p2_ones_pixel, p1_tens_pixel, p2_tens_pixel, p1_hundred_pixel, p2_hundred_pixel;
-    //logic [6:0] sprite_1_p1_hp, sprite_2_p2_hp;
-   // logic [6:0] sprite_1_p2_hp, sprite_2_p1_hp; // TODO: fix hack; currently define and ignore the ones that don't show up
+
     wire [6:0] p1_hp, p2_hp;
-//    logic [6:0] p1_hp_test = 100;
-//    logic [6:0] p2_hp_test = 100;
     
-//    logic up_previous = 0;
-//    logic down_previous = 0;
-//    logic left_previous = 0;
-//    logic right_previous = 0;
-    
-//    logic up_toggled, down_toggled, left_toggled, right_toggled;
-//    assign up_toggled = (up_previous == 0 && up == 1);
-//    assign down_toggled = (down_previous == 0 && down == 1);
-//    assign left_toggled = (left_previous == 0 && left == 1);
-//    assign right_toggled = (right_previous == 0 && right == 1);  
-    
-    // testing with constants won't work because hp digits need to be initialized at 100 
-//    always @(posedge clk_65mhz) begin
-//        up_previous <= up;
-//        down_previous <= down;
-//        left_previous <= left;
-//        right_previous <= right;
-        
-//        if (system_reset) begin
-//            p1_hp_test <= 100;
-//            p2_hp_test <= 100;
-//        end
-        
-//        if(up_toggled) begin
-//            p1_hp_test  <= p1_hp_test >= 10 ? p1_hp_test - 10 : 0;
-//        end
-//        if(right_toggled) begin
-//            p1_hp_test  <= p1_hp_test >= 5 ? p1_hp_test - 5 : 0;
-//        end
-//        if(down_toggled) begin
-//            p2_hp_test  <= p2_hp_test >= 10 ? p2_hp_test - 10 : 0;
-//        end
-//        if(left_toggled) begin
-//            p2_hp_test  <= p2_hp_test >= 5 ? p2_hp_test - 5 : 0;
-//        end
-//    end
+
     wire [3:0] p1_ones_digit, p1_tens_digit, p1_hundred_digit;
     wire [3:0] p2_ones_digit, p2_tens_digit, p2_hundred_digit;
     
- //   hp_display p1_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
- //   hp_display p2_score(.clk_65mhz(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
-
     hp_countdown p1_score(.clk(clk_65mhz), .reset(system_reset), .hp(p1_hp), .ones_digit(p1_ones_digit), .tens_digit(p1_tens_digit), .hundred_digit(p1_hundred_digit));
     hp_countdown p2_score(.clk(clk_65mhz), .reset(system_reset), .hp(p2_hp), .ones_digit(p2_ones_digit), .tens_digit(p2_tens_digit), .hundred_digit(p2_hundred_digit));
 

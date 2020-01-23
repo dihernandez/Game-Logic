@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {IP_Flow 19-98}  -string {{ERROR: [IP_Flow 19-98] Generation of the IP CORE failed.
 Failed to generate IP 'p2_kicking_red'. Failed to generate 'VHDL Synthesis Wrapper' outputs:}}  -suppress 
 

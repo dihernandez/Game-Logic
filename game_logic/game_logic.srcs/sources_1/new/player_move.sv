@@ -5,8 +5,6 @@ module player_move(
     input pixel_clk,        // 65mhz clock
     input reset_in,         // 1 to initialize module
     input is_p1,            // 1 if is player 1 2 if is player 2
-    //input [1:0] p1_motion,     // 0 for at rest, 1 for kicking, 2 for punching
-    //input [1:0] p2_motion,  // 0 for rest, 1 for kicking, 2 for punching
     input [10:0] initial_x_p1,        // player starting location
     input [10:0] initial_x_p2,        // player starting location
     input p1_right_in,         // 1 when player 1 should move right
@@ -23,13 +21,7 @@ module player_move(
     // controll for player combat
     input punch,
     input kick,
-    //input p1_kick,
-    //input p1_punch,
-    //input p2_kick,
-    //input p2_punch,
-     
 
-    // output logic [6:0] p2_hp,
     
     output logic phsync_out,       // pong game's horizontal sync
     output logic pvsync_out,       // pong game's vertical sync
@@ -38,7 +30,6 @@ module player_move(
     
     // for testing
     output[1:0] state, // changed from single bit, fixes LED state display
-        // hitpoints    
     output logic [6:0] hp
     );
     
@@ -71,19 +62,11 @@ module player_move(
     .reset_in(reset_in),         // 1 to initialize module
     .p1_x_in(x_in_p1), // player 1's x position
     .p2_x_in(x_in_p2),  // player 2's x position
-    //.p1_kick(p1_kick),
-    //.p1_punch(p1_punch),
-    //.p2_kick(p2_kick),
-    //.p2_punch(p2_punch),
     .punch(punch),
     .kick(kick),
     
     .state(p1_state),
     .hitpoints(p1_hitpoints)
-    //.p1_state(p1_state),
-    //.p2_state(p2_state),
-    //.p1_hitpoints(p1_hitpoints),
-    //.p2_hitpoints(p2_hitpoints)
     );
  
      // Game Logic
@@ -92,19 +75,12 @@ module player_move(
     .reset_in(reset_in),         // 1 to initialize module
     .p1_x_in(x_in_p1), // player 1's x position
     .p2_x_in(x_in_p2),  // player 2's x position
-    //.p1_kick(p1_kick),
-    //.p1_punch(p1_punch),
-    //.p2_kick(p2_kick),
-    //.p2_punch(p2_punch),
+
     .punch(punch),
     .kick(kick),
     
     .state(p2_state),
     .hitpoints(p2_hitpoints)
-    //.p1_state(p1_state),
-    //.p2_state(p2_state),
-    //.p1_hitpoints(p1_hitpoints),
-    //.p2_hitpoints(p2_hitpoints)
     );   
     
      // initialize everything
