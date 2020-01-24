@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Thu Jan 23 16:07:57 2020
+| Date             : Fri Jan 24 16:22:10 2020
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.268        |
+| Total On-Chip Power (W)  | 0.266        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.168        |
+| Dynamic (W)              | 0.165        |
 | Device Static (W)        | 0.100        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.8         |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.011 |        7 |       --- |             --- |
-| Slice Logic              |     0.003 |     6150 |       --- |             --- |
-|   LUT as Logic           |     0.002 |     2136 |     63400 |            3.37 |
-|   CARRY4                 |    <0.001 |      208 |     15850 |            1.31 |
-|   Register               |    <0.001 |     2716 |    126800 |            2.14 |
-|   F7/F8 Muxes            |    <0.001 |       44 |     63400 |            0.07 |
+| Slice Logic              |     0.003 |     6090 |       --- |             --- |
+|   LUT as Logic           |     0.002 |     2099 |     63400 |            3.31 |
+|   CARRY4                 |    <0.001 |      206 |     15850 |            1.30 |
+|   Register               |    <0.001 |     2702 |    126800 |            2.13 |
 |   LUT as Shift Register  |    <0.001 |      111 |     19000 |            0.58 |
+|   F7/F8 Muxes            |    <0.001 |       44 |     63400 |            0.07 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     19000 |            0.13 |
 |   Others                 |     0.000 |      485 |       --- |             --- |
-| Signals                  |     0.006 |     4722 |       --- |             --- |
+| Signals                  |     0.005 |     4692 |       --- |             --- |
 | Block RAM                |     0.016 |     58.5 |       135 |           43.33 |
 | MMCM                     |     0.122 |        1 |         6 |           16.67 |
 | DSPs                     |    <0.001 |        6 |       240 |            2.50 |
 | I/O                      |     0.009 |       65 |       210 |           30.95 |
 | Static Power             |     0.100 |          |           |                 |
-| Total                    |     0.268 |          |           |                 |
+| Total                    |     0.266 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.052 |       0.035 |      0.017 |
+| Vccint    |       1.000 |     0.050 |       0.033 |      0.017 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
 | Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -150,15 +150,15 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| main                     |     0.168 |
+| main                     |     0.165 |
 |   clkdivider             |     0.122 |
 |     inst                 |     0.122 |
-|   dbg_hub                |     0.003 |
-|     inst                 |     0.003 |
-|       BSCANID.u_xsdbm_id |     0.003 |
-|   mila                   |     0.009 |
-|     inst                 |     0.009 |
-|       ila_core_inst      |     0.009 |
+|   dbg_hub                |     0.002 |
+|     inst                 |     0.002 |
+|       BSCANID.u_xsdbm_id |     0.002 |
+|   mila                   |     0.008 |
+|     inst                 |     0.008 |
+|       ila_core_inst      |     0.008 |
 |   move_player_1          |     0.006 |
 |     p1_blob              |     0.005 |
 |       p1_rest_blue       |     0.001 |
@@ -170,23 +170,11 @@ Table of Contents
 |       p2_rest_green      |     0.001 |
 |       p2_rest_red        |     0.001 |
 |   p1_hundred_score       |     0.001 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
-|   p1_ones_score          |     0.002 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
-|   p1_tens_score          |     0.002 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
+|   p1_ones_score          |     0.001 |
+|   p1_tens_score          |     0.001 |
 |   p2_hundred_score       |     0.001 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
 |   p2_ones_score          |     0.001 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
-|   p2_tens_score          |     0.002 |
-|     num                  |     0.001 |
-|       U0                 |     0.001 |
+|   p2_tens_score          |     0.001 |
 |   seven_seg              |     0.001 |
 |   xvga1                  |     0.001 |
 +--------------------------+-----------+
