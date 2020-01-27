@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // somehow the first punch or kick happens twice but the interval between hp old and hp is the same since it is a double hit of the same type
 // therefore having the points be off by 5 or 10
-// 1/24 3:22 pm changed punch to punch on, kick to kick on
+// 1/24 3:22 pm changed punch to punch on, kick to kick on - no difference
 //////////////////////
 module game_state(
     input pixel_clk,        // 5MHz clock
@@ -67,11 +67,12 @@ module game_state(
     always @(posedge pixel_clk) begin
         if (reset_in) begin
             next_state <= AT_REST; // changed to next_state from player_state - hopefully this will help witht the double start
-            p_hit <= 0;
+      //      p_hit <= 1;
             hp <= 100;
-//            punch_previous <= punch;
-//            kick_previous <= kick;
+            punch_previous <= 0;
+            kick_previous <= 0;
         end else begin
+        
             player_state <= next_state;
             punch_previous <= punch;
             kick_previous <= kick;
@@ -83,36 +84,38 @@ module game_state(
             case(state)
                 AT_REST: begin // stay here unless signals to move or attack
                     if(punch_on && (distance_between < PUNCHING_DISTANCE)) begin
-                        next_state <= PUNCHING;
+                        hp <= (hp >= 5) ? (hp - 5) : 0;
+                    //    next_state <= PUNCHING;
                     end else // punching takes precedense over kicking, arbitrary
                     if(kick_on &&  (distance_between < KICKING_DISTANCE)) begin
-                        next_state <= KICKING;
-                    end
-                end
-                
-                PUNCHING: begin
-
-                    if(!p_hit) begin
-                        hp <= (hp >= 5) ? (hp - 5) : 0;
-                        p_hit <= 1;
-                    end else 
-                    if (punch_off) begin
-                        next_state <= AT_REST;
-                        p_hit <= 0;
-                    end
-                    // stay in punching until button is released
-                end
-                
-                KICKING: begin
-                    if(!p_hit) begin // note: changed from p2_hit at 2:18 pm Jan 15th
                         hp <= (hp >= 10) ? (hp - 10) : 0;
-                        p_hit <= 1;
-                    end else
-                    if (kick_off) begin
-                        next_state <= AT_REST;
-                        p_hit <= 0;
+                        //next_state <= KICKING;
                     end
                 end
+                
+//                PUNCHING: begin
+
+//                    if(!p_hit) begin
+//                        hp <= (hp >= 5) ? (hp - 5) : 0;
+//                        p_hit <= 1;
+//                    end else 
+//                    if (punch_off) begin
+//                        next_state <= AT_REST;
+//                        p_hit <= 0;
+//                    end
+//                    // stay in punching until button is released
+//                end
+                
+//                KICKING: begin
+//                    if(!p_hit) begin // note: changed from p2_hit at 2:18 pm Jan 15th
+//                        hp <= (hp >= 10) ? (hp - 10) : 0;
+//                        p_hit <= 1;
+//                    end else
+//                    if (kick_off) begin
+//                        next_state <= AT_REST;
+//                        p_hit <= 0;
+//                    end
+//                end
                 
                 default: next_state <= AT_REST;
             endcase

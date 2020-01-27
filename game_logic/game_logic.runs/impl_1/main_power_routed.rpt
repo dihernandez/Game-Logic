@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date             : Fri Jan 24 16:22:10 2020
+| Date             : Mon Jan 27 12:53:38 2020
 | Host             : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.266        |
+| Total On-Chip Power (W)  | 0.255        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.165        |
+| Dynamic (W)              | 0.155        |
 | Device Static (W)        | 0.100        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 83.8         |
@@ -49,26 +49,24 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+--------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
-+--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.011 |        7 |       --- |             --- |
-| Slice Logic              |     0.003 |     6090 |       --- |             --- |
-|   LUT as Logic           |     0.002 |     2099 |     63400 |            3.31 |
-|   CARRY4                 |    <0.001 |      206 |     15850 |            1.30 |
-|   Register               |    <0.001 |     2702 |    126800 |            2.13 |
-|   LUT as Shift Register  |    <0.001 |      111 |     19000 |            0.58 |
-|   F7/F8 Muxes            |    <0.001 |       44 |     63400 |            0.07 |
-|   LUT as Distributed RAM |    <0.001 |       24 |     19000 |            0.13 |
-|   Others                 |     0.000 |      485 |       --- |             --- |
-| Signals                  |     0.005 |     4692 |       --- |             --- |
-| Block RAM                |     0.016 |     58.5 |       135 |           43.33 |
-| MMCM                     |     0.122 |        1 |         6 |           16.67 |
-| DSPs                     |    <0.001 |        6 |       240 |            2.50 |
-| I/O                      |     0.009 |       65 |       210 |           30.95 |
-| Static Power             |     0.100 |          |           |                 |
-| Total                    |     0.266 |          |           |                 |
-+--------------------------+-----------+----------+-----------+-----------------+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.005 |        6 |       --- |             --- |
+| Slice Logic    |     0.002 |     2071 |       --- |             --- |
+|   LUT as Logic |     0.002 |      964 |     63400 |            1.52 |
+|   CARRY4       |    <0.001 |      241 |     15850 |            1.52 |
+|   Register     |    <0.001 |      453 |    126800 |            0.36 |
+|   F7/F8 Muxes  |    <0.001 |       24 |     63400 |            0.04 |
+|   Others       |     0.000 |      170 |       --- |             --- |
+| Signals        |     0.004 |     1570 |       --- |             --- |
+| Block RAM      |     0.014 |       45 |       135 |           33.33 |
+| MMCM           |     0.122 |        1 |         6 |           16.67 |
+| DSPs           |    <0.001 |        6 |       240 |            2.50 |
+| I/O            |     0.008 |       65 |       210 |           30.95 |
+| Static Power   |     0.100 |          |           |                 |
+| Total          |     0.255 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -77,16 +75,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.050 |       0.033 |      0.017 |
+| Vccint    |       1.000 |     0.041 |       0.024 |      0.016 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
-| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
+| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.003 |       0.001 |      0.002 |
+| Vccbram   |       1.000 |     0.003 |       0.001 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -130,15 +128,14 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
-| Clock                                                                                      | Domain                                                               | Constraint (ns) |
-+--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
-| clk_out1_clk_wiz_final                                                                     | clkdivider/inst/clk_out1_clk_wiz_final                               |            15.4 |
-| clkfbout_clk_wiz_final                                                                     | clkdivider/inst/clkfbout_clk_wiz_final                               |            50.0 |
-| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/tck_bs |            33.0 |
-| sys_clk_pin                                                                                | clk_100mhz                                                           |            10.0 |
-| sys_clk_pin                                                                                | clk_100mhz_IBUF_BUFG                                                 |            10.0 |
-+--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
++------------------------+----------------------------------------+-----------------+
+| Clock                  | Domain                                 | Constraint (ns) |
++------------------------+----------------------------------------+-----------------+
+| clk_out1_clk_wiz_final | clkdivider/inst/clk_out1_clk_wiz_final |            15.4 |
+| clkfbout_clk_wiz_final | clkdivider/inst/clkfbout_clk_wiz_final |            50.0 |
+| sys_clk_pin            | clk_100mhz                             |            10.0 |
+| sys_clk_pin            | clk_100mhz_IBUF_BUFG                   |            10.0 |
++------------------------+----------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -147,36 +144,42 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------------+-----------+
-| Name                     | Power (W) |
-+--------------------------+-----------+
-| main                     |     0.165 |
-|   clkdivider             |     0.122 |
-|     inst                 |     0.122 |
-|   dbg_hub                |     0.002 |
-|     inst                 |     0.002 |
-|       BSCANID.u_xsdbm_id |     0.002 |
-|   mila                   |     0.008 |
-|     inst                 |     0.008 |
-|       ila_core_inst      |     0.008 |
-|   move_player_1          |     0.006 |
-|     p1_blob              |     0.005 |
-|       p1_rest_blue       |     0.001 |
-|       p1_rest_green      |     0.001 |
-|       p1_rest_red        |     0.001 |
-|   move_player_2          |     0.006 |
-|     p2_blob              |     0.005 |
-|       p2_rest_blue       |     0.001 |
-|       p2_rest_green      |     0.001 |
-|       p2_rest_red        |     0.001 |
-|   p1_hundred_score       |     0.001 |
-|   p1_ones_score          |     0.001 |
-|   p1_tens_score          |     0.001 |
-|   p2_hundred_score       |     0.001 |
-|   p2_ones_score          |     0.001 |
-|   p2_tens_score          |     0.001 |
-|   seven_seg              |     0.001 |
-|   xvga1                  |     0.001 |
-+--------------------------+-----------+
++---------------------+-----------+
+| Name                | Power (W) |
++---------------------+-----------+
+| main                |     0.155 |
+|   clkdivider        |     0.122 |
+|     inst            |     0.122 |
+|   move_player_1     |     0.006 |
+|     p1_blob         |     0.005 |
+|       p1_rest_blue  |     0.001 |
+|       p1_rest_green |     0.001 |
+|       p1_rest_red   |     0.001 |
+|   move_player_2     |     0.006 |
+|     p2_blob         |     0.005 |
+|       p2_rest_blue  |     0.001 |
+|       p2_rest_green |     0.001 |
+|       p2_rest_red   |     0.001 |
+|   p1_hundred_score  |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   p1_ones_score     |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   p1_tens_score     |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   p2_hundred_score  |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   p2_ones_score     |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   p2_tens_score     |     0.001 |
+|     num             |     0.001 |
+|       U0            |     0.001 |
+|   seven_seg         |     0.001 |
+|   xvga1             |     0.002 |
++---------------------+-----------+
 
 

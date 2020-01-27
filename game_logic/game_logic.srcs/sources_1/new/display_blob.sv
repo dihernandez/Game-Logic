@@ -155,7 +155,7 @@ module main(
     .state(p2_state)
    );
    
-    ila_0 mila (.clk(clk_65mhz), .probe0(p1_state), .probe1(p2_state), .probe2(p1_hp), .probe3(p2_hp), .probe4(up),.probe5(left), .probe6(down), .probe7(right));
+    //ila_0 mila (.clk(clk_65mhz), .probe0(p1_state), .probe1(p2_state), .probe2(p1_hp), .probe3(p2_hp), .probe4(up),.probe5(left), .probe6(down), .probe7(right));
     
     wire [11:0] pixel;
     assign pixel = player_1_pixel | player_2_pixel | p1_ones_pixel | p2_ones_pixel | p1_tens_pixel | p2_tens_pixel | p1_hundred_pixel | p2_hundred_pixel;

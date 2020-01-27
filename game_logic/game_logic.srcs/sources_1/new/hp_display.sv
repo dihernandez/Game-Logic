@@ -23,7 +23,7 @@ module hp_countdown (
     
     always @(posedge clk) begin
         if(reset) begin
-            tens_counter <= 1;
+          //  tens_counter <= 1;
             player_ones_digit <= 0;
             player_tens_digit <= 0;
             player_hundred_digit <= 1;
@@ -31,48 +31,33 @@ module hp_countdown (
             player_ones_digit <= 0;
             player_tens_digit <= 0;
             player_hundred_digit <= 1;
-        end else begin
-            hp_old <= hp;
-            interval <= hp_old - hp; // never increments, just decrements, UNTESTED AS OF 1/17  2PM note (1/22) what if it goes negative?
-//            player_ones_digit <= hp % 10; 
-//            player_tens_digit <= 10 - tens_counter;
-       
-
-            if(hp == 0) begin // if we've reached 0 countdown this round
+        end else if(hp == 0) begin // if we've reached 0 countdown this round
                 player_ones_digit <= 0;
                 player_tens_digit <= 0;
                 player_hundred_digit <= 0;
-            end else begin
-                if (hp < 100) begin
-                    player_hundred_digit <= 0;
-                end
-                // removed the following: because somehow we are skipping from 15 or 20 to 0
-//                if(hp <= interval) begin
-//                    player_tens_digit <= 0;
-//                    player_ones_digit <= 0;
-//                end else
-                if (interval == 5) begin
-                    player_ones_digit <= player_ones_digit == 0 ? 5 : 0;
-                    if(player_tens_digit == 0) begin
-                        player_tens_digit <= 9;
-                    end else begin
-                        player_tens_digit <= player_ones_digit == 5 ? player_tens_digit : player_tens_digit - 1; 
-                    end
-                end else if (interval == 10) begin
-                    player_tens_digit <= player_tens_digit == 0 ? 9 : player_tens_digit - 1;
-                    // player ones digit stays same
-                end else begin
-                    //unsuported interval, do nothing
-                end
-                
-//                if(interval > player_ones_digit && tens_counter < 10) begin // if interval is greater than ones digit, we decrement tens by 1; note cannot decrement by > 10 and still be accurate
-//                    tens_counter <= tens_counter + 1;
-//                end else if (tens_counter == 10) begin
-//                    tens_counter <= 1;
-//                    player_tens_digit <= 0;
-//                end                
-                
+        end else begin
+            hp_old <= hp;
+            interval <= hp_old - hp; // never increments, just decrements, UNTESTED AS OF 1/17  2PM note (1/22) what if it goes negative?
+            
+            if (hp < 100) begin
+                player_hundred_digit <= 0;
             end
-        end
+            
+            if (interval == 5) begin
+                player_ones_digit <= player_ones_digit == 0 ? 5 : 0;
+                if(player_tens_digit == 0) begin
+                    player_tens_digit <= 9;
+                end else begin
+                    player_tens_digit <= player_ones_digit == 5 ? player_tens_digit : player_tens_digit - 1; 
+                end
+            end else if (interval == 10) begin
+                player_tens_digit <= player_tens_digit == 0 ? 9 : player_tens_digit - 1;
+                // player ones digit stays same
+            end else begin
+                //unsuported interval, do nothing
+            end        
+                
+         end
+        //end
     end
 endmodule
