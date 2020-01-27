@@ -1,23 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/06/2019 02:53:59 PM
-// Design Name: 
-// Module Name: display_blob
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 
 
 module main(
@@ -49,6 +31,7 @@ module main(
     wire blank;
     xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
           .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
+   
           
     // btnc button is user reset
     wire reset_in, system_reset;
@@ -186,13 +169,18 @@ module main(
       end
     end
     
+          
+    wire hs_out;
+    wire vs_out;
+    synchronize #(.NSYNC(6)) hsync_s (.clk(clk_65mhz), .in(hs), .out(hs_out));
+    synchronize #(.NSYNC(6)) vsync_s (.clk(clk_65mhz), .in(vs), .out(vs_out));   
     // the following lines are required for the Nexys4 VGA circuit - do not change
     assign vga_r = ~b ? rgb[11:8]: 0;
     assign vga_g = ~b ? rgb[7:4] : 0;
     assign vga_b = ~b ? rgb[3:0] : 0;
 
-    assign vga_hs = ~hs;
-    assign vga_vs = ~vs;
+    assign vga_hs = ~hs_out;
+    assign vga_vs = ~vs_out;
     
     // Segment Display Logic    
     logic[31:0] seven_seg_val_in;
@@ -205,16 +193,6 @@ module main(
     
     
     
-endmodule
-
-
-//////////////////////////////////////////////////////////////////////
-//
-// sprites: display sprites
-//
-//////////////////////////////////////////////////////////////////////
-
-module display_sprites (); 
 endmodule
 
 //////////////////////////////////////////////////////////////////////
@@ -251,7 +229,7 @@ module player_1_blob
      parameter PUNCH_IMAGE_OFFSET = 8192
      ) 
    (input pixel_clk_in,
-    input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
+    input [1:0] motion,
     input [10:0] x_in,hcount_in,
     input [9:0] y_in,vcount_in,
     output logic [11:0] pixel_out);
@@ -288,7 +266,7 @@ module player_1_blob
      end
    end
  
-   p1_motions p1_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits)); // rest
+   p1_motions p1_motions(.clka(pixel_clk_in), .addra(image_addr), .douta(image_bits));
 
 
    p1_motions_red p1_rest_red(.clka(pixel_clk_in), .addra(image_bits), .douta(red_mapped));
@@ -308,7 +286,7 @@ module player_2_blob
      parameter PUNCH_IMAGE_OFFSET = 8192
      )  
    (input pixel_clk_in,
-    input [1:0] motion, // 0 is at rest, 1 is kicking, 2 is punching
+    input [1:0] motion,
     input [10:0] x_in,hcount_in,
     input [9:0] y_in,vcount_in,
     output logic [11:0] pixel_out);
@@ -357,9 +335,9 @@ endmodule
 module number_display #(
     parameter WIDTH = 48,            // default width: 64 pixel
                HEIGHT = 48,           // default height: 64 pixels
-               COLOR = 12'hFFF,
+               COLOR = 12'hFFF,       // default color: white
                NUMBER_OFFSET = 2304 // the value to offset by in order to change number display value
-)  // default color: white
+)  
     (
         input clk,
         input [10:0] x_in, hcount_in,
@@ -386,25 +364,7 @@ module number_display #(
 endmodule
 
 //////////////////////////////////////////////////////////////////////////////////
-// Update: 8/8/2019 GH 
-// Create Date: 10/02/2015 02:05:19 AM
-// Module Name: xvga
-//
-// xvga: Generate VGA display signals (1024 x 768 @ 60Hz)
-//
-//                              ---- HORIZONTAL -----     ------VERTICAL -----
-//                              Active                    Active
-//                    Freq      Video   FP  Sync   BP      Video   FP  Sync  BP
-//   640x480, 60Hz    25.175    640     16    96   48       480    11   2    31
-//   800x600, 60Hz    40.000    800     40   128   88       600     1   4    23
-//   1024x768, 60Hz   65.000    1024    24   136  160       768     3   6    29
-//   1280x1024, 60Hz  108.00    1280    48   112  248       768     1   3    38
-//   1280x720p 60Hz   75.25     1280    72    80  216       720     3   5    30
-//   1920x1080 60Hz   148.5     1920    88    44  148      1080     4   5    36
-//
-// change the clock frequency, front porches, sync's, and back porches to create 
-// other screen resolutions
-////////////////////////////////////////////////////////////////////////////////
+
 
 module xvga(input vclock_in,
             output reg [10:0] hcount_out,    // pixel number on current line
@@ -481,4 +441,17 @@ module debounce (input reset_in, clock_in, noisy_in,
      else count <= count+1;
 
 
+endmodule
+
+
+module synchronize #(parameter NSYNC = 3)  // number of sync flops.  must be >= 2
+                   (input clk,in,
+                    output reg out);
+
+  reg [NSYNC-2:0] sync;
+
+  always_ff @ (posedge clk)
+  begin
+    {out,sync} <= {sync[NSYNC-2:0],in};
+  end
 endmodule

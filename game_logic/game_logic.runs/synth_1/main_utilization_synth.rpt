@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date         : Mon Jan 27 12:52:19 2020
+| Date         : Mon Jan 27 14:58:08 2020
 | Host         : eecs-digital-17 running 64-bit Ubuntu 14.04.6 LTS
 | Command      : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
 | Design       : main
@@ -27,18 +27,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+-----------+-------+
-|        Site Type        | Used | Fixed | Available | Util% |
-+-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 1090 |     0 |     63400 |  1.72 |
-|   LUT as Logic          | 1090 |     0 |     63400 |  1.72 |
-|   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |  456 |     0 |    126800 |  0.36 |
-|   Register as Flip Flop |  456 |     0 |    126800 |  0.36 |
-|   Register as Latch     |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                |   48 |     0 |     31700 |  0.15 |
-| F8 Muxes                |    0 |     0 |     15850 |  0.00 |
-+-------------------------+------+-------+-----------+-------+
++----------------------------+------+-------+-----------+-------+
+|          Site Type         | Used | Fixed | Available | Util% |
++----------------------------+------+-------+-----------+-------+
+| Slice LUTs*                | 1179 |     0 |     63400 |  1.86 |
+|   LUT as Logic             | 1177 |     0 |     63400 |  1.86 |
+|   LUT as Memory            |    2 |     0 |     19000 |  0.01 |
+|     LUT as Distributed RAM |    0 |     0 |           |       |
+|     LUT as Shift Register  |    2 |     0 |           |       |
+| Slice Registers            |  476 |     0 |    126800 |  0.38 |
+|   Register as Flip Flop    |  476 |     0 |    126800 |  0.38 |
+|   Register as Latch        |    0 |     0 |    126800 |  0.00 |
+| F7 Muxes                   |   48 |     0 |     31700 |  0.15 |
+| F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
++----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -56,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 19    |          Yes |         Set |            - |
-| 437   |          Yes |       Reset |            - |
+| 21    |          Yes |         Set |            - |
+| 455   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,22 +151,23 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  437 |        Flop & Latch |
-| LUT2     |  430 |                 LUT |
-| CARRY4   |  261 |          CarryLogic |
-| LUT4     |  230 |                 LUT |
-| LUT1     |  226 |                 LUT |
-| LUT3     |  151 |                 LUT |
-| LUT6     |  143 |                 LUT |
-| LUT5     |  137 |                 LUT |
+| LUT2     |  481 |                 LUT |
+| FDRE     |  455 |        Flop & Latch |
+| CARRY4   |  283 |          CarryLogic |
+| LUT4     |  274 |                 LUT |
+| LUT1     |  237 |                 LUT |
+| LUT6     |  156 |                 LUT |
+| LUT3     |  147 |                 LUT |
+| LUT5     |  138 |                 LUT |
 | RAMB36E1 |   48 |        Block Memory |
 | MUXF7    |   48 |               MuxFx |
 | OBUF     |   29 |                  IO |
 | OBUFT    |   23 |                  IO |
-| FDSE     |   19 |        Flop & Latch |
+| FDSE     |   21 |        Flop & Latch |
 | IBUF     |   13 |                  IO |
 | RAMB18E1 |   12 |        Block Memory |
 | DSP48E1  |    6 |    Block Arithmetic |
+| SRL16E   |    2 |  Distributed Memory |
 +----------+------+---------------------+
 
 

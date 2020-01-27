@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-// decimal counter
 module hp_countdown (
      input clk,
      input reset,
@@ -22,8 +21,10 @@ module hp_countdown (
     
     
     always @(posedge clk) begin
+         hp_old <= hp;
+         interval <= hp_old - hp; // never increments, just decrements, UNTESTED AS OF 1/17  2PM note (1/22) what if it goes negative?
+    
         if(reset) begin
-          //  tens_counter <= 1;
             player_ones_digit <= 0;
             player_tens_digit <= 0;
             player_hundred_digit <= 1;
@@ -36,9 +37,6 @@ module hp_countdown (
                 player_tens_digit <= 0;
                 player_hundred_digit <= 0;
         end else begin
-            hp_old <= hp;
-            interval <= hp_old - hp; // never increments, just decrements, UNTESTED AS OF 1/17  2PM note (1/22) what if it goes negative?
-            
             if (hp < 100) begin
                 player_hundred_digit <= 0;
             end

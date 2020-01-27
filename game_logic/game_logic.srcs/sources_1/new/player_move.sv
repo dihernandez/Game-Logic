@@ -39,7 +39,7 @@ module player_move(
    logic[10:0] x_in_p1; // player 1 in left of screen x
    logic[10:0] x_in_p2; // player 2 in right of screen x
    
-   logic[4:0] buffer = 0;//(pspeed_in << 1) + 1; // account for two players moving against each other at same time
+   logic[4:0] buffer = 0; // account for two players moving against each other at same time
    
    wire[11:0] p1_pixel, p2_pixel;
    assign pixel_out =  is_p1 ? p1_pixel : p2_pixel;
@@ -58,29 +58,29 @@ module player_move(
     
     // Game Logic
     game_state game_1(
-    .pixel_clk(pixel_clk),        // 65MHz clock
-    .reset_in(reset_in),         // 1 to initialize module
-    .p1_x_in(x_in_p1), // player 1's x position
-    .p2_x_in(x_in_p2),  // player 2's x position
-    .punch(punch),
-    .kick(kick),
-    
-    .state(p1_state),
-    .hitpoints(p1_hitpoints)
+        .pixel_clk(pixel_clk),        // 65MHz clock
+        .reset_in(reset_in),         // 1 to initialize module
+        .p1_x_in(x_in_p1), // player 1's x position
+        .p2_x_in(x_in_p2),  // player 2's x position
+        .punch(punch),
+        .kick(kick),
+        
+        .state(p1_state),
+        .hitpoints(p1_hitpoints)
     );
  
      // Game Logic
     game_state game2(
-    .pixel_clk(pixel_clk),        // 65MHz clock
-    .reset_in(reset_in),         // 1 to initialize module
-    .p1_x_in(x_in_p1), // player 1's x position
-    .p2_x_in(x_in_p2),  // player 2's x position
-
-    .punch(punch),
-    .kick(kick),
+        .pixel_clk(pixel_clk),        // 65MHz clock
+        .reset_in(reset_in),         // 1 to initialize module
+        .p1_x_in(x_in_p1), // player 1's x position
+        .p2_x_in(x_in_p2),  // player 2's x position
     
-    .state(p2_state),
-    .hitpoints(p2_hitpoints)
+        .punch(punch),
+        .kick(kick),
+        
+        .state(p2_state),
+        .hitpoints(p2_hitpoints)
     );   
     
      // initialize everything

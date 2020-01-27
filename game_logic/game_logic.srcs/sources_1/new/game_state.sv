@@ -1,29 +1,7 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 12/03/2019 07:31:21 PM
-// Design Name: 
-// Module Name: game_state
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-// somehow the first punch or kick happens twice but the interval between hp old and hp is the same since it is a double hit of the same type
-// therefore having the points be off by 5 or 10
-// 1/24 3:22 pm changed punch to punch on, kick to kick on - no difference
-//////////////////////
+
 module game_state(
-    input pixel_clk,        // 5MHz clock
+    input pixel_clk,        // 65MHz clock
     input reset_in,         // 1 to initialize module
     input [10:0] p1_x_in, // player 1's x position
     input [10:0] p2_x_in,  // player 2's x position
@@ -46,10 +24,6 @@ module game_state(
     assign hitpoints = hp;
 
     logic[11:0] distance_p1_to_p2, distance_p2_to_p1, distance_between;
-    
-    // limit to one punch or kick per cycle
-    logic p_hit;
-
 
     logic punch_previous = 0;
     logic kick_previous = 0;
@@ -63,11 +37,9 @@ module game_state(
     logic[1:0] next_state;
     assign state = player_state;
       
-    // handle p1 state logic. NOTE: can interact wtih state 2 logic
     always @(posedge pixel_clk) begin
         if (reset_in) begin
-            next_state <= AT_REST; // changed to next_state from player_state - hopefully this will help witht the double start
-      //      p_hit <= 1;
+            next_state <= AT_REST;
             hp <= 100;
             punch_previous <= 0;
             kick_previous <= 0;
@@ -84,38 +56,27 @@ module game_state(
             case(state)
                 AT_REST: begin // stay here unless signals to move or attack
                     if(punch_on && (distance_between < PUNCHING_DISTANCE)) begin
-                        hp <= (hp >= 5) ? (hp - 5) : 0;
-                    //    next_state <= PUNCHING;
+                         hp <= (hp >= 5) ? (hp - 5) : 0;
+                         next_state <= PUNCHING;
                     end else // punching takes precedense over kicking, arbitrary
                     if(kick_on &&  (distance_between < KICKING_DISTANCE)) begin
                         hp <= (hp >= 10) ? (hp - 10) : 0;
-                        //next_state <= KICKING;
+                        next_state <= KICKING;
                     end
                 end
                 
-//                PUNCHING: begin
-
-//                    if(!p_hit) begin
-//                        hp <= (hp >= 5) ? (hp - 5) : 0;
-//                        p_hit <= 1;
-//                    end else 
-//                    if (punch_off) begin
-//                        next_state <= AT_REST;
-//                        p_hit <= 0;
-//                    end
-//                    // stay in punching until button is released
-//                end
+                // keeping states for motion's sake                
+                PUNCHING: begin
+                    if (punch_off) begin
+                        next_state <= AT_REST;
+                    end
+                end
                 
-//                KICKING: begin
-//                    if(!p_hit) begin // note: changed from p2_hit at 2:18 pm Jan 15th
-//                        hp <= (hp >= 10) ? (hp - 10) : 0;
-//                        p_hit <= 1;
-//                    end else
-//                    if (kick_off) begin
-//                        next_state <= AT_REST;
-//                        p_hit <= 0;
-//                    end
-//                end
+                KICKING: begin
+                    if (kick_off) begin
+                        next_state <= AT_REST;
+                    end
+                end
                 
                 default: next_state <= AT_REST;
             endcase
